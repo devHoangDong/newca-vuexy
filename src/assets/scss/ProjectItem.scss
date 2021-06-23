@@ -1,0 +1,41 @@
+.productItem {
+  margin-left: 20px;
+  z-index: -1;
+  text-align: center;
+  padding-bottom: 2rem;
+  .ant-card-bordered {
+    padding: 0;
+  }
+  img {
+    object-fit: contain;
+    margin: auto;
+  }
+  &__footer {
+    &--title {
+      color: #000;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    &--price {
+      color: #000;
+      font-size: 17px;
+      font-weight: 600;
+      margin: 10px 0px;
+    }
+    &--addCart {
+      div {
+        text-align: center;
+        color: #F05510;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 15px;
+        height: 35px;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+

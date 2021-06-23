@@ -1,0 +1,161 @@
+.myBody {
+  min-height: 550px;
+  margin: 0 auto;
+  padding-top: 0;
+  background-color: #eeeeee;
+  border-radius: 0 0 1rem 1rem;
+  box-sizing: border-box;
+}
+.collapsedBody {
+  width: calc(100% - 55px);
+}
+.normalBody {
+  width: 85%;
+}
+.bodyAccount {
+  display: inline-flex;
+  width: 100%;
+}
+.bodyRight {
+  width: 100%;
+  background-color: #eeeeee;
+}
+.userAvatar {
+  height: 4rem;
+  line-height: 4rem;
+  padding-right: 0.5rem;
+  float: right;
+}
+.showMenu {
+  display: none;
+}
+.avatar {
+  height: 4rem;
+  line-height: 4rem;
+  position: relative;
+}
+.avatar img {
+  border-radius: 50%;
+  margin-left: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+.avatar i:hover {
+  cursor: pointer;
+}
+.userName {
+  .userName__thumb {
+    float: right;
+  }
+  position: relative;
+  margin-right: 0.5rem;
+  display: inline-block;
+  color: #a6a6a6;
+  .thumb__editAccount {
+    a {
+      text-decoration: none;
+      color: #a6a6a6;
+      text-align: left;
+      p {
+        border-radius: 0.2rem;
+        padding: 0 0.5rem;
+      }
+    }
+    position: fixed;
+    width: max-content;
+    text-align: left;
+    right: 0;
+    transform: translate(0%, 55%);
+    padding: 0.5rem;
+    display: none;
+    visibility: hidden;
+    z-index: 999;
+    height: 6rem;
+    line-height: 2.5rem;
+    background-color: #fff;
+    color: rgb(151, 151, 151);
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  }
+  .thumb__editAccount a:hover p {
+    background-color: gray;
+    color: #fff;
+  }
+  .thumb__editPassword:hover {
+    background-color: #fff;
+  }
+}
+.userName:hover {
+  .thumb__editAccount {
+    display: block;
+    visibility: visible;
+  }
+  .thumb__editPassword {
+    z-index: 999;
+    display: block;
+    visibility: visible;
+  }
+}
+.userName i {
+  font-size: 1rem;
+}
+
+.titleBody {
+  display: inline-block;
+}
+.quaylai {
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+@media only screen and (min-device-width: 1024px) {
+  .showMenu {
+    display: none;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+}
+@media only screen and (max-device-width: 1024px) {
+  .bodyRight {
+    width: 100%;
+  }
+  .userAvatar {
+    height: 4rem;
+    line-height: 4rem;
+    float: right;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .userName {
+    margin-right: 1rem;
+    display: inline-block;
+    color: #a6a6a6;
+  }
+  .userName i {
+    height: 4rem;
+    line-height: 4rem;
+  }
+  .topNav {
+    position: relative;
+    width: 100%;
+    text-align: left;
+  }
+  .showMenu {
+    display: block;
+    float: right;
+    margin-right: 0;
+    padding: 0 1rem;
+    height: 4rem;
+    line-height: 4rem;
+    color: purple;
+  }
+  .showMenu:hover {
+    cursor: pointer;
+  }
+}

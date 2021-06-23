@@ -1,0 +1,39 @@
+
+.purchaseOrder__container {
+  background-color: #EEEEEE;
+  position: absolute;
+  margin-top: 0;
+  width: 100%;
+  .purchaseOrder {
+    position: relative;
+    background-color: #fff;
+    margin: 4rem 2rem 0 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    .purchaseOrder__title {
+      position: absolute;
+      right: 50%;
+      transform: translate(50%,-30%);
+      color: #fff;
+      font-weight: normal;
+      border-radius: .2rem;
+      background: linear-gradient(to right,#918f92,#6d6a6d);
+      width: 95%;
+      text-align: left;
+      padding: .5rem 0;
+      box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(98, 96, 99, 0.4);
+      span {
+        font-weight: lighter;
+      }
+    }
+    table {
+      margin-top: 4rem;
+    }
+    &__table2 {
+      &--titleTable {
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,0 +1,175 @@
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 1rem 0 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 24px 0 rgba(34, 41, 47, 0.1);
+  padding: 0 1rem;
+  border-radius: 0.428rem;
+  &__left {
+    display: inherit;
+    width: 60%;
+    align-items: center;
+    &__cart {
+      padding-left: 2rem;
+      display: inline-block;
+      i {
+        line-height: 1.75;
+      }
+      span {
+        position: absolute;
+      }
+    }
+    &__title {
+      font-size: 1.5rem;
+      color: #000;
+      font-weight: bold;
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    &__bell {
+      padding-left: 1rem;
+      display: inline-block;
+      i {
+        line-height: 1.75;
+      }
+      span {
+        position: absolute;
+      }
+    }
+    &__cart {
+      padding-left: 2rem;
+      display: inline-block;
+    }
+    &__noti {
+      padding-right: 1rem;
+      display: inline-flex;
+      align-items: center;
+      &__language {
+        color: #a6a6a6;
+        font: normal 1rem "GSR";
+        svg {
+          height: 1rem;
+        }
+        display: inline-flex;
+        align-items: center;
+        div {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+    &__search {
+      padding-left: 1rem;
+      display: inline-block;
+    }
+    &__avatar {
+      height: 4rem;
+      line-height: 4rem;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      .thumb__editAccount {
+        a {
+          text-decoration: none;
+          color: #a6a6a6;
+          text-align: left;
+          p {
+            border-radius: 0.2rem;
+            padding: 0.5rem 1rem;
+          }
+        }
+        &__subMenu {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          padding: 0 2rem 0 1rem;
+        }
+        &__subMenu:hover {
+          background-color: rgba(115, 103, 240, 0.12);
+          color: #7367f0;
+        }
+        position: absolute;
+        width: max-content;
+        text-align: left;
+        top: 4rem;
+        display: none;
+        visibility: hidden;
+        z-index: 999;
+        line-height: 2.5rem;
+        background-color: #fff;
+        color: rgb(151, 151, 151);
+        border-radius: 0.25rem;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+      }
+      .userAvatar {
+        width: 2rem;
+        transform: translateX(-0.5rem);
+      }
+      img {
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+      }
+      i:hover {
+        cursor: pointer;
+      }
+      .topNav__right__userName {
+        float: right;
+        position: relative;
+        margin-right: 1rem;
+        color: #a6a6a6;
+        .userName__thumb {
+          float: right;
+          text-align: right;
+          &__name {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #727272;
+            font-family: "Montserrat", Helvetica, Arial, serif;
+            font-weight: 400;
+          }
+          &__role {
+            font: lighter 0.75rem "GSR";
+            line-height: 1;
+          }
+        }
+
+        .thumb__editAccount a:hover p {
+          background-color: #9228ac;
+          color: #fff;
+        }
+        .thumb__editPassword:hover {
+          background-color: #fff;
+        }
+      }
+    }
+    &__avatar:hover {
+      .thumb__editAccount {
+        display: block;
+        visibility: visible;
+        border-radius: 0.25rem;
+        box-shadow: 0 4px 24px 0 rgba(34, 41, 47, 0.1);
+        p:hover {
+          background-color: rgba(115, 103, 240, 0.12);
+          color: #7367f0;
+        }
+      }
+      .thumb__editPassword {
+        z-index: 999;
+        display: block;
+        visibility: visible;
+      }
+    }
+    .userName i {
+      font-size: 1rem;
+    }
+  }
+}

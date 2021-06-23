@@ -1,0 +1,21 @@
+.title {
+  background-color: #cc0000;
+  &__content {
+    width: 90%;
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+    color: #fff;
+    &__left {
+      a {
+        color: #fff;
+      }
+      ul li{
+        float: left;
+        span {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

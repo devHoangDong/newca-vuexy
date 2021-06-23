@@ -1,0 +1,17 @@
+.listItem {
+  width: 94%;
+  margin: auto;
+&__title {
+  color: #F05510;
+  text-align: center;
+  padding: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+  .slick-next:before, .slick-prev:before {
+    line-height: 1;
+    color: #ccc;
+    font-size: 30px;
+    z-index: 10000;
+  }
+}

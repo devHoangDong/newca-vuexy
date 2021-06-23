@@ -1,0 +1,32 @@
+.profileBank {
+  width: 60%;
+  margin: auto;
+  .ant-card-head {
+    color: black !important;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    font-size: 17px;
+  }
+  .ant-card-body {
+    color: black;
+    border: 1px solid #ccc;
+  }
+  &__content {
+    font-size: 15px;
+    color: black !important;
+    i {
+      margin-right: 10px;
+      text-align: center;
+      margin-top: 15px;
+    }
+    span {
+      margin-left: 10px;
+    }
+
+  }
+  .loading {
+    width: 100vw;
+    height: 100vh;
+    background: #0000002e;
+  }
+}

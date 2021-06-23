@@ -1,0 +1,99 @@
+.header {
+  background-position: center;
+  background-size: cover;
+  background-color: #fff;
+  transition: all linear 300ms;
+  &__logo {
+    padding: 1.5rem 0 1.5rem 0;
+    color: #7c70f0;
+    .hiddenElement::before {
+      visibility: collapse;
+    }
+    .showElement::before {
+      content: "NEWCA";
+    }
+    .showElement {
+      padding-left: 2rem;
+    }
+    a {
+      color: #7c70f0;
+      font: bold 1rem "GSB";
+      text-transform: uppercase;
+      display: inline;
+    }
+    i {
+      float: right;
+      padding-right: 1rem;
+      cursor: pointer;
+    }
+    span {
+      cursor: pointer;
+    }
+    .collapsedIcon::before {
+      font-family: "Font Awesome 5 Pro";
+      content: "\f061";
+      font-weight: 900;
+      padding: 1rem;
+    }
+    .showIcon::before {
+      font-family: "Font Awesome 5 Pro";
+      content: "\f0c9";
+      font-weight: 900;
+      float: right;
+      padding-right: 1rem;
+    }
+  }
+  &__nav {
+    text-align: left;
+    border-radius: 0.5rem;
+    transition: all ease-in-out 300ms;
+    a {
+      color: #625f6e;
+      display: block;
+      padding: 1rem;
+      overflow: hidden;
+      text-overflow: "";
+      white-space: nowrap;
+      transition: all ease-in-out 300ms;
+      font-size: 1rem;
+      font-family: "Montserrat", Helvetica, Arial, serif;
+      letter-spacing: 0.01rem;
+      font-weight: 400;
+    }
+  }
+  &__nav:hover {
+    a {
+      text-decoration: none;
+      transform: translateX(0.5rem);
+    }
+  }
+  .actived {
+    a {
+      color: #fff;
+    }
+    box-shadow: 0 0 10px 1px rgba(115, 103, 240, 0.7);
+    border-radius: 4px;
+    background: linear-gradient(118deg, #7367f0, rgba(115, 103, 240, 0.7));
+  }
+}
+.collapsed {
+  width: 55px;
+}
+.no-collapsed {
+  width: 15%;
+}
+.ant-affix {
+  box-shadow: 0 8px 6px -6px #ccc;
+}
+.icon-cart {
+  border-radius: 50%;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 15px;
+  vertical-align: top;
+  background: #cc0000 !important;
+  color: #ffffff;
+}

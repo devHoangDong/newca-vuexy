@@ -1,0 +1,149 @@
+.ballance__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2rem;
+    .income {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: calc(50% - .5rem);
+        height: calc(50% - .5rem);
+        background-color: #fff;
+        border-radius: 1rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        &__icon {
+            font-size: 1.5rem;
+            display: block;
+            color: #ccc;
+        }
+        &__content {
+            bottom: 1rem;
+            &__text {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: .5rem;
+            }
+            &__total {
+                font-size: .75rem;
+                color: gray;
+                font-weight: bold;
+                p {
+                    display: inline;
+                }
+                span {
+                    color: green;
+                    float: right;
+                }
+            }
+        }
+    }
+    .expence {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: calc(50% - .5rem);
+        height: calc(50% - .5rem);
+        background-color: #fff;
+        border-radius: 1rem;
+        padding: 1rem;
+        &__icon {
+            font-size: 1.5rem;
+            display: block;
+            color: #ccc;
+        }
+        &__content {
+            bottom: 1rem;
+            &__text {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: .5rem;
+            }
+            &__total {
+                font-size: .75rem;
+                color: gray;
+                font-weight: bold;
+                p {
+                    display: inline;
+                }
+                span {
+                    color: green;
+                    float: right;
+                }
+            }
+        }
+    }
+    .affilate {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-self: flex-end;
+        width: calc(50% - .5rem);
+        height: calc(50% - .5rem);
+        background-color: #fff;
+        border-radius: 1rem;
+        padding: 1rem;
+        &__icon {
+            font-size: 1.5rem;
+            display: block;
+            color: #ccc;
+        }
+        &__content {
+            bottom: 1rem;
+            &__text {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: .5rem;
+            }
+            &__total {
+                font-size: .75rem;
+                color: gray;
+                font-weight: bold;
+                p {
+                    display: inline;
+                }
+                span {
+                    color: green;
+                    float: right;
+                }
+            }
+        }
+    }
+    .order {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-self: flex-end;
+        width: calc(50% - .5rem);
+        height: calc(50% - .5rem);
+        background-color: #fff;
+        border-radius: 1rem;
+        padding: 1rem;
+        &__icon {
+            font-size: 1.5rem;
+            display: block;
+            color: #ccc;
+        }
+        &__content {
+            bottom: 1rem;
+            &__text {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: .5rem;
+            }
+            &__total {
+                font-size: .75rem;
+                color: gray;
+                font-weight: bold;
+                p {
+                    display: inline;
+                }
+                span {
+                    color: green;
+                    float: right;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+.editLink__container {
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: .5rem;
+  width: 95%;
+  padding: 1rem;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  .editLink {
+    &__link {
+      text-align: left;
+      input {
+        color: black !important;
+        width: 550px;
+        height: 40px;
+        border-radius: 10px;
+        margin-right: 20px;
+      }
+      button {
+        border-radius: 10px;
+        height: 40px;
+      }
+    }
+    &__title {
+        margin-top: 20px;
+        width: 300px;
+        height: 30px;
+        line-height: 30px;
+        float: left;
+    }
+    &__groupSelection {
+      .ant-radio-button-wrapper {
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        margin-top: 15px;
+        width: 150px;
+        margin-right: 15px;
+      }
+      .ant-radio-button-wrapper:not(:first-child)::before {
+        background-color: #fff;
+        z-index: -1;
+      }
+      button {
+        border-radius: 10px;
+        margin-top: 15px;
+        border: none;
+        background-color: #f9b72f !important;
+        &:hover {
+          background-color: #259b1c !important;
+        }
+      }
+    }
+    &__contentSelect {
+      &--groupInput {
+        margin-top: 30px;
+        text-align: center;
+        input {
+          width: 350px;
+          border-radius: 10px;
+          color: black !important;
+          margin: auto;
+        }
+      }
+    }
+  }
+  
+}

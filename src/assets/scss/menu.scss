@@ -1,0 +1,193 @@
+$baseColor : gainsboro;
+.myMenu {
+  width: 20%;
+  box-shadow: 8px 9px 15px #ccc;
+  height: 100vh;
+}
+.mainContainer {
+  width: 100%;
+  display: inline-flex;
+  flex-wrap: nowrap;
+}
+.leftSidebar {
+  width: 100%;
+  background-color: rgba(128, 128, 128, .75);
+  background-position: center;
+  background-size: contain;
+  height: 100vh;
+}
+.rightContainer {
+  position: relative;
+  width: 75%;
+  background-color: gainsboro;
+}
+.homePage {
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  p {
+    color: #fff;
+  }
+}
+.leftSidebar hr {
+  margin: 0 .5rem;
+  border: none;
+  height: 1px;
+  width: 85%;
+  color: gainsboro;
+}
+.menusub {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: .75rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.menusub-title {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: .5rem 0
+}
+.menusub-title p {
+  display: inline-block;
+}
+.menusub-title i:last-child {
+  float: right;
+}
+.menusub-list {
+  display: none;
+  visibility: hidden;
+  line-height: 2rem;
+  background-color: $baseColor;
+}
+.menusub-list a {
+  text-decoration: none;
+  color: #fff;
+  margin-left: 2rem;
+}
+.menusub-list li:hover {
+  color: $baseColor;
+  background-color: #fff;
+}
+.menusub-list li:hover a {
+  color: #000;
+}
+.userDashboard {
+  padding: .5rem 0;
+}
+.userDashboard a {
+  margin-left: 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+.menusub:hover {
+  cursor: pointer;
+  background-color: $baseColor;
+  color: #000;
+}
+.menusub:hover .menusub-list {
+  visibility: visible;
+  display: block;
+}
+@media only screen and (min-device-width : 1024px) and (max-device-width : 1200px) {
+  .myMenu {
+    visibility: visible;
+    display: block;
+  }
+  .menusub p {
+    font-size: .5rem;
+  }
+  .menusub-list a {
+    font-size: .5rem;
+  }
+  .menusub-title i {
+    font-size: .5rem;
+    height: 1rem;
+    line-height: 1rem;
+  }
+  .menusub-title {
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+  .userDashboard a {
+    margin-left: .5rem;
+  }
+}
+@media only screen and (max-device-width : 1024px) {
+  .myMenu {
+    top: 112px;
+    z-index: 999;
+    position: absolute;
+    right: 0;
+    width: 40%;
+    visibility: hidden;
+    display: none;
+  }
+  .menusub {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .menusub p {
+    font-size: 1rem;
+  }
+  .menusub-list a {
+    font-size: 1rem;
+  }
+  .menusub-title i {
+    font-size: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+  }
+  .menusub-title {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .userDashboard a {
+    margin-left: 1rem;
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-device-width: 768px) {
+  .menusub p {
+    font-size: 1rem;
+  }
+  .menusub-list a {
+    font-size: 1rem;
+  }
+  .menusub-title i {
+    font-size: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+  }
+  .menusub-title {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .userDashboard a {
+    margin-left: 1rem;
+  }
+} 
+@media only screen and (max-width: 600px) {
+  .myMenu {
+    width: 50%;
+  }
+  .menusub p {
+    font-size: .75rem;
+  }
+  .menusub-list a {
+    font-size: .75rem;
+  }
+  .menusub-title i {
+    font-size: .75rem;
+    height: .75rem;
+    line-height: .75rem;
+  }
+  .menusub-title {
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+  .userDashboard a {
+    margin-left: .5rem;
+    font-size: .75rem;
+  }
+}

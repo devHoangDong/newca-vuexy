@@ -1,0 +1,53 @@
+.topCategory__container {
+    background-color: #fff;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    overflow-y: auto;
+    max-height: 20rem;
+}
+.topCategory {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    &__title {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    &__content {
+        align-self: flex-end;
+        width: 100%;
+        font-size: 0.75rem;
+        color: #ccc;
+        .product {
+            padding: 0.75rem 0;
+            height: 3.5rem;
+            &__thumb {
+                display: inline-block;
+                margin-right: 0.5rem;
+                img {
+                    border-radius: 50%;
+                    height: 2rem;
+                    width: 2rem;
+                }
+            }
+            &__name {
+                display: inline-block;
+                height: 2rem;
+                p {
+                    height: 50%;
+                }
+            }
+            &__name p {
+                &:first-child {
+                    color: gray;
+                    font-weight: bold;
+                }
+                &:last-child {
+                    color: #5abeff;
+                }
+            }
+        }
+    }
+}
