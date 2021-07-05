@@ -1,6 +1,6 @@
 import { AvFeedback, AvGroup, AvInput } from "availity-reactstrap-validation"
 import InputNumber from 'rc-input-number'
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import {
   CreditCard, Home, ShoppingCart, X, Mail, Phone, FileText, Download
 } from "react-feather"
@@ -28,10 +28,12 @@ import { addCart, dellCart } from '../../../redux/actions/myactions/Cartaction'
 import { mobileStyle } from "../../forms/form-elements/number-input/InputStyles"
 import { productsList } from "./cartData"
 import { isUserLoggedIn } from '@utils'
+import { useReactToPrint } from 'react-to-print';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
-
-
+const MySwal = withReactContent(Swal)
 const Checkout = () => {
   const [dataList,setDataList] = useState(productsList)
   const [activeStep,setActiveStep] = useState(0)
@@ -47,6 +49,10 @@ const Checkout = () => {
     postcode: '',
     city: '',
   })
+  const componentRef = useRef()
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
   const steps = [
     {
       title: <ShoppingCart size={22} />,
@@ -330,7 +336,7 @@ const Checkout = () => {
               <Input placeholder="Email" />
               <InputGroupAddon addonType="append">
                 <Button.Ripple color="primary" outline>
-                  Send Invoice
+                  Gửi hóa đơn
                 </Button.Ripple>
               </InputGroupAddon>
             </InputGroup>
@@ -343,20 +349,20 @@ const Checkout = () => {
             <Button
               className="mr-1 mb-md-0 mb-1"
               color="primary"
-              onClick={() => window.print()}
+              onClick={handlePrint}
             >
               <FileText size="15" />
-              <span className="align-middle ml-50">Print</span>
+              <span className="align-middle ml-50">In</span>
             </Button>
             <Button.Ripple color="primary" outline>
               <Download size="15" />
-              <span className="align-middle ml-50">Download</span>
+              <span className="align-middle ml-50">Tải xuống</span>
             </Button.Ripple>
           </Col>
           <Col className="invoice-wrapper" lg={{size:"8",offset:"2"}} md = "12" sm="12">
-            <div>
-              <img className="w-100" src={bill}></img>
-            </div>
+              <div ref={componentRef} style={{pageBreakInside:"avoid"}}>
+                <img className="w-100" src={bill}></img>
+              </div>
           </Col>
         </Row>
       )
@@ -364,7 +370,6 @@ const Checkout = () => {
   ]
 
   const dispatch = useDispatch()
-
   const handleActiveStep = index => {
     setActiveStep(index)
   }
@@ -392,9 +397,28 @@ const Checkout = () => {
       .then(response => response.json())
       .then(result => {
         const url = result.url
-        window.location.href = url
+        // window.location.href = url
+        window.open(url)
       })
       .catch(error => console.log('error', error));
+  }
+  const handleConfirmText = () => {
+    return MySwal.fire({
+      title: 'Thành công!',
+      text: 'Bạn đã đặt hàng thành công!',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonText: 'Ok',
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-outline-danger ml-1'
+      },
+      buttonsStyling: false
+    }).then(function (result) {
+      if (result.value) {
+        handleCheckOut()
+      }
+    })
   }
   const cartChange = (valueAsNumber,item) => {
     dispatch(addCart({
@@ -430,7 +454,7 @@ const Checkout = () => {
           breadCrumbActive="Thanh toán"
         />
         <div className="ecommerce-application">
-          <Wizard
+          {/* <Wizard
             steps={steps}
             activeStep={activeStep}
             pagination={false}
@@ -438,7 +462,133 @@ const Checkout = () => {
             validate
             tabPaneClass="mt-5"
             onValidationError={onValidationError}
-          />
+          /> */}
+        <div className="list-view product-checkout">
+          <div className="checkout-items">
+            {dataList.map((item, i) => (
+              <Card className="ecommerce-card" key={i}>
+                <div className="card-content">
+                  <div className="item-img text-center">
+                    <img src={item.img} alt="Product" />
+                  </div>
+                  <CardBody>
+                    <div className="item-name">
+                      <span>{item.name}</span>
+                      <p className="item-company">
+                        By <span className="company-name">{item.by}</span>
+                      </p>
+                      <p className="stock-status-in">Sẵn hàng</p>
+                      <div className="item-quantity">
+                        <p className="quantity-title">Số lượng</p>
+                        <InputNumber
+                          min={0}
+                          max={10}
+                          step={1}
+                          mobile
+                          className="input-group"
+                          style={mobileStyle}
+                          defaultValue={1}
+                          onChange={(value) => cartChange(value,item)}
+                          upHandler = {<div>+</div>}
+                          downHandler = {<div>-</div>}
+                        />
+                      </div>
+                      <p className="delivery-date">{item.deliveryBy}</p>
+                      <p className="offers">{item.offers}</p>
+                    </div>
+                  </CardBody>
+                  <div className="item-options text-center">
+                    <div className="item-wrapper">
+                      {/* <div className="item-rating">
+                        <Badge color="primary" className="badge-md mr-25">
+                          <span className="align-middle">4</span>{" "}
+                          <Star size={15} />
+                        </Badge>
+                      </div> */}
+                      <div className="item-cost">
+                        <h6 className="item-price">{item.price}</h6>
+                      </div>
+                    </div>
+                    {/* <div className="wishlist">
+                      <X size={15} />
+                      <span className="align-middle ml-25" onClick={() => {dispatch(dellCart(item))}}>Remove</span>
+                    </div> */}
+                    <div className="cart">
+                      <X size={15} />
+                      <span className="align-middle ml-25" onClick={() => {handleRemove(item)}}>Xóa</span>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+          <div className="checkout-options">
+            <Card>
+              <CardBody>
+                <p className="options-title">Chi tiết</p>
+                <div className="coupons">
+                  <div className="coupons-title">
+                    <p>Mã giảm giá</p>
+                  </div>
+                  <div className="apply-coupon">
+                    <p>Áp dụng</p>
+                  </div>
+                </div>
+                <hr />
+                <div className="price-details">
+                  <p>Giá chi tiết</p>
+                </div>
+                <div className="detail">
+                  <div className="detail-title">Tổng</div>
+                  <div className="detail-amt">{total}</div>
+                </div>
+                <div className="detail">
+                  <div className="detail-title">Giảm giá</div>
+                  <div className="detail-amt discount-amt">-25$</div>
+                </div>
+                <div className="detail">
+                  <div className="detail-title">Thuế ước tính</div>
+                  <div className="detail-amt">$1.3</div>
+                </div>
+                {/* <div className="detail">
+                  <div className="detail-title">EMI Eligibility</div>
+                  <div className="detail-amt emi-details">Details</div>
+                </div> */}
+                <div className="detail">
+                  <div className="detail-title">Phí giao hàng</div>
+                  <div className="detail-amt discount-amt">Miễn phí</div>
+                </div>
+                <hr />
+                <div className="detail">
+                  <div className="detail-title detail-total">Tổng</div>
+                  <div className="detail-amt total-amt">${total}</div>
+                </div>
+                <div className="detail">
+                  Ghi chú
+                </div>
+                <div className="detail">
+                    <Input
+                      type="textarea"
+                      name="position"
+                      row="2"
+                      id="position"
+                      onChange ={ (e) => setNote(e.target.value)}
+                    />
+                </div>
+                <Button.Ripple
+                  type="submit"
+                  block
+                  color="primary"
+                  className="btn-block"
+                  onClick={() => {
+                    handleConfirmText()
+                  }}>
+                  Đặt hàng
+                </Button.Ripple>
+              </CardBody>
+            </Card>
+          </div>
+        </div>
           <ToastContainer />
         </div>
       </React.Fragment>
