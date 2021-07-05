@@ -9,6 +9,95 @@ export default [
     navLink: '/home'
   },
   {
+    id: "management",
+    title: "Quản lý dịch vụ",
+    type: "collapse",
+    icon: <Tool size={20} />,
+    badge: "warning",
+    badgeText: "8",
+    children: [
+      {
+        id: "general",
+        title: "Dashboard",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: "/manage-general"
+      },
+      {
+        id: "esignmanage",
+        title: "Chữ ký số",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: ""
+      },
+      {
+        id: "edocmanage",
+        title: "Chứng thư số",
+        type: "item",
+        icon: <Circle size={12} />,
+        permissions: ["admin"],
+        navLink: "/manage-cts"
+      },
+      {
+        id: "digibillmanage",
+        title: "Hóa đơn điện tử",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: ""
+      },
+      {
+        id: "digiinsurancemanage",
+        title: "BHXH điện tử",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: ""
+      },
+      {
+        id: "serviceaccountantmanage",
+        title: "Dịch vụ kế toán",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: ""
+      },
+      {
+        id: "accountantsoftmanage",
+        title: "Phần mềm kế toán",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: ""
+      },
+      {
+        id: "digiregistermanage",
+        title: "Dịch vụ đăng ký kinh doanh",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: ""
+      },
+      {
+        id: "insuranceservicemanage",
+        title: "Dịch vụ bảo hiểm",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: ""
+      },
+      {
+        id: "digicustommanage",
+        title: "Hải quan điện tử",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: ""
+      },
+    ]},
+  {
     id: "register",
     title: "Chọn mua dịch vụ",
     type: "collapse",
@@ -97,95 +186,6 @@ export default [
         navLink: ""
       },
     ]},
-    {
-      id: "management",
-      title: "Quản lý dịch vụ",
-      type: "collapse",
-      icon: <Tool size={20} />,
-      badge: "warning",
-      badgeText: "8",
-      children: [
-        {
-          id: "general",
-          title: "Dashboard",
-          type: "item",
-          icon: <Circle size={20} />,
-          permissions: ["admin", "editor"],
-          navLink: "/manage-general"
-        },
-        {
-          id: "esignmanage",
-          title: "Chữ ký số",
-          type: "item",
-          icon: <Circle size={20} />,
-          permissions: ["admin", "editor"],
-          navLink: ""
-        },
-        {
-          id: "edocmanage",
-          title: "Chứng thư số",
-          type: "item",
-          icon: <Circle size={12} />,
-          permissions: ["admin"],
-          navLink: "/manage-cts"
-        },
-        {
-          id: "digibillmanage",
-          title: "Hóa đơn điện tử",
-          type: "item",
-          icon: <Circle size={20} />,
-          permissions: ["admin", "editor"],
-          navLink: ""
-        },
-        {
-          id: "digiinsurancemanage",
-          title: "BHXH điện tử",
-          type: "item",
-          icon: <Circle size={20} />,
-          permissions: ["admin", "editor"],
-          navLink: ""
-        },
-        {
-          id: "serviceaccountantmanage",
-          title: "Dịch vụ kế toán",
-          type: "item",
-          icon: <Circle size={20} />,
-          permissions: ["admin", "editor"],
-          navLink: ""
-        },
-        {
-          id: "accountantsoftmanage",
-          title: "Phần mềm kế toán",
-          type: "item",
-          icon: <Circle size={20} />,
-          permissions: ["admin", "editor"],
-          navLink: ""
-        },
-        {
-          id: "digiregistermanage",
-          title: "Dịch vụ đăng ký kinh doanh",
-          type: "item",
-          icon: <Circle size={20} />,
-          permissions: ["admin", "editor"],
-          navLink: ""
-        },
-        {
-          id: "insuranceservicemanage",
-          title: "Dịch vụ bảo hiểm",
-          type: "item",
-          icon: <Circle size={20} />,
-          permissions: ["admin", "editor"],
-          navLink: ""
-        },
-        {
-          id: "digicustommanage",
-          title: "Hải quan điện tử",
-          type: "item",
-          icon: <Circle size={20} />,
-          permissions: ["admin", "editor"],
-          navLink: ""
-        },
-      ]},
       {
         id: "ecommerce",
         title: "Giỏ hàng",
@@ -240,7 +240,7 @@ export default [
   },
   {
     id: 'thirdPage',
-    title: 'Kiếm tiền cùng Newca',
+    title: 'Kiếm tiền cùng NewCA',
     type: "item",
     icon: <DollarSign size={20} />,
     navLink: '/error'

@@ -79,6 +79,7 @@
     "react-sidebar": "^3.0.2",
     "react-slidedown": "2.4.5",
     "react-sortablejs": "6.0.0",
+    "react-to-print": "^2.12.6",
     "react-toastify": "7.0.3",
     "react-use-googlelogin": "^0.12.5",
     "reactstrap": "^8.6.0",

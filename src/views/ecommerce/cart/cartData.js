@@ -11,8 +11,8 @@ export const productsList = [
     img: img1,
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
-    deliveryBy: "Wed Sep 17",
-    offers: "17% off 4 offers Available",
+    deliveryBy: "Mon July 5",
+    offers: "giảm 17% cho 4 đơn hàng trở lên",
     price: "$39.99",
     freeShipping: true
   },
@@ -21,8 +21,8 @@ export const productsList = [
     img: img2,
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
-    deliveryBy: "Mon Sep 15",
-    offers: "7% off 1 offers Available",
+    deliveryBy: "Mon July 5",
+    offers: "giảm 7% mỗi đơn hàng",
     price: "$1599.99",
     freeShipping: true
   },
@@ -31,8 +31,8 @@ export const productsList = [
     img: img3,
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
-    deliveryBy: "Sat Sep 20",
-    offers: "3% off 1 offers Available",
+    deliveryBy: "Mon July 5",
+    offers: "giảm 3% mỗi đơn hàng",
     price: "$35",
     freeShipping: false
   },
@@ -41,8 +41,8 @@ export const productsList = [
     img: img4,
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
-    deliveryBy: "Fri Sep 19",
-    offers: "5% off 2 offers Available",
+    deliveryBy: "Mon July 5",
+    offers: "giảm 5 % mỗi đơn hàng",
     price: "$429.99",
     freeShipping: true
   },
@@ -51,8 +51,8 @@ export const productsList = [
     img: img5,
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
-    deliveryBy: "Mon Sep 22",
-    offers: "3% off 1 offers Available",
+    deliveryBy: "Mon July 5",
+    offers: "giảm 3% mỗi đơn hàng",
     price: "$499.99",
     freeShipping: true
   },
@@ -61,8 +61,8 @@ export const productsList = [
     img: img6,
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
-    deliveryBy: "Fri Sep 19",
-    offers: "6% off 3 offers Available",
+    deliveryBy: "Mon July 5",
+    offers: "giảm 6% từ 3 đơn hàng trở lên",
     price: "$49.99",
     freeShipping: false
   }

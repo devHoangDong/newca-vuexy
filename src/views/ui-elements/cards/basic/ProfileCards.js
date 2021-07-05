@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState,useEffect} from "react"
 import {
   Card,
   CardHeader,
@@ -16,20 +16,34 @@ import Sales from '../analytics/Sales';
 import OrdersReceived from '../statistics/OrdersReceived';
 import QuaterlySales from '../statistics/QuaterlySales';
 import RevenueGenerated from '../statistics/RevenueGenerated';
+import { isUserLoggedIn } from '@utils'
+import defaultAvatar from '@src/assets/images/portrait/small/avatardefault.svg'
 
-class ProfileCards extends React.Component {
-  render() {
+
+const ProfileCards = () => {
+  const [userData, setUserData] = useState(null)
+  const userAvatar = (userData && userData.imageUrl) || defaultAvatar
+  useEffect(() => {
+    if (isUserLoggedIn) {
+      const userGoG = JSON.parse(localStorage.getItem('userData'))
+      const userToken = JSON.parse(localStorage.getItem('userToken'))
+      if (userGoG) { setUserData(userGoG)} 
+      else {
+        setUserData(userToken)
+      }
+    }
+  }, [])
     return (
       <Row>
         <Col lg="12" md="12" sm="12">
           <Card>
             <CardHeader className="mx-auto">
               <div className="avatar mr-1 avatar-xl">
-                <img src={avatarImg} alt="avatarImg" />
+                <img src={userAvatar} alt="avatarImg" />
               </div>
             </CardHeader>
             <CardBody className="text-center">
-              <h4>Zoila Legore</h4>
+              <h4>{(userData && userData.name) || 'Khách'}</h4>
               <OrdersReceived/>
               <hr/>
               <OrdersReceived/>
@@ -61,5 +75,4 @@ class ProfileCards extends React.Component {
       </Row>
     )
   }
-}
 export default ProfileCards
