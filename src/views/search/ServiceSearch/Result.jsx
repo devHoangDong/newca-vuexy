@@ -1,6 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import s from './Result.module.scss'
+import {
+    Button, Card,
+    CardBody,
+    Col, CustomInput, FormGroup,
+    Input,
+    Label, Row
+} from "reactstrap";
 
 const Result = ({ params }) => {
     const [user, setUser] = useState({})
@@ -51,84 +58,42 @@ const Result = ({ params }) => {
         getInfo();
     }, [params])
     return (
-        <div className={s.resultContainer}>
-            <div className={s.resultContainer__title}>
-                Chứng thư số
-            </div>
-            <div className={s.resultContainer__content}>
-                <div className={s.resultContainer__content__row}>
-                    <div className={s.resultLabel}>
-                        Tên thuê bao
-                    </div>
-                    <div className={s.resultDisplay}>
-                        {user.SubjectDN}
-                    </div>
-                </div>
-                <div className={s.resultContainer__content__row}>
-                    <div className={s.resultLabel}>
-                        Serial chứng thư số
-                    </div>
-                    <div className={s.resultDisplay}>
-                        {user.SerialCTS}
-                    </div>
-                </div>
-                <div className={s.resultContainer__content__row}>
-                    <div className={s.resultLabel}>
-                        Mã định danh
-                    </div>
-                    <div className={s.resultDisplay}>
-                        {user.UID}
-                    </div>
-                </div>
-                <div className={s.resultContainer__content__row}>
-                    <div className={s.resultLabel}>
-                        Ngày bắt đầu chứng thư số
-                    </div>
-                    <div className={s.resultDisplay}>
-                        {user.CertificateBegin}
-                    </div>
-                </div>
-                <div className={s.resultContainer__content__row}>
-                    <div className={s.resultLabel}>
-                        Ngày kết thúc chứng thư số
-                    </div>
-                    <div className={s.resultDisplay}>
-                        {user.CertificateEnd}
-                    </div>
-                </div>
-                <div className={s.resultContainer__content__row}>
-                    <div className={s.resultLabel}>
-                        Gói đăng ký
-                    </div>
-                    <div className={s.resultDisplay}>
-                        {user.PackageName}
-                    </div>
-                </div>
-                <div className={s.resultContainer__content__row}>
-                    <div className={s.resultLabel}>
-                        Ngày đăng ký
-                    </div>
-                    <div className={s.resultDisplay}>
-                        {user.DateRequest}
-                    </div>
-                </div>
-                <div className={s.resultContainer__content__row}>
-                    <div className={s.resultLabel}>
-                        Trạng thái
-                    </div>
-                    {user.StatusCert == '1' && <div className={s.resultDisplay}>
-                        Hoạt động
-                        </div>}
-                    {user.StatusCert == '0' && (<div className={s.resultDisplay}>
-                        Không hoạt động
-                    </div>)}
-                    {user.StatusCert == '' && <div className={s.resultDisplay}>
-
-                    </div>}
-
-                </div>
-            </div>
-        </div>
+        <Card>
+            <CardBody>
+                <FormGroup>
+                    <Label for="disabledInput">Tên thuê bao</Label>
+                    <Input type="text" id="disabledInput" readOnly value="E=duongha6298@gmail.com, OID.0.9.2342.19200300.100.1.1=MNS:0000111133306, CN=CTY TNHH SINH CHỨNG THƯ SỐ CẤP BÙ 3, S=Sơn La, C=VN" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="disabledInput">Serial chứng thư số</Label>
+                    <Input type="text" id="readonlyInput" readOnly value="54010163B89501F2EF4EBAA0C717BC20" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="disabledInput">Mã định danh</Label>
+                    <Input type="text" id="disabledInput" readOnly value="0000111133306" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="disabledInput">Ngày bắt đầu chứng thư số</Label>
+                    <Input type="text" id="disabledInput" readOnly value="21-05-2021" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="disabledInput">Ngày kết thúc chứng thư số</Label>
+                    <Input type="text" id="disabledInput" readOnly value="21-05-2022" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="disabledInput">Gói đăng ký</Label>
+                    <Input type="text" id="disabledInput" readOnly value="OS New 1 Year" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="disabledInput">Ngày đăng ký</Label>
+                    <Input type="text" id="disabledInput" readOnly value="21-05-2021" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="disabledInput">Trạng thái</Label>
+                    <Input type="text" id="disabledInput" readOnly value="Đang hoạt động" />
+                </FormGroup>
+            </CardBody>
+        </Card>
     );
 };
 

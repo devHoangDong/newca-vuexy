@@ -7,18 +7,19 @@ import {
   DropdownItem,
   DropdownToggle
 } from "reactstrap"
-import { Home, Settings } from "react-feather"
-import { NavLink } from "react-router-dom"
-class BreadCrumbs extends React.Component {
-  render() {
+import { ArrowLeft, Home, Settings } from "react-feather"
+import { NavLink,useHistory } from "react-router-dom"
+import { Button } from "bootstrap"
+const BreadCrumbs = (props) => {
+  const history = useHistory()
     return (
       <div className="content-header row">
         <div className="content-header-left col-md-9 col-12 mb-2">
           <div className="row breadcrumbs-top">
             <div className="col-12">
-              {this.props.breadCrumbTitle ? (
+              {props.breadCrumbTitle ? (
                 <h2 className="content-header-title float-left mb-0">
-                  {this.props.breadCrumbTitle}
+                  {props.breadCrumbTitle}
                 </h2>
               ) : (
                 ""
@@ -27,28 +28,28 @@ class BreadCrumbs extends React.Component {
                 <Breadcrumb tag="ol">
                   <BreadcrumbItem tag="li">
                     <NavLink to="/">
-                      <Home className="align-top" size={15} />
+                      Trang chủ
                     </NavLink>
                   </BreadcrumbItem>
                   <BreadcrumbItem tag="li" className="text-primary">
-                    {this.props.breadCrumbParent}
+                    {props.breadCrumbParent}
                   </BreadcrumbItem>
-                  {this.props.breadCrumbParent2 ? (
+                  {props.breadCrumbParent2 ? (
                     <BreadcrumbItem tag="li" className="text-primary">
-                      {this.props.breadCrumbParent2}
+                      {props.breadCrumbParent2}
                     </BreadcrumbItem>
                   ) : (
                     ""
                   )}
-                  {this.props.breadCrumbParent3 ? (
+                  {props.breadCrumbParent3 ? (
                     <BreadcrumbItem tag="li" className="text-primary">
-                      {this.props.breadCrumbParent3}
+                      {props.breadCrumbParent3}
                     </BreadcrumbItem>
                   ) : (
                     ""
                   )}
                   <BreadcrumbItem tag="li" active>
-                    {this.props.breadCrumbActive}
+                    {props.breadCrumbActive}
                   </BreadcrumbItem>
                 </Breadcrumb>
               </div>
@@ -61,16 +62,18 @@ class BreadCrumbs extends React.Component {
               <DropdownToggle
                 color="primary"
                 size="sm"
+                onClick={() => history.goBack()}
                 className="btn-icon btn-round dropdown-toggle"
               >
-                <Settings
+                <ArrowLeft
                   size={14}
                   style={{
                     left: 0
                   }}
-                />
+                />Quay lại
               </DropdownToggle>
-              <DropdownMenu tag="ul" right>
+              {/* <DropdownMenu tag="ul" right>
+                <Button></Button>
                 <DropdownItem tag="li">
                   <NavLink className="text-dark w-100" to="/chat">
                     Chat
@@ -86,12 +89,11 @@ class BreadCrumbs extends React.Component {
                     Calendar
                   </NavLink>
                 </DropdownItem>
-              </DropdownMenu>
+              </DropdownMenu> */}
             </UncontrolledButtonDropdown>
           </div>
         </div>
       </div>
     )
   }
-}
 export default BreadCrumbs

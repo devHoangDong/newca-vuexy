@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Table } from 'antd';
-import '../../../../scss/PurchaseOrder.scss';
+import '../../../assets/scss/PurchaseOrder.scss';
 import MyTitle from './Title';
 
 const PurchaseOrder = () => {

@@ -1,0 +1,28 @@
+import img1 from "../../../assets/img/pages/graphic-1.png"
+import img2 from "../../../assets/img/pages/graphic-2.png"
+import img3 from "../../../assets/img/pages/graphic-3.png"
+import img4 from "../../../assets/img/pages/graphic-4.png"
+import img5 from "../../../assets/img/pages/graphic-5.png"
+import img6 from "../../../assets/img/pages/graphic-6.png"
+
+export const data = [
+  {
+    id: 1,
+    img: img1,
+    title: "câu hỏi thường gặp",
+    text: "Câu hỏi thường gặp."
+  },
+  {
+    id: 2,
+    img: img2,
+    title: "tài liệu hướng dẫn sử dụng",
+    text: "Tài liệu hướng dẫn sử dụng."
+  },
+  {
+    id: 3,
+    img: img3,
+    title: "video hướng dẫn",
+    text:
+      "Video hướng dẫn"
+  }
+]

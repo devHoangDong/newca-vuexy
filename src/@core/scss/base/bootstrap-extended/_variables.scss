@@ -28,7 +28,7 @@ $blue: #00cfe8 !default; //$info
 $orange: #ff9f43 !default; //$warning
 $red: #ea5455 !default; //$danger
 
-$primary: $purple !default;
+$primary: #a8149b !default;
 $secondary: #82868b !default;
 $info: $blue !default;
 $warning: $orange !default;
@@ -95,7 +95,6 @@ $body-color: #6e6b7b !default;
 // Links
 //
 // Style anchor elements.
-
 $link-color: $primary !default;
 $link-hover-color: darken($link-color, 5%) !default;
 $link-hover-decoration: none !default;

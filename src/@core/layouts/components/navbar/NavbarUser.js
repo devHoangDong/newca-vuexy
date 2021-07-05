@@ -4,8 +4,8 @@ import { Fragment } from 'react'
 import UserDropdown from './UserDropdown'
 
 // ** Third Party Components
-import { Sun, Moon, Menu } from 'react-feather'
-import { NavItem, NavLink } from 'reactstrap'
+import { Sun, Moon, Menu, Search, ShoppingCart, Bell} from 'react-feather'
+import { NavItem, NavLink, Badge } from 'reactstrap'
 
 const NavbarUser = props => {
   // ** Props
@@ -37,6 +37,25 @@ const NavbarUser = props => {
         </NavItem>
       </div>
       <ul className='nav navbar-nav align-items-center ml-auto'>
+      <NavItem className="nav-search" >
+          <NavLink className="nav-link-search">
+            <ShoppingCart size={21} data-tour="search" />
+            <Badge pill color="danger" className="badge-up">
+              {" "}
+              5{" "}
+            </Badge>
+          </NavLink>
+          </NavItem>
+          <span>&nbsp;&nbsp;&nbsp;</span>
+          <NavItem className="nav-search" >
+          <NavLink className="nav-link-search">
+            <Bell size={21} data-tour="search" />
+            <Badge pill color="danger" className="badge-up">
+            5
+            </Badge>
+          </NavLink>
+          </NavItem>
+          <span>&nbsp;&nbsp;&nbsp;</span>
         <UserDropdown />
       </ul>
     </Fragment>

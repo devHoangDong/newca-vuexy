@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../../../../scss/DrawalMoney.scss';
+import '../../../../assets/scss/DrawalMoney.scss';
 
 const DrawalMoney = () => {
   const [isActive, setIsActive] = useState(false)

@@ -102,7 +102,7 @@ $wishlist-bg: #f6f6f6;
 
   // shop main content
   .shop-content {
-    margin-left: 300px;
+    // margin-left: 300px;
   }
   //ecommerce header
   .ecommerce-header-items {
@@ -200,6 +200,11 @@ $wishlist-bg: #f6f6f6;
     }
     .item-description {
       font-size: 0.875rem;
+    }
+    .item-options {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .wishlist,
     .cart {

@@ -29,7 +29,7 @@ $orange: #ff9f43; //$warning
 $green: #28c76f; //$success
 $cyan: #7367f0; //$primary
 
-$primary: $cyan;
+$primary: #a8149b;
 $info: $blue;
 $warning: $orange;
 
@@ -84,7 +84,6 @@ $body-color: #626262;
 // Links
 //
 // Style anchor elements.
-
 $link-color: $primary;
 $link-hover-color: darken($link-color, 5%);
 $link-hover-decoration: none;

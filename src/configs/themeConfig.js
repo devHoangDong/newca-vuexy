@@ -4,7 +4,7 @@
 const themeConfig = {
   app: {
     appName: 'NEWCA',
-    appLogoImage: require('@src/assets/images/logo/logo.svg').default
+    appLogoImage: require('@src/assets/images/logo/newca.jpeg').default
   },
   layout: {
     isRTL: false,
