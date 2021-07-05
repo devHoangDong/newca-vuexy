@@ -27,6 +27,7 @@ import Wizard from "../../../components/@vuexy/wizard/WizardComponent"
 import { addCart, dellCart } from '../../../redux/actions/myactions/Cartaction'
 import { mobileStyle } from "../../forms/form-elements/number-input/InputStyles"
 import { productsList } from "./cartData"
+import { isUserLoggedIn } from '@utils'
 
 
 
@@ -36,6 +37,7 @@ const Checkout = () => {
   const [activeStep,setActiveStep] = useState(0)
   const [total,setTotal] = useState(null)
   const [note,setNote] = useState('')
+  const [userData, setUserData] = useState(null)
   const [adress,setAdress] = useState({
     name: '',
     mobile: '',
@@ -63,9 +65,9 @@ const Checkout = () => {
                       <p className="item-company">
                         By <span className="company-name">{item.by}</span>
                       </p>
-                      <p className="stock-status-in">In Stock</p>
+                      <p className="stock-status-in">Sẵn hàng</p>
                       <div className="item-quantity">
-                        <p className="quantity-title">Quantity</p>
+                        <p className="quantity-title">Số lượng</p>
                         <InputNumber
                           min={0}
                           max={10}
@@ -101,7 +103,7 @@ const Checkout = () => {
                     </div> */}
                     <div className="cart">
                       <X size={15} />
-                      <span className="align-middle ml-25" onClick={() => {handleRemove(item)}}>Remove</span>
+                      <span className="align-middle ml-25" onClick={() => {handleRemove(item)}}>Xóa</span>
                     </div>
                   </div>
                 </div>
@@ -111,42 +113,42 @@ const Checkout = () => {
           <div className="checkout-options">
             <Card>
               <CardBody>
-                <p className="options-title">Options</p>
+                <p className="options-title">Chi tiết</p>
                 <div className="coupons">
                   <div className="coupons-title">
-                    <p>Coupons</p>
+                    <p>Mã giảm giá</p>
                   </div>
                   <div className="apply-coupon">
-                    <p>Apply</p>
+                    <p>Áp dụng</p>
                   </div>
                 </div>
                 <hr />
                 <div className="price-details">
-                  <p>Price Details</p>
+                  <p>Giá chi tiết</p>
                 </div>
                 <div className="detail">
-                  <div className="detail-title">Total MRP</div>
+                  <div className="detail-title">Tổng</div>
                   <div className="detail-amt">{total}</div>
                 </div>
                 <div className="detail">
-                  <div className="detail-title">Bag Discount</div>
+                  <div className="detail-title">Giảm giá</div>
                   <div className="detail-amt discount-amt">-25$</div>
                 </div>
                 <div className="detail">
-                  <div className="detail-title">Estimated Tax</div>
+                  <div className="detail-title">Thuế ước tính</div>
                   <div className="detail-amt">$1.3</div>
                 </div>
-                <div className="detail">
+                {/* <div className="detail">
                   <div className="detail-title">EMI Eligibility</div>
                   <div className="detail-amt emi-details">Details</div>
-                </div>
+                </div> */}
                 <div className="detail">
-                  <div className="detail-title">Delivery Charges</div>
-                  <div className="detail-amt discount-amt">Free</div>
+                  <div className="detail-title">Phí giao hàng</div>
+                  <div className="detail-amt discount-amt">Miễn phí</div>
                 </div>
                 <hr />
                 <div className="detail">
-                  <div className="detail-title detail-total">Total</div>
+                  <div className="detail-title detail-total">Tổng</div>
                   <div className="detail-amt total-amt">${total}</div>
                 </div>
                 <div className="detail">
@@ -168,7 +170,7 @@ const Checkout = () => {
                   className="btn-block"
                   onClick={() => {
                     handleActiveStep(1)}}>
-                  Place Order
+                  Đặt hàng
                 </Button.Ripple>
               </CardBody>
             </Card>
@@ -318,7 +320,7 @@ const Checkout = () => {
             /> */}
             <CardBody>
               <h3 className="mb-2">Đơn hàng của bạn đã được xác nhận !</h3>
-              <h5 className="mb-0.5">Xin chào Đông</h5>
+              <h5 className="mb-0.5">Xin chào {(userData && userData.name) || 'Khách'}</h5>
               <div>Đơn hàng của bạn đã được xác nhận và sẽ được gửi đi trong vòng 2 ngày tới</div>
             </CardBody>
           </Card>
@@ -407,7 +409,16 @@ const Checkout = () => {
     newData.splice(index,1)
     setDataList(newData)
   }
-  
+  useEffect(() => {
+    if (isUserLoggedIn) {
+      const userGoG = JSON.parse(localStorage.getItem('userData'))
+      const userToken = JSON.parse(localStorage.getItem('userToken'))
+      if (userGoG) { setUserData(userGoG)} 
+      else {
+        setUserData(userToken)
+      }
+    }
+  }, [])
   useEffect(() => {
     handleTotal()
   },[cartData])
