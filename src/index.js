@@ -11,7 +11,7 @@ import { ToastContainer } from 'react-toastify'
 import { ThemeContext } from './utility/context/ThemeColors'
 
 // ** Spinner (Splash Screen)
-import ComponentSpinner from './@core/components/spinner/Loading-spinner';
+import ComponentSpinner from './components/@vuexy/spinner/Loading-spinner'
 
 
 // ** Ripple Button
