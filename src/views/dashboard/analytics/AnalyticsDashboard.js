@@ -14,6 +14,7 @@ import QuaterlySales from '../../ui-elements/cards/statistics/QuaterlySales';
 import RevenueGenerated from '../../ui-elements/cards/statistics/RevenueGenerated';
 import ProfileCards from '../../ui-elements/cards/basic/ProfileCards';
 
+
 let $primary = "#7367F0",
   $danger = "#EA5455",
   $warning = "#FF9F43",

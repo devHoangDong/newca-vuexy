@@ -11,7 +11,8 @@ import { ToastContainer } from 'react-toastify'
 import { ThemeContext } from './utility/context/ThemeColors'
 
 // ** Spinner (Splash Screen)
-import Spinner from './@core/components/spinner/Fallback-spinner'
+import ComponentSpinner from './@core/components/spinner/Loading-spinner';
+
 
 // ** Ripple Button
 import './@core/components/ripple-button'
@@ -42,7 +43,7 @@ const LazyApp = lazy(() => import('./App'))
 ReactDOM.render(
   <Provider store={store}>
     <GoogleAuthProvider>
-    <Suspense fallback={<Spinner />}>
+    <Suspense fallback={<ComponentSpinner />}>
       <ThemeContext>
         <LazyApp />
         <ToastContainer newestOnTop />

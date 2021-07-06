@@ -23,6 +23,8 @@ import BlankLayout from '@layouts/BlankLayout'
 import VerticalLayout from '@src/layouts/VerticalLayout'
 import HorizontalLayout from '@src/layouts/HorizontalLayout'
 import PrivateRoute from './PrivateRoute';
+import ComponentSpinner from '../components/@vuexy/spinner/Loading-spinner';
+
 
 const Router = () => {
   // ** Hooks
@@ -147,7 +149,7 @@ const Router = () => {
                       })
 
                       return (
-                        <Suspense fallback={null}>
+                        <Suspense fallback={<ComponentSpinner />}>
                           {/* Layout Wrapper to add classes based on route's layout, appLayout and className */}
                           <LayoutWrapper
                             layout={DefaultLayout}
