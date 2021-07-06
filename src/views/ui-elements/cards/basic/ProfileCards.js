@@ -17,10 +17,12 @@ import OrdersReceived from '../statistics/OrdersReceived';
 import QuaterlySales from '../statistics/QuaterlySales';
 import RevenueGenerated from '../statistics/RevenueGenerated';
 import { isUserLoggedIn } from '@utils'
+import defaultAvatar from '@src/assets/images/portrait/small/avatardefault.svg'
 
 
 const ProfileCards = () => {
   const [userData, setUserData] = useState(null)
+  const userAvatar = (userData && userData.imageUrl) || defaultAvatar
   useEffect(() => {
     if (isUserLoggedIn) {
       const userGoG = JSON.parse(localStorage.getItem('userData'))
@@ -37,7 +39,7 @@ const ProfileCards = () => {
           <Card>
             <CardHeader className="mx-auto">
               <div className="avatar mr-1 avatar-xl">
-                <img src={avatarImg} alt="avatarImg" />
+                <img src={userAvatar} alt="avatarImg" />
               </div>
             </CardHeader>
             <CardBody className="text-center">

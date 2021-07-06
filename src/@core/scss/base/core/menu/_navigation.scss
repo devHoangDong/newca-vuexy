@@ -79,10 +79,10 @@
     .navbar-brand {
       display: flex;
       align-items: center;
-      margin-top: 1rem;
+      margin-top: 0 !important;
       font-size: inherit;
       .brand-logo img {
-        max-width: 136px;
+        max-width: 160px;
       }
       .brand-text {
         color: $primary;

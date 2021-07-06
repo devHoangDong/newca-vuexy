@@ -12,7 +12,7 @@ export const productsList = [
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
     deliveryBy: "Wed June 7",
-    offers: "Giảm 17% khi mua từ 4",
+    offers: "giảm 17% cho 4 đơn hàng trở lên",
     price: "$39.99",
     freeShipping: true
   },
@@ -22,7 +22,7 @@ export const productsList = [
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
     deliveryBy: "Wed June 7",
-    offers: "Giảm 7% khi mua từ 1",
+    offers: "giảm 7% mỗi đơn hàng",
     price: "$1599.99",
     freeShipping: true
   },
@@ -32,7 +32,7 @@ export const productsList = [
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
     deliveryBy: "Wed June 7",
-    offers: "Giảm 3% khi mua từ 1",
+    offers: "giảm 3% mỗi đơn hàng",
     price: "$35",
     freeShipping: false
   },
@@ -42,7 +42,7 @@ export const productsList = [
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
     deliveryBy: "Wed June 7",
-    offers: "Giảm 5% khi mua từ 2",
+    offers: "giảm 5 % mỗi đơn hàng",
     price: "$429.99",
     freeShipping: true
   },
@@ -52,7 +52,7 @@ export const productsList = [
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
     deliveryBy: "Wed June 7",
-    offers: "Giảm 3% khi mua từ 1",
+    offers: "giảm 3% mỗi đơn hàng",
     price: "$499.99",
     freeShipping: true
   },
@@ -62,7 +62,7 @@ export const productsList = [
     name: "Chữ kí số cho cá nhân gói 3 năm",
     by: "NewCA",
     deliveryBy: "Wed June 7",
-    offers: "Giảm 6% khi mua từ 3",
+    offers: "giảm 6% từ 3 đơn hàng trở lên",
     price: "$49.99",
     freeShipping: false
   }
