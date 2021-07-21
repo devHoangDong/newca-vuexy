@@ -18,14 +18,6 @@ export default [
     badgeText: "8",
     children: [
       {
-        id: "esignmanage",
-        title: "Chữ ký số",
-        type: "item",
-        icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
-        navLink: ""
-      },
-      {
         id: "edocmanage",
         title: "Chứng thư số",
         type: "item",
@@ -99,14 +91,6 @@ export default [
     badgeText: "8",
     navLink: "/buy-select",
     children: [
-      {
-        id: "buysign",
-        title: "Chữ ký số",
-        type: "item",
-        icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
-        navLink: ""
-      },
       {
         id: "buycts",
         title: "Chứng thư số",
