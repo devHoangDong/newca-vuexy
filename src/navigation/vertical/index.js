@@ -191,15 +191,8 @@ export default [
     title: 'Yêu cầu hỗ trợ',
     type: "item",
     icon: <HelpCircle size={20} />,
+    navLink: "/support",
     children: [
-      {
-        id: "supportgeneral",
-        title: "Dashboard",
-        type: "item",
-        icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
-        navLink: "/support"
-      },
       {
         id: "buyselect",
         title: "Tạo yêu cầu hỗ trợ",
