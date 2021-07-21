@@ -3,7 +3,7 @@ import { Mail, Home, Search, Book, ShoppingBag, HelpCircle, Circle, Server, Tool
 export default [
   {
     id: 'home',
-    title: 'Trang chủ',
+    title: '',
     type: "item",
     icon: <Home size={20} />,
     navLink: '/home'
@@ -14,16 +14,9 @@ export default [
     type: "collapse",
     icon: <Tool size={20} />,
     badge: "warning",
+    navLink: "/manage-general",
     badgeText: "8",
     children: [
-      {
-        id: "general",
-        title: "Dashboard",
-        type: "item",
-        icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
-        navLink: "/manage-general"
-      },
       {
         id: "esignmanage",
         title: "Chữ ký số",
@@ -104,15 +97,8 @@ export default [
     icon: <Server size={20} />,
     badge: "warning",
     badgeText: "8",
+    navLink: "/buy-select",
     children: [
-      {
-        id: "buyselect",
-        title: "Dashboard",
-        type: "item",
-        icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
-        navLink: "/buy-select"
-      },
       {
         id: "buysign",
         title: "Chữ ký số",

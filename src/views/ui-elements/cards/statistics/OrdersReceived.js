@@ -10,7 +10,7 @@ class OrdersReceived extends React.Component {
         icon={<Package className="warning" size={22} />}
         iconBg="warning"
         stat="97.5K"
-        statTitle="Orders Received"
+        statTitle="Đơn hàng đã nhận"
         hideChart
         options={ordersReceived}
         series={ordersReceivedSeries}

@@ -63,7 +63,7 @@ class SupportTracker extends React.Component {
       stroke: {
         dashArray: 8
       },
-      labels: ["Completed Tickets"]
+      labels: ["Hoàn thành"]
     },
     series: [83]
   }
@@ -71,15 +71,15 @@ class SupportTracker extends React.Component {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Support Tracker</CardTitle>
+          <CardTitle>Hỗ trợ theo dõi</CardTitle>
           <UncontrolledDropdown>
             <DropdownToggle className="cursor-pointer" tag="small">
-              Last 7 days <ChevronDown size={10} />
+              7 ngày gần nhất <ChevronDown size={10} />
             </DropdownToggle>
             <DropdownMenu right>
-              <DropdownItem>Last 28 days</DropdownItem>
-              <DropdownItem>Last Month</DropdownItem>
-              <DropdownItem>Last Year</DropdownItem>
+              <DropdownItem>28 ngày gần nhất</DropdownItem>
+              <DropdownItem>Tháng trước</DropdownItem>
+              <DropdownItem>Năm trước</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
         </CardHeader>
@@ -87,7 +87,7 @@ class SupportTracker extends React.Component {
           <Row>
             <Col sm="2" className="d-flex flex-column flex-wrap text-center">
               <h1 className="font-large-2 text-bold-600 mt-2 mb-0">163</h1>
-              <small>Tickets</small>
+              <small>Vé</small>
             </Col>
             <Col sm="10" className="d-flex justify-content-center">
               <Chart
@@ -101,15 +101,15 @@ class SupportTracker extends React.Component {
           </Row>
           <div className="chart-info d-flex justify-content-between">
             <div className="text-center">
-              <p className="mb-50">New Tickets</p>
+              <p className="mb-50">Vé mới</p>
               <span className="font-large-1">29</span>
             </div>
             <div className="text-center">
-              <p className="mb-50">Open Tickets</p>
+              <p className="mb-50">Vé mở</p>
               <span className="font-large-1">63</span>
             </div>
             <div className="text-center">
-              <p className="mb-50">Response Time</p>
+              <p className="mb-50">Thời gian phản hồi</p>
               <span className="font-large-1">1d</span>
             </div>
           </div>

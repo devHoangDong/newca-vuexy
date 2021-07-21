@@ -27,7 +27,7 @@ const VerticalNavMenuLink = ({
 }) => {
   // ** Conditional Link Tag, if item has newTab or externalLink props use <a> tag else use NavLink
   const LinkTag = item.externalLink ? 'a' : NavLink
-
+  
   // ** URL Vars
   const location = useLocation()
   const currentURL = location.pathname
@@ -100,7 +100,10 @@ const VerticalNavMenuLink = ({
           if (!item.navLink.length) {
             e.preventDefault()
           }
-          parentItem ? resetActiveGroup(item.navLink) : resetActiveAndOpenGroups()
+          if(parentItem) { resetActiveGroup(item.navLink)} 
+          else {
+            resetActiveAndOpenGroups();
+          }
         }}
       >
         {item.icon}

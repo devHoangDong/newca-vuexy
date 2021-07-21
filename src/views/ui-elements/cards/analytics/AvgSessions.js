@@ -78,14 +78,14 @@ class AvgSessions extends React.Component {
             >
               <div className="session-info">
                 <h2 className="text-bold-600 mb-25">2.7K</h2>
-                <p className="text-bold-500 mb-75">Avg Sessions</p>
+                <p className="text-bold-500 mb-75">Phiên trung bình</p>
                 <h5 className="font-medium-2">
                   <span className="text-success">+5.2% </span>
-                  <span>vs last 7 days</span>
+                  <span>vs 7 ngày gần nhất</span>
                 </h5>
               </div>
               <Button.Ripple className="btn-block shadow" color="primary">
-                View Details <ChevronsRight size={15} />
+                Xem chi tiết <ChevronsRight size={15} />
               </Button.Ripple>
             </Col>
             <Col
@@ -96,12 +96,12 @@ class AvgSessions extends React.Component {
             >
               <UncontrolledDropdown>
                 <DropdownToggle tag="small" className="text-bold-500 cursor-pointer">
-                  Last 7 days <ChevronDown size={10} />
+                  7 ngày gần nhất <ChevronDown size={10} />
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>Last 28 days</DropdownItem>
-                  <DropdownItem>Last Month</DropdownItem>
-                  <DropdownItem>Last Year</DropdownItem>
+                  <DropdownItem>28 ngày gần nhất</DropdownItem>
+                  <DropdownItem>Tháng trước</DropdownItem>
+                  <DropdownItem>Năm trước</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
               <Chart
@@ -115,19 +115,19 @@ class AvgSessions extends React.Component {
           <hr />
           <Row className="pt-50">
             <Col md="6" sm="12">
-              <p className="mb-0">Goal: $100000</p>
+              <p className="mb-0">Thành tích: $100000</p>
               <Progress className="mt-25" value="50" />
             </Col>
             <Col md="6" sm="12">
-              <p className="mb-0">Users: 100K</p>
+              <p className="mb-0">Người dùng: 100K</p>
               <Progress className="mt-25" color="warning" value="60" />
             </Col>
             <Col md="6" sm="12">
-              <p className="mb-0">Retention: 90%</p>
+              <p className="mb-0">Lợi nhuận: 90%</p>
               <Progress className="mt-25" color="danger" value="70" />
             </Col>
             <Col md="6" sm="12">
-              <p className="mb-0">Duration: 1yr</p>
+              <p className="mb-0">Thời gian: 1yr</p>
               <Progress className="mt-25" color="success" value="80" />
             </Col>
           </Row>

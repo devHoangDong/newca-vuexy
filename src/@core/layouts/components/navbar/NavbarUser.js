@@ -1,16 +1,25 @@
 // ** Dropdowns Imports
 import { Fragment } from 'react'
+import classnames from 'classnames'
+import * as Icon from "react-feather"
+
 
 import UserDropdown from './UserDropdown'
 
 // ** Third Party Components
-import { Sun, Moon, Menu, Search, ShoppingCart, Bell} from 'react-feather'
-import { NavItem, NavLink, Badge } from 'reactstrap'
+import { Sun, Moon, Menu, ShoppingCart, Bell} from 'react-feather'
+import { Row, Col, NavItem, NavLink, Badge, Form, FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText,} from 'reactstrap'
+import { Button } from 'reactstrap';
+import { useState } from 'react';
+import { Search } from 'react-feather';
 
 const NavbarUser = props => {
   // ** Props
   const { skin, setSkin, setMenuVisibility } = props
-
+  const [navbarSearch,setNavbarSearch] = useState(false)
+const handleNavbarSearch = () => {
+  setNavbarSearch(!navbarSearch)
+}
   // ** Function to toggle Theme (Light/Dark)
   const ThemeToggler = () => {
     if (skin === 'dark') {
@@ -22,42 +31,56 @@ const NavbarUser = props => {
 
   return (
     <Fragment>
-      <ul className='navbar-nav d-xl-none d-flex align-items-center'>
-        <NavItem className='mobile-menu mr-auto'>
-          <NavLink className='nav-menu-main menu-toggle hidden-xs is-active' onClick={() => setMenuVisibility(true)}>
-            <Menu className='ficon' />
-          </NavLink>
-        </NavItem>
-      </ul>
-      <div className='bookmark-wrapper d-flex align-items-center'>
-        <NavItem className='d-none d-lg-block'>
-          <NavLink className='nav-link-style'>
-            <ThemeToggler />
-          </NavLink>
-        </NavItem>
-      </div>
-      <ul className='nav navbar-nav align-items-center ml-auto'>
-      <NavItem className="nav-search" >
-          <NavLink className="nav-link-search">
-            <ShoppingCart size={21} data-tour="search" />
-            <Badge pill color="danger" className="badge-up">
-              {" "}
-              5{" "}
-            </Badge>
-          </NavLink>
+          <ul className='navbar-nav d-xl-none d-flex align-items-center'>
+          <NavItem className='mobile-menu mr-auto'>
+            <NavLink className='nav-menu-main menu-toggle hidden-xs is-active' onClick={() => setMenuVisibility(true)}>
+              <Menu className='ficon' />
+            </NavLink>
           </NavItem>
-          <span>&nbsp;&nbsp;&nbsp;</span>
-          <NavItem className="nav-search" >
-          <NavLink className="nav-link-search">
-            <Bell size={21} data-tour="search" />
-            <Badge pill color="danger" className="badge-up">
-            5
-            </Badge>
-          </NavLink>
-          </NavItem>
-          <span>&nbsp;&nbsp;&nbsp;</span>
-        <UserDropdown />
-      </ul>
+          </ul>
+          <div className='bookmark-wrapper d-flex align-items-center' style={{width:"37%"}}>
+            <NavItem className='d-none d-lg-block'>
+              <NavLink className='nav-link-style'>
+                <ThemeToggler />
+              </NavLink>
+            </NavItem>
+          <div className="w-100">
+            <InputGroup>
+              <InputGroupAddon addonType="prepend">
+                <InputGroupText><Search width="18px" height="18px"/></InputGroupText>
+              </InputGroupAddon>
+              <Input placeholder="Tìm kiếm" />
+            </InputGroup></div>
+          </div>
+          <ul className='nav navbar-nav align-items-center ml-auto'>
+          <div className="mr-2 border-right pr-2 d-flex">
+            <div className="d-flex flex-column mr-1">
+              <div>Điểm thưởng: 9999{"  "}</div>
+              <div>Số dư tài khoản: <span>33.333.333<sup>đ</sup></span></div>
+            </div>
+            <Button.Ripple color="primary">Nạp tiền</Button.Ripple>
+          </div>
+            <NavItem className="nav-search" >
+              <NavLink className="nav-link-search">
+                <ShoppingCart size={21} data-tour="search" />
+                <Badge pill color="danger" className="badge-up">
+                  {" "}
+                  5{" "}
+                </Badge>
+              </NavLink>
+            </NavItem>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <NavItem className="nav-search" >
+            <NavLink className="nav-link-search">
+              <Bell size={21} data-tour="search" />
+              <Badge pill color="danger" className="badge-up">
+              5
+              </Badge>
+            </NavLink>
+            </NavItem>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+          <UserDropdown />
+        </ul>      
     </Fragment>
   )
 }

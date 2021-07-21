@@ -91,8 +91,8 @@ class Sales extends React.Component {
       <Card>
         <CardHeader>
           <div className="title">
-            <CardTitle>Sales</CardTitle>
-            <p className="text-muted mb-0">Last 6 months</p>
+            <CardTitle>Bán hàng</CardTitle>
+            <p className="text-muted mb-0">6 tháng gần nhất</p>
           </div>
           <MoreVertical className="cursor-pointer" size={20} />
         </CardHeader>
@@ -108,7 +108,7 @@ class Sales extends React.Component {
                 marginRight: "5px"
               }}
             />
-            <span>Sales</span>
+            <span>Bán hàng</span>
           </div>
           <div className="item-info d-inline-block">
             <div
@@ -121,7 +121,7 @@ class Sales extends React.Component {
                 marginRight: "5px"
               }}
             />
-            <span>Visits</span>
+            <span>Ghé thăm</span>
           </div>
           <Chart
             options={this.state.options}

@@ -10,6 +10,7 @@ import VerticalNavMenuItems from './VerticalNavMenuItems'
 
 // ** Utils
 import { isNavGroupActive, getAllParents } from '@layouts/utils'
+import { useHistory } from 'react-router-dom';
 
 const VerticalNavMenuGroup = ({
   item,
@@ -27,7 +28,7 @@ const VerticalNavMenuGroup = ({
 }) => {
   // ** Current Val
   const currentURL = useLocation().pathname
-
+  const history = useHistory()
   // ** Toggles Open Group
   const toggleOpenGroup = (item, parentItem) => {
     let openArr = groupOpen
@@ -74,6 +75,7 @@ const VerticalNavMenuGroup = ({
 
   // ** On Group Item Click
   const onCollapseClick = (e, item) => {
+    history.push(item.navLink)
     if ((groupActive && groupActive.includes(item.id)) || isNavGroupActive(item.children, currentURL, routerProps)) {
       toggleActiveGroup(item.id)
     } else {
