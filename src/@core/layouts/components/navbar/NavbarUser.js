@@ -55,8 +55,8 @@ const handleNavbarSearch = () => {
           <ul className='nav navbar-nav align-items-center ml-auto'>
           <div className="mr-2 border-right pr-2 d-flex">
             <div className="d-flex flex-column mr-1">
-              <div>Điểm thưởng: 9999{"  "}</div>
-              <div>Số dư tài khoản: <span>33.333.333<sup>đ</sup></span></div>
+              <div className="text-danger">Điểm thưởng: <span className="font-weight-bold">9999{"  "}</span></div>
+              <div className="text-danger">Số dư tài khoản: <span className="font-weight-bold">33.333.333<sup>đ</sup></span></div>
             </div>
             <Button.Ripple color="primary">Nạp tiền</Button.Ripple>
           </div>

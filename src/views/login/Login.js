@@ -65,7 +65,7 @@ export default function LoginGG() {
       <div className='auth-wrapper auth-v2'>
       <Row className='auth-inner m-0'>
         <Link className='brand-logo' to='/'>
-          <svg viewBox='0 0 139 95' version='1.1' height='28'>
+          {/* <svg viewBox='0 0 139 95' version='1.1' height='28'>
             <defs>
               <linearGradient x1='100%' y1='10.5120544%' x2='50%' y2='89.4879456%' id='linearGradient-1'>
                 <stop stopColor='#000000' offset='0%'></stop>
@@ -112,7 +112,7 @@ export default function LoginGG() {
                 </g>
               </g>
             </g>
-          </svg>
+          </svg> */}
           <h2 className='brand-text text-primary ml-1'>Newca</h2>
         </Link>
         <Col className='d-none d-lg-flex align-items-center p-5' lg='8' sm='12'>
@@ -127,12 +127,12 @@ export default function LoginGG() {
             </CardTitle>
             <CardText className='mb-2'>Vui lòng đăng nhập tài khoản</CardText>
             
-              <Button.Ripple onClick={tokenSignIn} color='primary' block>
+              {/* <Button.Ripple onClick={tokenSignIn} color='primary' block>
                 Đăng nhập với Token
-              </Button.Ripple>
-            <div className='divider my-2'>
+              </Button.Ripple> */}
+            {/* <div className='divider my-2'>
               <div className='divider-text'>or</div>
-            </div>
+            </div> */}
             <div className='auth-footer-btn d-flex justify-content-center'>
             <Button.Ripple
                                 className="btn-google"
