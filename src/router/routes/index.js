@@ -1,117 +1,148 @@
-import { lazy } from 'react'
+import { lazy } from "react";
 
 // ** Document title
-const TemplateTitle = 'Newca user portal'
+const TemplateTitle = "Newca user portal";
 
 // ** Default Route
-const DefaultRoute = '/home'
+const DefaultRoute = "/home";
 
 // ** Merge Routes
 const Routes = [
   {
-    path: '/home',
-    component: lazy(() => import('../../views/dashboard/analytics copy/AnalyticsDashboard'))
+    path: "/home",
+    component: lazy(() =>
+      import("../../views/dashboard/analytics copy/AnalyticsDashboard")
+    ),
   },
   {
-    path: '/buy-select',
-    component: lazy(() => import('../../views/buy/select/index'))
+    path: "/buy-select",
+    component: lazy(() => import("../../views/buy/select/index")),
   },
   {
-    path: '/buy-cts',
-    component: lazy(() => import('../../views/request/Register/index'))
+    path: "/buy-cts",
+    component: lazy(() => import("../../views/request/Register/index")),
   },
   {
-    path: '/search',
-    component: lazy(() => import('../../views/search/ServiceSearch/index'))
+    path: "/search",
+    component: lazy(() => import("../../views/search/ServiceSearch/index")),
   },
   {
-    path: '/manage-exandcts',
-    component: lazy(() => import('../../views/management/cts/ExpandCTS'))
+    path: "/manage-exandcts",
+    component: lazy(() => import("../../views/management/cts/ExpandCTS")),
   },
   {
-    path: '/manage-editcts',
-    component: lazy(() => import('../../views/management/cts/EditCTS'))
+    path: "/manage-editcts",
+    component: lazy(() => import("../../views/management/cts/EditCTS")),
   },
   {
-    path: '/manage-restorects',
-    component: lazy(() => import('../../views/management/cts/RestoreCTS'))
+    path: "/manage-restorects",
+    component: lazy(() => import("../../views/management/cts/RestoreCTS")),
   },
   {
-    path: '/manage-reclaimcts',
-    component: lazy(() => import('../../views/management/cts/ReclaimCTS'))
-  },{
-    path: '/manage-stopcts',
-    component: lazy(() => import('../../views/management/cts/StopCTS'))
+    path: "/manage-reclaimcts",
+    component: lazy(() => import("../../views/management/cts/ReclaimCTS")),
   },
   {
-    path: '/manage-general',
-    component: lazy(() => import('../../views/management/general/index'))
+    path: "/manage-stopcts",
+    component: lazy(() => import("../../views/management/cts/StopCTS")),
   },
   {
-    path: '/manage-cts',
-    component: lazy(() => import('../../views/management/cts/index'))
+    path: "/manage-general",
+    component: lazy(() => import("../../views/management/general/index")),
   },
   {
-    path: '/ecommerce-shop',
-    component: lazy(() => import('../../views/ecommerce/shop/Shop'))
+    path: "/manage-cts",
+    component: lazy(() => import("../../views/management/cts/index")),
   },
   {
-    path: '/ecommerce-cart',
-    component: lazy(() => import('../../views/ecommerce/cart/Cart'))
+    path: "/ecommerce-shop",
+    component: lazy(() => import("../../views/ecommerce/shop/Shop")),
   },
   {
-    path: '/info',
-    component: lazy(() => import('../../views/helpdesk/knowledge-base/KnowledgeBase'))
+    path: "/ecommerce-cart",
+    component: lazy(() => import("../../views/ecommerce/cart/Cart")),
   },
   {
-    path: '/support',
-    component: lazy(() => import('../../views/support/index'))
+    path: "/info",
+    component: lazy(() =>
+      import("../../views/helpdesk/knowledge-base/KnowledgeBase")
+    ),
   },
   {
-    path: '/support-create',
-    component: lazy(() => import('../../views/support/CreateSupport'))
+    path: "/question",
+    component: lazy(() => import("../../views/helpdesk/faq/FAQ")),
   },
   {
-    path: '/fourth-page',
-    component: lazy(() => import('../../views/request/Register/index'))
+    path: "/question-video",
+    component: lazy(() => import("../../views/helpdesk/video/VideoManual")),
   },
   {
-    path: '/fifth-page',
-    component: lazy(() => import('../../views/helpdesk'))
+    path: "/question-doc",
+    component: lazy(() => import("../../views/helpdesk/doc/DocManual")),
+  },
+  {
+    path: "/support",
+    component: lazy(() => import("../../views/support/index")),
+  },
+  {
+    path: "/support-create",
+    component: lazy(() => import("../../views/support/CreateSupport")),
+  },
+  {
+    path: "/support-detail",
+    component: lazy(() => import("../../views/email/Email")),
+  },
+  {
+    path: "/fourth-page",
+    component: lazy(() => import("../../views/request/Register/index")),
+  },
+  {
+    path: "/fifth-page",
+    component: lazy(() => import("../../views/helpdesk")),
   },
   // {
   //   path: '/account',
   //   component: lazy(() => import('../../views/account/content/EditAccount.jsx'))
   // },
   {
-    path: '/account',
-    component: lazy(() => import('../../views/account-settings/AccountSettings'))
+    path: "/account",
+    component: lazy(() =>
+      import("../../views/account-settings/AccountSettings")
+    ),
   },
   {
-    path: '/buy-select',
-    component: lazy(() => import('../../views/buy/select/index'))
+    path: "/deposit",
+    component: lazy(() => import("../../views/deposit/Deposit")),
   },
   {
-    path: '/order',
-    component: lazy(() => import('../../views/account/content/PurchaseOrder.jsx'))
+    path: "/buy-select",
+    component: lazy(() => import("../../views/buy/select/index")),
   },
   {
-    path: '/affiliate',
-    component: lazy(() => import('../../views/account/content/affiliate/DrawalMoney'))
+    path: "/order",
+    component: lazy(() =>
+      import("../../views/account/content/PurchaseOrder.jsx")
+    ),
   },
   {
-    path: '/login',
-    component: lazy(() => import('../../views/login/Login')),
-    layout: 'BlankLayout',
+    path: "/affiliate",
+    component: lazy(() =>
+      import("../../views/account/content/affiliate/DrawalMoney")
+    ),
+  },
+  {
+    path: "/login",
+    component: lazy(() => import("../../views/login/Login")),
+    layout: "BlankLayout",
     meta: {
-      authRoute: true
-    }
+      authRoute: true,
+    },
   },
   {
-    path: '/error',
-    component: lazy(() => import('../../views/Error')),
-    layout: 'BlankLayout'
-  }
-]
+    path: "/error",
+    component: lazy(() => import("../../views/Error")),
+    layout: "BlankLayout",
+  },
+];
 
-export { DefaultRoute, TemplateTitle, Routes }
+export { DefaultRoute, TemplateTitle, Routes };

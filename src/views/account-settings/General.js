@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import {
   Alert,
   Button,
@@ -11,18 +11,25 @@ import {
   Col
 } from "reactstrap"
 import img from "../../assets/img/portrait/small/avatar-s-11.jpg"
-class General extends React.Component {
-  state = {
-    visible: true
-  }
+import { isUserLoggedIn } from '@utils'
+import defaultAvatar from '@src/assets/images/portrait/small/avatardefault.svg'
 
-  dismissAlert = () => {
-    this.setState({
-      visible: false
-    })
-  }
 
-  render() {
+const General = () => {
+  const [userData, setUserData] = useState(null)
+  const [visible, setVisible] = useState(true)
+  const userAvatar = (userData && userData.imageUrl) || defaultAvatar
+  useEffect(() => {
+    if (isUserLoggedIn) {
+      const userGoG = JSON.parse(localStorage.getItem('userData'))
+      const userToken = JSON.parse(localStorage.getItem('userToken'))
+      if (userGoG) { setUserData(userGoG)} 
+      else {
+        setUserData(userToken)
+      }
+    }
+  }, [])
+  const dismissAlert = () => setVisible(false)
     return (
       <React.Fragment>
         <Media>
@@ -30,7 +37,7 @@ class General extends React.Component {
             <Media
               className="rounded-circle"
               object
-              src={img}
+              src={userAvatar}
               alt="User"
               height="64"
               width="64"
@@ -44,13 +51,13 @@ class General extends React.Component {
                 color="primary"
                 outline
               >
-                Upload Photo
+                Chọn ảnh
                 <Input type="file" name="file" id="uploadImg" hidden />
               </Button.Ripple>
-              <Button.Ripple color="flat-danger">Remove</Button.Ripple>
+              <Button.Ripple color="flat-danger">Xóa</Button.Ripple>
             </div>
             <p className="text-muted mt-50">
-              <small>Allowed JPG, GIF or PNG. Max size of 800kB</small>
+              <small>Định dạng JPG, GIF hoặc PNG. Dung lượng tối đa 1MB</small>
             </p>
           </Media>
         </Media>
@@ -58,14 +65,14 @@ class General extends React.Component {
           <Row>
             <Col sm="12">
               <FormGroup>
-                <Label for="userName">Username</Label>
-                <Input id="userName" defaultValue="johny_01" />
+                <Label for="userName">Tên người dùng</Label>
+                <Input id="userName" defaultValue={userData?.name} />
               </FormGroup>
             </Col>
             <Col sm="12">
               <FormGroup>
-                <Label for="name">Name</Label>
-                <Input id="name" defaultValue="John Doe" />
+                <Label for="name">Họ tên</Label>
+                <Input id="name" defaultValue={userData?.name} />
               </FormGroup>
             </Col>
             <Col sm="12">
@@ -76,18 +83,18 @@ class General extends React.Component {
             </Col>
             <Col sm="12">
               <Alert
-                className="mb-2"
+                className="p-50"
                 color="warning"
-                isOpen={this.state.visible}
-                toggle={this.dismissAlert}
+                isOpen={visible}
+                toggle={dismissAlert}
               >
                 <p className="mb-0">
-                  Your email is not confirmed. Please check your inbox.
-                  <span className="text-primary"> Resend Confirmation</span>
+                  Email của bạn chưa được xác nhận. Vui lòng kiểm tra hộp thư đến.
+                  <span className="text-primary">{" "}Gửi lại thư xác nhận</span>
                 </p>
               </Alert>
             </Col>
-            <Col sm="12">
+            {/* <Col sm="12">
               <FormGroup>
                 <Label for="company">Company</Label>
                 <Input
@@ -95,13 +102,13 @@ class General extends React.Component {
                   defaultValue="SnowMash Technologies Pvt Ltd"
                 />
               </FormGroup>
-            </Col>
+            </Col> */}
             <Col className="d-flex justify-content-start flex-wrap" sm="12">
               <Button.Ripple className="mr-50" type="submit" color="primary">
-                Save Changes
+                Lưu
               </Button.Ripple>
               <Button.Ripple type="submit" color="danger">
-                Cancel
+                Hủy
               </Button.Ripple>
             </Col>
           </Row>
@@ -109,5 +116,4 @@ class General extends React.Component {
       </React.Fragment>
     )
   }
-}
 export default General

@@ -1,20 +1,90 @@
 import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from "yup";
+
 import {
     Button, Card,
     CardBody,
-    Col, CustomInput, FormGroup,
+    Col, Form, CustomInput, FormGroup, FormFeedback, 
     Input,
     Label, Row
 } from "reactstrap";
 
 const UserInfo = () => {
-
+    const phoneRegExp = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g
+    const formik = useFormik({
+        initialValues: {
+            idnumber: '',
+            iddate: '',
+            idlocation: '',
+            adressresidence: '',
+            companyName: '',
+            roomName: '',
+            numberCode: null,
+            position: '',
+            email: '',
+            mobile: '',
+            adress: '',
+            forCompany: '',
+            confirmFile: {
+                status: 'no'
+            },
+            confirmFileB64: '',
+            confirmFileName: '',
+            companyCheck: false,
+          },
+          onSubmit: values => {
+            console.log(values,'formik')
+          },
+          validationSchema: Yup.object({
+            companyCheck: Yup.boolean(),
+            idnumber: Yup.string().required("Vui lòng không để trống!"),
+            iddate: Yup.date().required("Vui lòng không để trống!"),
+            idlocation: Yup.string().required("Vui lòng không để trống!"),
+            adressresidence: Yup.string().required("Vui lòng không để trống!"),
+            forCompany: Yup.string().required("Required"),
+            companyName: Yup.string()
+                .when("companyCheck", {
+                is: true,
+                then: Yup.string().required("Required")
+              }),
+            numberCode: Yup.string().nullable(true)
+                .when("companyCheck", {
+                is: true,
+                then: Yup.string().nullable(true).required("Required").min(8,"Not valid!").max(16,"Not valid!")
+              }),
+            email: Yup.string()
+                .when("companyCheck", {
+                is: true,
+                then: Yup.string().required("Required").email("Invalid email format")
+              }),
+            mobile: Yup.string().matches(phoneRegExp, 'Số điện thoại không hợp lệ').required("Vui lòng không để trống!"),
+            adress: Yup.string()
+                .when("companyCheck", {
+                is: true,
+                then: Yup.string().required("Required")
+              }),
+            confirmFile: Yup.object().when("companyCheck", {
+                is: true,
+                then: Yup.object({
+                    status: Yup.string().matches(/(done)/, "File require!")
+                  })
+            })
+          })
+      })
     return (
         <Card>
             <CardBody>
                 <Col lg="12" md="12" className="mb-2 font-weight-bold fs-5">
                     Thông tin người dùng
                 </Col>
+                <Form 
+                onSubmit={e => {
+                    e.preventDefault()
+                    formik.handleSubmit()
+                    console.log(e)
+                    }}
+                >
                 <Row className="mb-1 px-4">
                     <Col lg="6" md="12" >
                         <Row>
@@ -31,7 +101,7 @@ const UserInfo = () => {
                         <Row>
                             <Col lg="1" md="0"></Col>
                             <Col lg="4" md="12" className="d-lg-pr-0">
-                                <Label for="">CCCD/CMND/Hộ chiếu</Label>
+                                <Label for="idcard">CCCD/CMND/Hộ chiếu</Label>
                             </Col>
                             <Col lg="7" md="12">
                                 <Input
@@ -39,7 +109,10 @@ const UserInfo = () => {
                                     name="idcard"
                                     id="idcard"
                                     placeholder="CCCD/CMND/Hộ chiếu"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.idnumber && formik.touched.idnumber}
                                 />
+                                    <FormFeedback>{formik.errors.idnumber}</FormFeedback>
                             </Col>
                         </Row>
                     </Col>
@@ -48,12 +121,17 @@ const UserInfo = () => {
                     <Col lg="6" md="12" >
                         <Row>
                             <Col lg="4" md="12">
-                                <Label for="">Ngày cấp</Label>
+                                <Label for="iddate">Ngày cấp</Label>
                             </Col>
                             <Col lg="7" md="12" className="font-weight-bold">
-                                <Input required="" type="text" class="form-control" placeholder="Cấp ngày"
+                                <Input type="date" class="form-control" placeholder="Cấp ngày"
+                                    name="iddate"
+                                    id="iddate"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.iddate && formik.touched.iddate}
                                     onFocus={(e) => (e.currentTarget.type = "date")}
                                     onBlur={(e) => (e.currentTarget.type = "text")} />
+                                    <FormFeedback>{formik.errors.iddate}</FormFeedback>
                             </Col>
                             <Col lg="1" md="0"></Col>
                         </Row>
@@ -62,16 +140,19 @@ const UserInfo = () => {
                         <Row>
                             <Col lg="1" md="0"></Col>
                             <Col lg="4" md="12">
-                                <Label for="">Nơi cấp</Label>
+                                <Label for="idlocation">Nơi cấp</Label>
                             </Col>
                             <Col lg="7" md="12">
                                 <Input
                                     type="text"
                                     name="idlocation"
                                     id="idlocation"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.idlocation && formik.touched.idlocation}
                                     rows="3"
                                     placeholder="Nơi cấp"
                                 />
+                                <FormFeedback>{formik.errors.idlocation}</FormFeedback>
                             </Col>
                         </Row>
                     </Col>
@@ -91,30 +172,36 @@ const UserInfo = () => {
                         <Row>
                             <Col lg="1" md="0"></Col>
                             <Col lg="4" md="12">
-                                <Label for="">Số điện thoại</Label>
+                                <Label for="mobile">Số điện thoại</Label>
                             </Col>
                             <Col lg="7" md="12">
                                 <Input
-                                    type="text"
+                                    type="number"
                                     name="mobile"
                                     id="mobile"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.mobile && formik.touched.mobile}
                                     placeholder="Số điện thoại"
                                 />
+                                <FormFeedback>{formik.errors.mobile}</FormFeedback>
                             </Col>
                         </Row>
                     </Col>
                 </Row>
                 <Row className="mb-1 px-4">
                     <Col lg='2' md="12">
-                        <Label for="">Địa chỉ thường trú</Label>
+                        <Label for="adressresidence">Địa chỉ thường trú</Label>
                     </Col>
                     <Col lg='10' md="12" >
                         <Input
                             type="text"
                             name="adressresidence"
                             id="adressresidence"
+                            onChange={formik.handleChange} 
+                            invalid={formik.errors.adressresidence && formik.touched.adressresidence}
                             placeholder="Địa chỉ thường trú"
                         />
+                        <FormFeedback>{formik.errors.adressresidence}</FormFeedback>
                     </Col>
                 </Row>
                 <Row className="mb-2 px-4 justify-content-between">
@@ -194,7 +281,6 @@ const UserInfo = () => {
                                     color="danger"
                                     type="submit"
                                     className="float-left mb-2"
-                                    onClick={(e) => e.preventDefault()}
                                 >
                                     Mua ngay
                                 </Button.Ripple>
@@ -202,6 +288,7 @@ const UserInfo = () => {
                         </Row>
                     </Col>
                 </Row>
+                </Form>
             </CardBody>
         </Card>
     );

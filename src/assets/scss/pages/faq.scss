@@ -17,12 +17,18 @@
 @import "~bootstrap/scss/_variables.scss";
 
 @import "../core/variables/components-variables";
+@import "../../../assets//scss/plugins//forms/tags/basic-input";
 
 // FAQ jumbotron scss
 .faq-bg {
   background: url("../../img/pages/faq.jpg") no-repeat;
   background-size: cover;
   .form-control {
+    &.form-control-lg {
+      & ~ .form-control-position {
+        top: 4px !important;
+      }
+    }
     &:focus {
       // after focus search icon color
       ~ .form-control-position {
@@ -68,7 +74,11 @@
       color: $headings-color;
     }
     &.collapse-margin {
-      margin-top: 0;
+      .card {
+        margin-top: 0 !important;
+        margin-bottom: 0.71rem !important; 
+      }
+      margin-top: 0 !important;
     }
   }
 }

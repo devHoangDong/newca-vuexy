@@ -12,11 +12,16 @@ import { Row, Col, NavItem, NavLink, Badge, Form, FormGroup, Input, InputGroup, 
 import { Button } from 'reactstrap';
 import { useState } from 'react';
 import { Search } from 'react-feather';
+import { useHistory } from 'react-router-dom';
 
 const NavbarUser = props => {
   // ** Props
   const { skin, setSkin, setMenuVisibility } = props
   const [navbarSearch,setNavbarSearch] = useState(false)
+  const history = useHistory()
+  const handleDeposit = () => {
+    history.push("/deposit")
+  }
 const handleNavbarSearch = () => {
   setNavbarSearch(!navbarSearch)
 }
@@ -58,7 +63,7 @@ const handleNavbarSearch = () => {
               <div className="text-danger">Điểm thưởng: <span className="font-weight-bold">9999{"  "}</span></div>
               <div className="text-danger">Số dư tài khoản: <span className="font-weight-bold">33.333.333<sup>đ</sup></span></div>
             </div>
-            <Button.Ripple color="primary">Nạp tiền</Button.Ripple>
+            <Button.Ripple color="primary" onClick={handleDeposit}>Nạp tiền</Button.Ripple>
           </div>
             <NavItem className="nav-search" >
               <NavLink className="nav-link-search">

@@ -11,11 +11,9 @@ import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
 const Register = () => {
     const [obj, setObj] = useState("0")
     const [type, setType] = useState("0")
-    const handleSelectObj = (e) => {
-        setObj(e.target.value)
-    }
-    const handleSelectType = (e) => {
-        setType(e.target.value)
+    const handleSelect = (obj,type) => {
+        setObj(obj)
+        setType(type)
     }
     return (
         <div>
@@ -24,11 +22,11 @@ const Register = () => {
                 breadCrumbParent="Yêu cầu dịch vụ"
                 breadCrumbActive="Chứng thư số"
             />
-            <SelectField handleSelectObj={handleSelectObj} handleSelectType={handleSelectType} />
+            <SelectField handleSelect={handleSelect} />
             { obj === '0' && <UserInfo />}
             { obj === '1' && <OrgInfo1 />}
             {obj === '2' && <EmployInfo1 />}
-            {type === '2' && <UserEdit />}
+            {/* {type === '2' && <UserEdit />} */}
         </div>
     );
 };

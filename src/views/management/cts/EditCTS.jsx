@@ -1,15 +1,31 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
+import { handleConfirm } from './Confirm';
+import { useFormik } from 'formik';
+import * as Yup from "yup";
 import {
     Button, Card,
     CardBody,
+    Form, FormFeedback,
     Col, CustomInput, FormGroup,
     Input,
     Label, Row
 } from "reactstrap";
 
 const ExpandCTS = () => {
-
+    const history = useHistory()
+    const formik = useFormik({
+        initialValues: {
+            orgadress: '',
+          },
+          onSubmit: values => {
+            handleConfirm(() => history.push('/manage-cts'))
+          },
+          validationSchema: Yup.object({
+            orgadress: Yup.string().required("Vui lòng không để trống!"),
+          })
+      })
     return (
         <>
             <Breadcrumbs
@@ -18,6 +34,13 @@ const ExpandCTS = () => {
                 breadCrumbParent2="Chứng thư số"
                 breadCrumbActive="Chỉnh sửa"
             />
+            <Form 
+                onSubmit={e => {
+                    e.preventDefault()
+                    formik.handleSubmit()
+                    console.log(e)
+                    }}
+                >
             <Card>
                 <CardBody>
                     <Row className="mb-1 px-4">
@@ -97,17 +120,19 @@ const ExpandCTS = () => {
                         <Col lg='10' md="12" >
                             <Input
                                 type="text"
-                                name="adressorg"
-                                id="adressorg"
+                                name="orgadress"
+                                id="orgadress"
+                                onChange={formik.handleChange} 
+                                invalid={formik.errors.orgadress && formik.touched.orgadress}
                                 placeholder="Địa chỉ trụ sở"
                             />
+                            <FormFeedback>{formik.errors.orgadress}</FormFeedback>
                         </Col>
                     </Row>
                     <Row className="mt-2 px-4">
                         <Col lg={{ size: 6, offset: 3 }} md="12" className="d-flex justify-content-center">
                             <Button.Ripple
                                 color="primary"
-                                type="submit"
                                 className="mb-2"
                                 onClick={(e) => e.preventDefault()}
                             >
@@ -117,7 +142,6 @@ const ExpandCTS = () => {
                                 color="primary"
                                 type="submit"
                                 className="mb-2 ml-2"
-                                onClick={(e) => e.preventDefault()}
                             >
                                 Xác nhận
                             </Button.Ripple>
@@ -125,6 +149,7 @@ const ExpandCTS = () => {
                     </Row>
                 </CardBody>
             </Card>
+            </Form>
         </>
     );
 };

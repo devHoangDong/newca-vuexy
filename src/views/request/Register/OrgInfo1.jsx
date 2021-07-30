@@ -1,15 +1,54 @@
 import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from "yup";
 import {
     Button, Card,
     CardBody,
-    Col, CustomInput, FormGroup,
+    Col, CustomInput, Form, FormGroup, FormFeedback,
     Input,
     Label, Row
 } from "reactstrap";
 
 const OrgInfo1 = () => {
-
+    const phoneRegExp = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g
+    const formik = useFormik({
+        initialValues: {
+            orgname: '',
+            idbusiness: '',
+            dateprovide: '',
+            locationprovide: '',
+            orgtaxcode: '',
+            codeinsurance: '',
+            orgadress: '',
+            orgemail: '',
+            orgphone: '',
+            position: '',
+          },
+          onSubmit: values => {
+            console.log(values,'formik')
+          },
+          validationSchema: Yup.object({
+            companyCheck: Yup.boolean(),
+            orgname: Yup.string().required("Vui lòng không để trống!"),
+            idbusiness: Yup.string().required("Vui lòng không để trống!"),
+            dateprovide: Yup.date().required("Vui lòng không để trống!"),
+            orgtaxcode: Yup.string().required("Vui lòng không để trống!"),
+            codeinsurance: Yup.string().required("Vui lòng không để trống!"),
+            locationprovide: Yup.string().required("Vui lòng không để trống!"),
+            orgadress: Yup.string().required("Vui lòng không để trống!"),
+            orgemail: Yup.string().required("Vui lòng không để trống!").email("Email không hợp lệ!"),
+            position: Yup.string().required("Vui lòng không để trống!"),
+            orgphone: Yup.string().matches(phoneRegExp, 'Số điện thoại không hợp lệ').required("Vui lòng không để trống!"),
+          })
+      })
     return (
+        <Form 
+                onSubmit={e => {
+                    e.preventDefault()
+                    formik.handleSubmit()
+                    console.log(e)
+                    }}
+                >
         <Card>
             <CardBody>
                 <Col lg="12" md="12" className="mb-2 font-weight-bold fs-5">
@@ -19,15 +58,18 @@ const OrgInfo1 = () => {
                     <Col lg="6" md="12" >
                         <Row>
                             <Col lg="4" md="12">
-                                <Label for="">Tên tổ chức</Label>
+                                <Label for="orgname">Tên tổ chức</Label>
                             </Col>
                             <Col lg="7" md="12" className="font-weight-bold">
                                 <Input
                                     type="text"
                                     name="orgname"
                                     id="orgname"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.orgname && formik.touched.orgname}
                                     placeholder="Tên tổ chức"
                                 />
+                                <FormFeedback>{formik.errors.orgname}</FormFeedback>
                             </Col>
                             <Col lg="1" md="0"></Col>
                         </Row>
@@ -36,15 +78,18 @@ const OrgInfo1 = () => {
                         <Row>
                             <Col lg="1" md="0"></Col>
                             <Col lg="4" md="12" className="pr-0">
-                                <Label for="">Mã số ĐKKD/ GPĐT/ QĐTL</Label>
+                                <Label for="idbusiness">Mã số ĐKKD/ GPĐT/ QĐTL</Label>
                             </Col>
                             <Col lg="7" md="12">
                                 <Input
                                     type="text"
-                                    name="idcard"
-                                    id="idcard"
+                                    name="idbusiness"
+                                    id="idbusiness"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.idbusiness && formik.touched.idbusiness}
                                     placeholder="CCCD/CMND/Hộ chiếu"
                                 />
+                                <FormFeedback>{formik.errors.idbusiness}</FormFeedback>
                             </Col>
                         </Row>
                     </Col>
@@ -56,9 +101,15 @@ const OrgInfo1 = () => {
                                 <Label for="">Ngày cấp</Label>
                             </Col>
                             <Col lg="7" md="12" className="font-weight-bold">
-                                <Input required="" type="text" class="form-control" placeholder="Cấp ngày"
+                                <Input type="date" class="form-control" placeholder="Cấp ngày"
+                                    name="dateprovide"
+                                    id="dateprovide"
                                     onFocus={(e) => (e.currentTarget.type = "date")}
-                                    onBlur={(e) => (e.currentTarget.type = "text")} />
+                                    onBlur={(e) => (e.currentTarget.type = "text")}
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.dateprovide && formik.touched.dateprovide}
+                                    />
+                                    <FormFeedback>{formik.errors.dateprovide}</FormFeedback>
                             </Col>
                             <Col lg="1" md="0"></Col>
                         </Row>
@@ -67,16 +118,19 @@ const OrgInfo1 = () => {
                         <Row>
                             <Col lg="1" md="0"></Col>
                             <Col lg="4" md="12">
-                                <Label for="">Nơi cấp</Label>
+                                <Label for="locationprovide">Nơi cấp</Label>
                             </Col>
                             <Col lg="7" md="12">
                                 <Input
                                     type="text"
-                                    name="paperlocation"
-                                    id="paperlocation"
+                                    name="locationprovide"
+                                    id="locationprovide"
                                     rows="3"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.locationprovide && formik.touched.locationprovide}
                                     placeholder="Nơi cấp"
                                 />
+                                <FormFeedback>{formik.errors.locationprovide}</FormFeedback>
                             </Col>
                         </Row>
                     </Col>
@@ -85,16 +139,19 @@ const OrgInfo1 = () => {
                     <Col lg="6" md="12" >
                         <Row>
                             <Col lg="4" md="12">
-                                <Label for="">Mã số thuế</Label>
+                                <Label for="orgtaxcode">Mã số thuế</Label>
                             </Col>
                             <Col lg="7" md="12" className="font-weight-bold">
                                 <Input
                                     type="text"
                                     name="orgtaxcode"
-                                    id="ordtaxcode"
+                                    id="orgtaxcode"
                                     rows="3"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.orgtaxcode && formik.touched.orgtaxcode}
                                     placeholder="Mã số thuế"
                                 />
+                                <FormFeedback>{formik.errors.orgtaxcode}</FormFeedback>
                             </Col>
                             <Col lg="1" md="0"></Col>
                         </Row>
@@ -103,31 +160,37 @@ const OrgInfo1 = () => {
                         <Row>
                             <Col lg="1" md="0"></Col>
                             <Col lg="4" md="12">
-                                <Label for="">Ngân sách/BHXH</Label>
+                                <Label for="codeinsurance">Ngân sách/BHXH</Label>
                             </Col>
                             <Col lg="7" md="12">
                                 <Input
                                     type="text"
-                                    name="insurance"
-                                    id="insurance"
+                                    name="codeinsurance"
+                                    id="codeinsurance"
                                     rows="3"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.codeinsurance && formik.touched.codeinsurance}
                                     placeholder="Ngân sách/BHXH"
                                 />
+                                <FormFeedback>{formik.errors.codeinsurance}</FormFeedback>
                             </Col>
                         </Row>
                     </Col>
                 </Row>
                 <Row className="mb-1 px-4">
                     <Col lg='2' md="12">
-                        <Label for="">Địa chỉ</Label>
+                        <Label for="orgadress">Địa chỉ</Label>
                     </Col>
                     <Col lg='10' md="12" >
                         <Input
                             type="text"
                             name="orgadress"
                             id="orgadress"
+                            onChange={formik.handleChange} 
+                            invalid={formik.errors.orgadress && formik.touched.orgadress}
                             placeholder="Địa chỉ"
                         />
+                        <FormFeedback>{formik.errors.orgadress}</FormFeedback>
                     </Col>
                 </Row>
                 <Row className="mb-2 px-4">
@@ -142,8 +205,11 @@ const OrgInfo1 = () => {
                                     name="orgemail"
                                     id="orgemail"
                                     rows="3"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.orgemail && formik.touched.orgemail}
                                     placeholder="Email đơn vị"
                                 />
+                                <FormFeedback>{formik.errors.orgemail}</FormFeedback>
                             </Col>
                             <Col lg="1" md="0"></Col>
                         </Row>
@@ -160,8 +226,11 @@ const OrgInfo1 = () => {
                                     name="orgphone"
                                     id="orgphone"
                                     rows="3"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.orgphone && formik.touched.orgphone}
                                     placeholder="Số điện thoại đơn vị"
                                 />
+                                <FormFeedback>{formik.errors.orgphone}</FormFeedback>
                             </Col>
                         </Row>
                     </Col>
@@ -185,15 +254,18 @@ const OrgInfo1 = () => {
                         <Row>
                             <Col lg="1" md="0"></Col>
                             <Col lg="4" md="12" className="pr-0">
-                                <Label for="">Chức vụ</Label>
+                                <Label for="position">Chức vụ</Label>
                             </Col>
                             <Col lg="7" md="12">
                                 <Input
                                     type="text"
                                     name="position"
                                     id="position"
+                                    onChange={formik.handleChange} 
+                                    invalid={formik.errors.position && formik.touched.position}
                                     placeholder="Chức vụ"
                                 />
+                                <FormFeedback>{formik.errors.position}</FormFeedback>
                             </Col>
                         </Row>
                     </Col>
@@ -279,7 +351,6 @@ const OrgInfo1 = () => {
                                     color="danger"
                                     type="submit"
                                     className="float-left"
-                                    onClick={(e) => e.preventDefault()}
                                 >
                                     Mua ngay
                                 </Button.Ripple>
@@ -289,6 +360,7 @@ const OrgInfo1 = () => {
                 </Row>
             </CardBody>
         </Card>
+        </Form>
     );
 };
 

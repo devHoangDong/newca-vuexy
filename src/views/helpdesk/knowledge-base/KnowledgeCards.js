@@ -1,17 +1,17 @@
-import React from "react"
-import { Card, CardBody, Row, Col } from "reactstrap"
-import { Link } from "react-router-dom"
-import { data } from "./cardData"
+import React from "react";
+import { Card, CardBody, Row, Col } from "reactstrap";
+import { Link } from "react-router-dom";
+import { data } from "./cardData";
 
 class KnowledgeCards extends React.Component {
   renderCards = () => {
-    let result = data.map(item => {
+    let result = data.map((item) => {
       if (this.props.value.length < 1) {
         return (
           <Col md="4" sm="6" className="search-content" key={item.id}>
             <Card>
               <CardBody className="text-center">
-                <Link to="/pages/knowledge-base/category">
+                <Link to={item.url}>
                   <img
                     src={item.img}
                     alt={item.title}
@@ -24,7 +24,7 @@ class KnowledgeCards extends React.Component {
               </CardBody>
             </Card>
           </Col>
-        )
+        );
       } else if (item.title.includes(this.props.value)) {
         return (
           <Col md="4" sm="6" className="search-content" key={item.id}>
@@ -43,14 +43,14 @@ class KnowledgeCards extends React.Component {
               </CardBody>
             </Card>
           </Col>
-        )
+        );
       }
-      return ""
-    })
-    return result
-  }
+      return "";
+    });
+    return result;
+  };
   render() {
-    return <Row>{this.renderCards()}</Row>
+    return <Row>{this.renderCards()}</Row>;
   }
 }
-export default KnowledgeCards
+export default KnowledgeCards;

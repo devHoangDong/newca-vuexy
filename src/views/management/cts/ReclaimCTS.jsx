@@ -1,15 +1,33 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
+import { handleConfirm } from './Confirm';
+import { useFormik } from 'formik';
+import * as Yup from "yup";
 import {
     Button, Card,
     CardBody,
+    Form, FormFeedback,
     Col, CustomInput, FormGroup,
     Input,
     Label, Row
 } from "reactstrap";
 
 const RestoreCTS = () => {
-
+    const history = useHistory()
+    const formik = useFormik({
+        initialValues: {
+            codeusb: '',
+            subreason: '',
+          },
+          onSubmit: values => {
+            handleConfirm(() => history.push('/manage-cts'))
+          },
+          validationSchema: Yup.object({
+            codeusb: Yup.string().required("Vui lòng không để trống!"),
+            subreason: Yup.string().required("Vui lòng không để trống!"),
+          })
+      })
     return (
         <>
             <Breadcrumbs
@@ -18,6 +36,13 @@ const RestoreCTS = () => {
                 breadCrumbParent2="Chứng thư số"
                 breadCrumbActive="Thu hồi"
             />
+            <Form 
+                onSubmit={e => {
+                    e.preventDefault()
+                    formik.handleSubmit()
+                    console.log(e)
+                    }}
+                >
             <Card>
                 <CardBody>
                     <Row className="mb-1 px-4">
@@ -77,10 +102,13 @@ const RestoreCTS = () => {
                                 <Col lg="7" md="12" className="font-weight-bold">
                                     <Input
                                         type="text"
-                                        name="adressorg"
-                                        id="adressorg"
+                                        name="codeusb"
+                                        id="codeusb"
+                                        onChange={formik.handleChange} 
+                                        invalid={formik.errors.codeusb && formik.touched.codeusb}
                                         placeholder="Mã USB token"
                                     />
+                                    <FormFeedback>{formik.errors.codeusb}</FormFeedback>
                                 </Col>
                                 <Col lg="1" md="0"></Col>
                             </Row>
@@ -92,14 +120,14 @@ const RestoreCTS = () => {
                         <Col lg="6" md="12">
                             <Row>
                                 <Col lg="4" md="12">
-                                    <Label for="">Lý do</Label>
+                                    <Label for="reason">Lý do</Label>
                                 </Col>
                                 <Col lg="7" md="12" className="font-weight-bold">
                                     <FormGroup className="mb-0">
                                         <CustomInput
                                             type="select"
                                             name="requesttype"
-                                            id="requesttype"
+                                            id="reason"
                                             defaultValue='0'
                                             onChange={""}>
                                             <option value="0">Mất Token</option>
@@ -121,17 +149,19 @@ const RestoreCTS = () => {
                         <Col lg='10' md="12" >
                             <Input
                                 type="textarea"
-                                name="adressorg"
-                                id="adressorg"
+                                name="subreason"
+                                id="subreason"
+                                onChange={formik.handleChange} 
+                                invalid={formik.errors.subreason && formik.touched.subreason}
                                 row="3"
                             />
+                            <FormFeedback>{formik.errors.subreason}</FormFeedback>
                         </Col>
                     </Row>
                     <Row className="mt-2 px-4">
                         <Col lg={{ size: 6, offset: 3 }} md="12" className="d-flex justify-content-center">
                             <Button.Ripple
                                 color="primary"
-                                type="submit"
                                 onClick={(e) => e.preventDefault()}
                             >
                                 Hủy
@@ -140,7 +170,6 @@ const RestoreCTS = () => {
                                 color="primary"
                                 type="submit"
                                 className="ml-2"
-                                onClick={(e) => e.preventDefault()}
                             >
                                 Xác nhận
                             </Button.Ripple>
@@ -148,6 +177,7 @@ const RestoreCTS = () => {
                     </Row>
                 </CardBody>
             </Card>
+            </Form>
         </>
     );
 };

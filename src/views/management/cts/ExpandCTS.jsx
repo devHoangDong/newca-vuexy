@@ -1,5 +1,8 @@
 import React from 'react';
 import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
+import Swal from 'sweetalert2'
+import { useHistory } from 'react-router-dom';
+import { handleConfirm } from './Confirm';
 import {
     Button, Card,
     CardBody,
@@ -9,7 +12,7 @@ import {
 } from "reactstrap";
 
 const ExpandCTS = () => {
-
+    const history = useHistory()
     return (
         <>
             <Breadcrumbs
@@ -105,7 +108,10 @@ const ExpandCTS = () => {
                                         color="danger"
                                         type="submit"
                                         className="float-left mb-2"
-                                        onClick={(e) => e.preventDefault()}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleConfirm(e,() => history.push('/manage-cts'))
+                                        }}
                                     >
                                         Gia hạn
                                 </Button.Ripple>

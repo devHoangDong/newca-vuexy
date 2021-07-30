@@ -1,25 +1,22 @@
-import React from "react"
-import { Row, Col } from "reactstrap"
-import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
-import KnowledgeBadeMain from "./KnowledgeBaseMain"
-import "../../../assets/scss/pages/knowledge-base.scss"
+import React from "react";
+import { Row, Col } from "reactstrap";
+import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb";
+import KnowledgeBaseMain from "./KnowledgeBaseMain";
+import "../../../assets/scss/pages/knowledge-base.scss";
 
 class KnowledgeBase extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Breadcrumbs
-          breadCrumbTitle="Hỗ trợ"
-          breadCrumbParent="Hỗ trợ"
-        />
+        <Breadcrumbs breadCrumbTitle="Hỗ trợ" breadCrumbParent="Hỗ trợ" />
         <Row>
           <Col sm="12">
-            <KnowledgeBadeMain />
+            <KnowledgeBaseMain />
           </Col>
         </Row>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default KnowledgeBase
+export default KnowledgeBase;

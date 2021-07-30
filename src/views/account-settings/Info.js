@@ -5,6 +5,7 @@ import chroma from "chroma-js"
 import Radio from "../../components/@vuexy/radio/RadioVuexy"
 import Flatpickr from "react-flatpickr";
 
+
 import "flatpickr/dist/themes/light.css";
 import "../../assets/scss/plugins/forms/flatpickr/flatpickr.scss"
 
@@ -82,20 +83,20 @@ class InfoTab extends React.Component {
           <Row>
             <Col sm="12">
               <FormGroup>
-                <Label for="bio">Bio</Label>
+                <Label for="bio">Địa chỉ thường trú</Label>
                 <Input
                   type="textarea"
                   name="bio"
                   id="bio"
                   rows="3"
-                  placeholder="Your bio data here..."
+                  placeholder="Nhập địa chỉ..."
                 />
               </FormGroup>
             </Col>
             <Col sm="12">
               <FormGroup>
                 <Label className="d-block" for="date">
-                  Date
+                  Ngày sinh
                 </Label>
                 <Flatpickr
                   className="form-control"
@@ -107,15 +108,12 @@ class InfoTab extends React.Component {
             </Col>
             <Col sm="12">
               <FormGroup>
-                <Label for="country">Country</Label>
-                <Input type="select" name="country" id="country">
-                  <option>US</option>
-                  <option>UK</option>
-                  <option>France</option>
+                <Label for="country">Số CMND/CCCD/Hộ chiếu</Label>
+                <Input type="text" name="country" id="country" placeholder="Số CMND/CCCD/Hộ chiếu">
                 </Input>
               </FormGroup>
             </Col>
-            <Col sm="12">
+            {/* <Col sm="12">
               <FormGroup>
                 <Label for="languages">Favourite Languages</Label>
                 <Select
@@ -129,10 +127,10 @@ class InfoTab extends React.Component {
                   id="languages"
                 />
               </FormGroup>
-            </Col>
+            </Col> */}
             <Col sm="12">
               <FormGroup>
-                <Label for="number">Phone Number</Label>
+                <Label for="number">Số điện thoại</Label>
                 <Input
                   type="number"
                   name="number"
@@ -141,7 +139,7 @@ class InfoTab extends React.Component {
                 />
               </FormGroup>
             </Col>
-            <Col sm="12">
+            {/* <Col sm="12">
               <FormGroup>
                 <Label for="url">Website URL</Label>
                 <Input
@@ -151,26 +149,26 @@ class InfoTab extends React.Component {
                   placeholder="Website URL"
                 />
               </FormGroup>
-            </Col>
+            </Col> */}
             <Col sm="12">
               <FormGroup>
                 <div className="d-inline-block mr-1">
-                  <Radio label="Male" defaultChecked={true} name="gender" />
+                  <Radio label="Nam" defaultChecked={true} name="gender" />
                 </div>
                 <div className="d-inline-block mr-1">
-                  <Radio label="Female" defaultChecked={false} name="gender" />
+                  <Radio label="Nữ" defaultChecked={false} name="gender" />
                 </div>
-                <div className="d-inline-block">
+                {/* <div className="d-inline-block">
                   <Radio label="Other" defaultChecked={false} name="gender" />
-                </div>
+                </div> */}
               </FormGroup>
             </Col>
             <Col className="d-flex justify-content-start flex-wrap" sm="12">
               <Button.Ripple className="mr-50" type="submit" color="primary">
-                Save Changes
+                Lưu
               </Button.Ripple>
               <Button.Ripple type="submit" color="danger">
-                Cancel
+                Hủy
               </Button.Ripple>
             </Col>
           </Row>

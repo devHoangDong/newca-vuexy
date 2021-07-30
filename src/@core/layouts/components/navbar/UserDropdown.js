@@ -15,6 +15,8 @@ import { useDispatch } from 'react-redux'
 // ** Third Party Components
 import { UncontrolledDropdown, DropdownMenu, DropdownToggle, DropdownItem } from 'reactstrap'
 import { User, Mail, CheckSquare, MessageSquare, Settings, CreditCard, HelpCircle, Power } from 'react-feather'
+import Swal from 'sweetalert2'
+
 
 // ** Default Avatar Image
 import defaultAvatar from '@src/assets/images/portrait/small/avatardefault.svg'
@@ -30,11 +32,34 @@ const UserDropdown = () => {
   const handleLogout = () => {
     setUserData(null)
     localStorage.clear();
+    history.push('/login')
   }
   const handleNavigation = (e, path) => {
     e.preventDefault()
     history.push(path)
   }
+  // Confirm logout
+  const handleConfirmText = (e) => {
+    e.preventDefault()
+    return Swal.fire({
+      title: 'Đăng xuất!',
+      text: 'Bạn có chắc mình muốn thoát?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Xác nhận',
+      cancelButtonText: 'Hủy',
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-outline-danger ml-1'
+      },
+      buttonsStyling: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleLogout()
+      }
+    })
+  }
+
   //** ComponentDidMount
   useEffect(() => {
     if (isUserLoggedIn) {
@@ -68,7 +93,7 @@ const UserDropdown = () => {
           <span className='align-middle'>Đơn hàng</span>
         </DropdownItem>
         {/* onClick={() => dispatch(handleLogout())} */}
-        <DropdownItem tag={Link} to='/login' onClick={handleLogout}> 
+        <DropdownItem tag={Link} to='/login' onClick={handleConfirmText}> 
           <Power size={14} className='mr-75' />
           <span className='align-middle'>Đăng xuất</span>
         </DropdownItem>

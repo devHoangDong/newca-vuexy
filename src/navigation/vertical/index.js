@@ -1,12 +1,29 @@
-import { Mail, Home, Search, Book, ShoppingBag, HelpCircle, Circle, Server, Tool, DollarSign, Clock, Bookmark, Star, Settings, Info, ShoppingCart } from 'react-feather'
+import {
+  Mail,
+  Home,
+  Search,
+  Book,
+  ShoppingBag,
+  HelpCircle,
+  Circle,
+  Server,
+  Tool,
+  DollarSign,
+  Clock,
+  Bookmark,
+  Star,
+  Settings,
+  Info,
+  ShoppingCart,
+} from "react-feather";
 
 export default [
   {
-    id: 'home',
-    title: '',
+    id: "home",
+    title: "",
     type: "item",
     icon: <Home size={20} />,
-    navLink: '/home'
+    navLink: "/home",
   },
   {
     id: "management",
@@ -23,7 +40,7 @@ export default [
         type: "item",
         icon: <Circle size={12} />,
         permissions: ["admin"],
-        navLink: "/manage-cts"
+        navLink: "/manage-cts",
       },
       {
         id: "digibillmanage",
@@ -31,7 +48,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "digiinsurancemanage",
@@ -39,7 +56,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "serviceaccountantmanage",
@@ -47,7 +64,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "accountantsoftmanage",
@@ -55,7 +72,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "digiregistermanage",
@@ -63,7 +80,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "insuranceservicemanage",
@@ -71,7 +88,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "digicustommanage",
@@ -79,9 +96,10 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
-    ]},
+    ],
+  },
   {
     id: "register",
     title: "Chọn mua dịch vụ",
@@ -97,7 +115,7 @@ export default [
         type: "item",
         icon: <Circle size={12} />,
         permissions: ["admin"],
-        navLink: "/buy-cts"
+        navLink: "/buy-cts",
       },
       {
         id: "digibill",
@@ -105,7 +123,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "digiinsurance",
@@ -113,7 +131,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "serviceaccountant",
@@ -121,7 +139,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "registersoft",
@@ -129,7 +147,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "registerservice",
@@ -137,7 +155,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "insuranceservice",
@@ -145,7 +163,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
       {
         id: "digicustom",
@@ -153,66 +171,101 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: ""
+        navLink: "",
       },
-    ]},
-      {
-        id: "ecommerce",
-        title: "Giỏ hàng",
-        type: "item",
-        icon: <ShoppingCart size={20} />,
-        navLink: "/ecommerce-cart"
-        },
-      {
-        id: 'supportinfo',
-        title: 'Hỗ trợ',
-        type: "item",
-        icon: <Info size={20} />,
-        navLink: '/info'
-      },
+    ],
+  },
   {
-    id: 'fifthPage',
-    title: 'Yêu cầu hỗ trợ',
+    id: "ecommerce",
+    title: "Giỏ hàng",
     type: "item",
+    icon: <ShoppingCart size={20} />,
+    navLink: "/ecommerce-cart",
+  },
+  {
+    id: "supportinfo",
+    title: "Hỗ trợ",
+    type: "collapse",
+    icon: <Info size={20} />,
+    navLink: "/info",
+    children: [
+      {
+        id: "normal-question",
+        title: "Câu hỏi thường gặp",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: "/question",
+      },
+      {
+        id: "doc-manual",
+        title: "Tài liệu hướng dẫn",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: "/question-doc",
+      },
+      {
+        id: "video-manual",
+        title: "Video hướng dẫn",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: "/question-video",
+      },
+    ],
+  },
+  {
+    id: "fifthPage",
+    title: "Yêu cầu hỗ trợ",
+    type: "collapse",
     icon: <HelpCircle size={20} />,
     navLink: "/support",
     children: [
       {
-        id: "buyselect",
+        id: "supportcreate",
         title: "Tạo yêu cầu hỗ trợ",
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: "/support-create"
+        navLink: "/support-create",
       },
-    ]
+      {
+        id: "supportdetail",
+        title: "Chi tiết yêu cầu hỗ trợ",
+        type: "item",
+        icon: <Circle size={20} />,
+        permissions: ["admin", "editor"],
+        navLink: "/support-detail",
+      },
+    ],
   },
   {
-    id: 'fourthPage',
-    title: 'Điểm thưởng',
+    id: "fourthPage",
+    title: "Điểm thưởng",
     type: "item",
     icon: <Star size={20} />,
-    navLink: '/error'
+    navLink: "/error",
   },
   {
-    id: 'thirdPage',
-    title: 'Lịch sử giao dịch',
+    id: "thirdPage",
+    title: "Lịch sử giao dịch",
     type: "item",
     icon: <Clock size={20} />,
-    navLink: '/error'
+    navLink: "/error",
   },
   {
-    id: 'thirdPage',
-    title: 'Kiếm tiền cùng NewCA',
+    id: "thirdPage",
+    title: "Kiếm tiền cùng NewCA",
     type: "item",
     icon: <DollarSign size={20} />,
-    navLink: '/error'
+    navLink: "/error",
   },
   {
-    id: 'fifthPage',
-    title: 'Tiện ích',
+    id: "fifthPage",
+    title: "Tiện ích",
     type: "item",
     icon: <Settings size={20} />,
-    navLink: '/abc'
-  }
-]
+    navLink: "/abc",
+  },
+];

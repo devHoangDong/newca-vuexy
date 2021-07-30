@@ -32,7 +32,7 @@ class ChangePassword extends React.Component {
                       className={`form-control ${errors.oldpass &&
                         touched.oldpass &&
                         "is-invalid"}`}
-                      placeholder="Old Password"
+                      placeholder="Mật khẩu cũ"
                     />
                     {errors.oldpass && touched.oldpass ? (
                       <div className="text-danger">{errors.oldpass}</div>
@@ -41,7 +41,7 @@ class ChangePassword extends React.Component {
                   <FormGroup>
                     <Field
                       name="newpass"
-                      placeholder="New Password"
+                      placeholder="Mật khẩu mới"
                       id="newpass"
                       className={`form-control ${errors.newpass &&
                         touched.newpass &&
@@ -58,7 +58,7 @@ class ChangePassword extends React.Component {
                       className={`form-control ${errors.confirmpass &&
                         touched.confirmpass &&
                         "is-invalid"}`}
-                      placeholder="Confirm Password"
+                      placeholder="Xác nhận mật khẩu"
                     />
                     {errors.confirmpass && touched.confirmpass ? (
                       <div className="text-danger">{errors.confirmpass}</div>
@@ -70,7 +70,7 @@ class ChangePassword extends React.Component {
                       color="primary"
                       type="submit"
                     >
-                      Save Changes
+                      Lưu
                     </Button.Ripple>
                     <Button.Ripple
                       className="mb-1"
@@ -78,7 +78,7 @@ class ChangePassword extends React.Component {
                       type="reset"
                       outline
                     >
-                      Cancel
+                      Hủy
                     </Button.Ripple>
                   </div>
                 </Form>
