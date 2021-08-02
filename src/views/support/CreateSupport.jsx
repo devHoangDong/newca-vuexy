@@ -1,75 +1,8 @@
-// import React from 'react';
-// import {Form, Input, Button, Checkbox} from 'antd';
-// import '../../assets/scss/EditPassword.scss';
-// import MyTitle from '../account/content/Title.jsx';
-// import { setLoading as setLoadingAction } from '../../redux/actions/myactions/userAction';
-// import { useDispatch } from 'react-redux';
-// import userApi from "../../api/userApi";
-// const HelpDesk = () => {
-//     const dispatch = useDispatch()
-//     const onFinish = (values) => {
-//         updateUser(values)
-//         console.log('Success:', values);
-//     };
-//     const updateUser = async (params) => {
-//         dispatch(setLoadingAction(true))
-//         setTimeout(() => {
-//             dispatch(setLoadingAction(false))
-//         }, 3000);
-//         const response = await userApi.addTicket(params)
-//     }
-//     const onFinishFailed = (errorInfo) => {
-//         console.log('Failed:', errorInfo);
-//     };
-//     const layout = {
-//         labelCol: { span: 8 },
-//         wrapperCol: { span: 16 },
-//     };
-//     const tailLayout = {
-//         wrapperCol: { offset: 8, span: 16 },
-//     };
-//     return (
-//         <div className="editPassword">
-//             <div className="editPassword__container">
-//                 <div className="editPassword__title">
-//                     <MyTitle title="Gửi yêu cầu hỗ trợ" />
-//                 </div>
-//                 <div className="editForm">
-//                     <Form  {...layout}
-//                         name="basic"
-//                         initialValues={{ remember: true }}
-//                         onFinish={onFinish}
-//                         onFinishFailed={onFinishFailed}
-//                     >
-//                         <Form.Item
-//                             label={"Tiêu đề"}
-//                             name="subject"
-//                             rules={[{ required: true, message: 'Tiêu đề không được để trống!' }]}
-//                         >
-//                         <Input />
-//                         </Form.Item>
-
-//                         <Form.Item
-//                             label={"Nội dung cần hỗ trợ"}
-//                             name="description"
-//                             rules={[{ required: true, message: 'Nội dung không được để trống!' }]}
-//                         >
-//                             <Input.TextArea />
-//                         </Form.Item>
-//                         <Form.Item {...tailLayout}>
-//                             <Button type="primary" htmlType="submit">
-//                                 Submit
-//                             </Button>
-//                         </Form.Item>
-//                     </Form>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default HelpDesk;
 import React from "react";
+import { useFormik } from 'formik';
+import * as Yup from "yup";
+import { useHistory } from 'react-router-dom';
+
 import {
     Card,
     CardHeader,
@@ -80,7 +13,7 @@ import {
     Row,
     Col,
     Input,
-    Form,
+    Form, FormFeedback,
     Button,
     Label,
 } from "reactstrap";
@@ -89,14 +22,33 @@ import { Check } from "react-feather";
 import "../../assets/scss/plugins/extensions/react-paginate.scss";
 import "../../assets/scss/pages/data-list.scss";
 
-class VerticalForm extends React.Component {
-    render() {
+const VerticalForm = () => {
+    const history = useHistory()
+    const formik = useFormik({
+        initialValues: {
+            title: '',
+            detail: '',
+          },
+          onSubmit: values => {
+            history.push('/support')
+          },
+          validationSchema: Yup.object({
+            title: Yup.string().required("Vui lòng không để trống!"),
+            detail: Yup.string().required("Vui lòng không để trống!"),
+          })
+      })
         return (
             <>
                 <Breadcrumbs
                     breadCrumbTitle="Tạo yêu cầu hỗ trợ"
                     breadCrumbParent="Tạo yêu cầu hỗ trợ"
                 />
+                <Form 
+                onSubmit={e => {
+                    e.preventDefault()
+                    formik.handleSubmit()
+                    }}
+                >
                 <Card>
                     <CardHeader>
                         <Col lg="3" md="12">
@@ -137,28 +89,33 @@ class VerticalForm extends React.Component {
                         </Col>
                     </CardHeader>
                     <CardBody>
-                        <Form>
                             <Col lg="12">
                                 <FormGroup>
-                                    <Label for="nameVertical">Tiêu đề</Label>
+                                    <Label for="title">Tiêu đề</Label>
                                     <Input
                                         type="text"
-                                        name="name"
-                                        id="nameVertical"
+                                        name="title"
+                                        id="title"
+                                        onChange={formik.handleChange} 
+                                        invalid={formik.errors.title && formik.touched.title}
                                         placeholder="Tiêu đề"
                                     />
+                                    <FormFeedback>{formik.errors.title}</FormFeedback>
                                 </FormGroup>
                             </Col>
                             <Col lg="12">
                                 <FormGroup>
-                                    <Label for="">Nội dung cần hỗ trợ</Label>
+                                    <Label for="detail">Nội dung cần hỗ trợ</Label>
                                     <Input
                                         type="textarea"
-                                        name="text"
-                                        id="exampleText"
+                                        name="detail"
+                                        id="detail"
                                         rows="3"
+                                        onChange={formik.handleChange} 
+                                        invalid={formik.errors.detail && formik.touched.detail}
                                         placeholder="Textarea"
                                     />
+                                    <FormFeedback>{formik.errors.detail}</FormFeedback>
                                 </FormGroup>
                             </Col>
                             {/* <Col lg="12">
@@ -173,10 +130,9 @@ class VerticalForm extends React.Component {
                                         color="primary"
                                         type="submit"
                                         className="mr-1 mb-1"
-                                        onClick={(e) => e.preventDefault()}
                                     >
                                         Submit
-                  </Button.Ripple>
+                                    </Button.Ripple>
                                     <Button.Ripple
                                         outline
                                         color="warning"
@@ -184,14 +140,13 @@ class VerticalForm extends React.Component {
                                         className="mb-1"
                                     >
                                         Reset
-                  </Button.Ripple>
+                                    </Button.Ripple>
                                 </FormGroup>
                             </Col>
-                        </Form>
                     </CardBody>
                 </Card>
+                </Form>
             </>
         );
     }
-}
 export default VerticalForm;

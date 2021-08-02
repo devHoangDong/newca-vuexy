@@ -70,7 +70,6 @@ const Router = () => {
   };
 
   const NotAuthorized = lazy(() => import("@src/views/NotAuthorized"));
-  const HomePage = lazy(() => import("@src/views/Home"));
   const Login = lazy(() => import("@src/views/login/Login"));
 
   // ** Init Error Component

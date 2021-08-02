@@ -43,7 +43,7 @@ const General = () => {
                     {row.name}
                 </span>
             ),
-            width: '26rem'
+            width: '25rem'
         },
         {
             name: 'Dịch vụ',

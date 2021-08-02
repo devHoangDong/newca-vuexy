@@ -110,7 +110,7 @@ const ExpandCTS = () => {
                                         className="float-left mb-2"
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            handleConfirm(e,() => history.push('/manage-cts'))
+                                            handleConfirm(() => history.push('/manage-cts'))
                                         }}
                                     >
                                         Gia hạn
