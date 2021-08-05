@@ -236,7 +236,7 @@ export default [
         type: "item",
         icon: <Circle size={20} />,
         permissions: ["admin", "editor"],
-        navLink: "/support-detail",
+        navLink: "/email/inbox",
       },
     ],
   },

@@ -5,6 +5,8 @@ import { Check, Edit, Eye, Trash } from 'react-feather';
 import "../../../assets/scss/plugins/extensions/react-paginate.scss"
 import "../../../assets/scss/pages/data-list.scss"
 
+// This sets the mock adapter on the default instance
+
 
 
 const index = () => {

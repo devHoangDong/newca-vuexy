@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Button,
   Card,
@@ -33,31 +33,45 @@ import { handleConfirm } from "../management/cts/Confirm";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { deposit } from "../../redux/actions/myactions/depositAction";
+import axios from "axios";
 
 export default function Deposit() {
   const [openDropdown, setOpenDropdown] = useState(false);
   const [currency, setCurrency] = useState("VND");
   const [depositAmount, setDepositAmount] = useState(0);
+  const [initialBallance, setInitialBallance] = useState(null);
   const dispatch = useDispatch();
   const handleDropdown = () => {
     setOpenDropdown(!openDropdown);
   };
-  localStorage.setItem("ballance", 0);
-  const initialBallancee = localStorage.getItem("ballance");
-  const afterDep = Number(depositAmount) + Number(initialBallancee);
+  const currentBallance = localStorage.getItem("ballance") || initialBallance;
+  const afterDep = currentBallance
+    ? Number(depositAmount) + Number(currentBallance)
+    : 0;
+  const handleDeposit = () => {
+    dispatch(deposit(afterDep));
+    localStorage.setItem("ballance", afterDep);
+    setDepositAmount(0);
+  };
+  const handleGetBallance = async () => {
+    await axios.get("/ballance").then(function (response) {
+      setInitialBallance(response.data);
+    });
+  };
   const formik = useFormik({
     initialValues: {
       amount: 0,
     },
     onSubmit: (values) => {
-      handleConfirm(() => dispatch(deposit(afterDep)));
-      localStorage.setItem("ballance", afterDep);
-      setDepositAmount(0);
+      handleConfirm(handleDeposit);
     },
     validationSchema: Yup.object({
       amount: Yup.number().required("Vui lòng không để trống!"),
     }),
   });
+  useEffect(() => {
+    handleGetBallance();
+  }, []);
   return (
     <Row>
       <Col lg={{ size: 8, offset: 2 }}>
@@ -138,7 +152,7 @@ export default function Deposit() {
                 </div>
                 <div className="d-flex justify-content-between mb-2 font-weight-light">
                   <div>Số dư hiện tại</div>
-                  <div>{initialBallancee}</div>
+                  <div>{currentBallance}</div>
                 </div>
                 <div className="d-flex justify-content-between mb-2 font-weight-light">
                   <div>Tổng tiền sau nạp</div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
+import axios from "axios"
 
 import {
     Button, Card,
@@ -58,7 +59,7 @@ const UserInfo = () => {
                 is: true,
                 then: Yup.string().required("Required").email("Invalid email format")
               }),
-            mobile: Yup.string().matches(phoneRegExp, 'Số điện thoại không hợp lệ').required("Vui lòng không để trống!"),
+            mobile: Yup.string().required("Vui lòng không để trống!"),
             adress: Yup.string()
                 .when("companyCheck", {
                 is: true,
@@ -72,6 +73,10 @@ const UserInfo = () => {
             })
           })
       })
+      const handleApi = async () =>
+      await axios.get("/users").then(function (response) {
+        console.log(response.data);
+      });
     return (
         <Card>
             <CardBody>
@@ -82,7 +87,6 @@ const UserInfo = () => {
                 onSubmit={e => {
                     e.preventDefault()
                     formik.handleSubmit()
-                    console.log(e)
                     }}
                 >
                 <Row className="mb-1 px-4">
@@ -110,9 +114,9 @@ const UserInfo = () => {
                                     id="idcard"
                                     placeholder="CCCD/CMND/Hộ chiếu"
                                     onChange={formik.handleChange} 
-                                    invalid={formik.errors.idnumber && formik.touched.idnumber}
+                                    invalid={formik.errors.idcard && formik.touched.idcard}
                                 />
-                                    <FormFeedback>{formik.errors.idnumber}</FormFeedback>
+                                    <FormFeedback>{formik.errors.idcard}</FormFeedback>
                             </Col>
                         </Row>
                     </Col>
@@ -281,6 +285,7 @@ const UserInfo = () => {
                                     color="danger"
                                     type="submit"
                                     className="float-left mb-2"
+                                    onClick={handleApi}
                                 >
                                     Mua ngay
                                 </Button.Ripple>

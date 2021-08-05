@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import { Redirect } from "react-router-dom";
 
 // ** Document title
 const TemplateTitle = "Newca user portal";
@@ -89,7 +90,13 @@ const Routes = [
     component: lazy(() => import("../../views/support/CreateSupport")),
   },
   {
-    path: "/support-detail",
+    path: "/email",
+    exact: true,
+    component: () => <Redirect to="/email/inbox" />,
+  },
+  {
+    path: "/email/:filter",
+    exact: false,
     component: lazy(() => import("../../views/email/Email")),
   },
   {

@@ -5,6 +5,7 @@ import EmailSidebarContent from "./EmailSidebar";
 import { Layout, ContextLayout } from "../../utility/context/Layout";
 import ComposeMail from "./ComposeEmail";
 import "../../assets/scss/pages/app-email.scss";
+import BreadCrumbs from "../../components/@vuexy/breadCrumbs/BreadCrumb";
 const mql = window.matchMedia(`(min-width: 992px)`);
 class Email extends React.Component {
   state = {
@@ -44,48 +45,57 @@ class Email extends React.Component {
     this.handleComposeSidebar("close");
     this.onSetSidebarOpen(false);
   };
-
   render() {
+    console.log(this.routerProps, "routerProps");
     return (
-      <div className="email-application position-relative">
-        <div
-          className={`app-content-overlay ${
-            this.state.composeMailStatus || this.state.sidebarOpen ? "show" : ""
-          }`}
-          onClick={this.handleMainAndComposeSidebar}
+      <>
+        <BreadCrumbs
+          breadCrumbTitle="Chi tiết yêu cầu hỗ trợ"
+          breadCrumbParent="Yêu cầu hỗ trợ"
+          breadCrumbActive="Chi tiết yêu cầu hỗ trợ"
         />
-        <Layout>
-          <ContextLayout.Consumer>
-            {(value) => (
-              <Sidebar
-                sidebar={
-                  <EmailSidebarContent
-                    handleComposeSidebar={this.handleComposeSidebar}
-                    mainSidebar={this.onSetSidebarOpen}
-                    routerProps={this.props}
-                  />
-                }
-                docked={this.state.sidebarDocked}
-                open={this.state.sidebarOpen}
-                sidebarClassName="sidebar-content email-app-sidebar d-flex"
-                touch={false}
-                contentClassName="sidebar-children"
-                pullRight={value.state.direction === "rtl"}
-              >
-                ""
-              </Sidebar>
-            )}
-          </ContextLayout.Consumer>
-        </Layout>
-        <EmailList
-          mainSidebar={this.onSetSidebarOpen}
-          routerProps={this.props}
-        />
-        <ComposeMail
-          handleComposeSidebar={this.handleComposeSidebar}
-          currentStatus={this.state.composeMailStatus}
-        />
-      </div>
+        <div className="email-application position-relative">
+          <div
+            className={`app-content-overlay ${
+              this.state.composeMailStatus || this.state.sidebarOpen
+                ? "show"
+                : ""
+            }`}
+            onClick={this.handleMainAndComposeSidebar}
+          />
+          <Layout>
+            <ContextLayout.Consumer>
+              {(value) => (
+                <Sidebar
+                  sidebar={
+                    <EmailSidebarContent
+                      handleComposeSidebar={this.handleComposeSidebar}
+                      mainSidebar={this.onSetSidebarOpen}
+                      routerProps={this.props}
+                    />
+                  }
+                  docked={this.state.sidebarDocked}
+                  open={this.state.sidebarOpen}
+                  sidebarClassName="sidebar-content email-app-sidebar d-flex"
+                  touch={false}
+                  contentClassName="sidebar-children"
+                  pullRight={value.state.direction === "rtl"}
+                >
+                  ""
+                </Sidebar>
+              )}
+            </ContextLayout.Consumer>
+          </Layout>
+          <EmailList
+            mainSidebar={this.onSetSidebarOpen}
+            routerProps={this.props}
+          />
+          <ComposeMail
+            handleComposeSidebar={this.handleComposeSidebar}
+            currentStatus={this.state.composeMailStatus}
+          />
+        </div>
+      </>
     );
   }
 }

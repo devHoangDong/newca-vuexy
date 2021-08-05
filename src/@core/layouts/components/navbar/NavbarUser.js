@@ -2,6 +2,7 @@
 import { Fragment } from "react";
 import classnames from "classnames";
 import * as Icon from "react-feather";
+import axios from "axios";
 
 import UserDropdown from "./UserDropdown";
 
@@ -31,8 +32,9 @@ const NavbarUser = (props) => {
   // ** Props
   const { skin, setSkin, setMenuVisibility } = props;
   const [navbarSearch, setNavbarSearch] = useState(false);
+  const [ballance, setBallance] = useState(0);
   const history = useHistory();
-  const ballance = Number(useSelector((state) => state.myreducers.deposit));
+  const iniBallance = Number(useSelector((state) => state.myreducers.deposit));
   const handleDeposit = () => {
     history.push("/deposit");
   };
@@ -47,6 +49,17 @@ const NavbarUser = (props) => {
       return <Moon className="ficon" onClick={() => setSkin("dark")} />;
     }
   };
+  const money = new Intl.NumberFormat("vi-VI", {
+    style: "currency",
+    currency: "VND",
+  }).format(ballance);
+  useEffect(() => {
+    !localStorage.getItem("ballance")
+      ? axios.get("/ballance").then(function (response) {
+          setBallance(response.data);
+        })
+      : setBallance(localStorage.getItem("ballance"));
+  }, [iniBallance]);
   return (
     <Fragment>
       <ul className="navbar-nav d-xl-none d-flex align-items-center">
@@ -86,11 +99,7 @@ const NavbarUser = (props) => {
               Điểm thưởng: <span className="font-weight-bold">9999{"  "}</span>
             </div>
             <div className="text-danger">
-              Số dư tài khoản:{" "}
-              <span className="font-weight-bold">
-                {Number(ballance)}
-                <sup>đ</sup>
-              </span>
+              Số dư tài khoản: <span className="font-weight-bold">{money}</span>
             </div>
           </div>
           <Button.Ripple color="primary" onClick={handleDeposit}>
