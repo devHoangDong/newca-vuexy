@@ -1,6 +1,6 @@
 import mock from "../mock";
 let data1 = {
-  ballance: 1000001,
+  ballance: 1,
 };
 
 // GET : Calendar Events

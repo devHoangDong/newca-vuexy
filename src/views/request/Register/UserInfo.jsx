@@ -2,7 +2,9 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import axios from "axios"
-
+import { handleConfirm } from '../../management/cts/Confirm';
+import { handleDeposit } from './handleDeposit';
+import { useHistory } from 'react-router-dom';
 import {
     Button, Card,
     CardBody,
@@ -12,71 +14,37 @@ import {
 } from "reactstrap";
 
 const UserInfo = () => {
+    const history = useHistory()
+    const ballance = localStorage.getItem('ballance');
     const phoneRegExp = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g
+    const handleBuy = () => {
+        history.push('/buy-select');
+        const newballance = ballance - 800000;
+        localStorage.setItem('ballance',newballance)
+    }
     const formik = useFormik({
         initialValues: {
             idnumber: '',
             iddate: '',
             idlocation: '',
             adressresidence: '',
-            companyName: '',
-            roomName: '',
-            numberCode: null,
-            position: '',
-            email: '',
             mobile: '',
-            adress: '',
-            forCompany: '',
-            confirmFile: {
-                status: 'no'
-            },
-            confirmFileB64: '',
-            confirmFileName: '',
-            companyCheck: false,
           },
           onSubmit: values => {
-            console.log(values,'formik')
+              if (ballance < 800000) {
+                  handleDeposit(() => history.push('/deposit'))
+              } else {
+                handleConfirm(() => handleBuy())
+              }
           },
           validationSchema: Yup.object({
-            companyCheck: Yup.boolean(),
             idnumber: Yup.string().required("Vui lòng không để trống!"),
             iddate: Yup.date().required("Vui lòng không để trống!"),
             idlocation: Yup.string().required("Vui lòng không để trống!"),
             adressresidence: Yup.string().required("Vui lòng không để trống!"),
-            forCompany: Yup.string().required("Required"),
-            companyName: Yup.string()
-                .when("companyCheck", {
-                is: true,
-                then: Yup.string().required("Required")
-              }),
-            numberCode: Yup.string().nullable(true)
-                .when("companyCheck", {
-                is: true,
-                then: Yup.string().nullable(true).required("Required").min(8,"Not valid!").max(16,"Not valid!")
-              }),
-            email: Yup.string()
-                .when("companyCheck", {
-                is: true,
-                then: Yup.string().required("Required").email("Invalid email format")
-              }),
             mobile: Yup.string().required("Vui lòng không để trống!"),
-            adress: Yup.string()
-                .when("companyCheck", {
-                is: true,
-                then: Yup.string().required("Required")
-              }),
-            confirmFile: Yup.object().when("companyCheck", {
-                is: true,
-                then: Yup.object({
-                    status: Yup.string().matches(/(done)/, "File require!")
-                  })
-            })
           })
       })
-      const handleApi = async () =>
-      await axios.get("/users").then(function (response) {
-        console.log(response.data);
-      });
     return (
         <Card>
             <CardBody>
@@ -105,18 +73,18 @@ const UserInfo = () => {
                         <Row>
                             <Col lg="1" md="0"></Col>
                             <Col lg="4" md="12" className="d-lg-pr-0">
-                                <Label for="idcard">CCCD/CMND/Hộ chiếu</Label>
+                                <Label for="idnumber">CCCD/CMND/Hộ chiếu</Label>
                             </Col>
                             <Col lg="7" md="12">
                                 <Input
                                     type="text"
-                                    name="idcard"
-                                    id="idcard"
+                                    name="idnumber"
+                                    id="idnumber"
                                     placeholder="CCCD/CMND/Hộ chiếu"
                                     onChange={formik.handleChange} 
-                                    invalid={formik.errors.idcard && formik.touched.idcard}
+                                    invalid={formik.errors.idnumber && formik.touched.idnumber}
                                 />
-                                    <FormFeedback>{formik.errors.idcard}</FormFeedback>
+                                    <FormFeedback>{formik.errors.idnumber}</FormFeedback>
                             </Col>
                         </Row>
                     </Col>
@@ -212,14 +180,14 @@ const UserInfo = () => {
                     <Col lg="6" md="12">
                         <Row>
                             <Col lg="4" md="12">
-                                <Label for="">Thời gian sử dụng</Label>
+                                <Label for="usetime">Thời gian sử dụng</Label>
                             </Col>
                             <Col lg="7" md="12" className="font-weight-bold">
                                 <FormGroup className="mb-0">
                                     <CustomInput
                                         type="select"
-                                        name="requesttype"
-                                        id="requesttype"
+                                        name="usetime"
+                                        id="usetime"
                                         defaultValue='0'
                                         onChange={""}>
                                         <option value="0">1 năm</option>
@@ -235,14 +203,14 @@ const UserInfo = () => {
                         <Row>
                             <Col lg="1" md="0"></Col>
                             <Col lg="4" md="12">
-                                <Label for="">Loại thiết bị </Label>
+                                <Label for="devicetype">Loại thiết bị </Label>
                             </Col>
                             <Col lg="7" md="12">
                                 <FormGroup className="mb-0">
                                     <CustomInput
                                         type="select"
-                                        name="requesttype"
-                                        id="requesttype"
+                                        name="devicetype"
+                                        id="devicetype"
                                         defaultValue='0'
                                         onChange={""}>
                                         <option value="0">Token</option>
@@ -285,7 +253,6 @@ const UserInfo = () => {
                                     color="danger"
                                     type="submit"
                                     className="float-left mb-2"
-                                    onClick={handleApi}
                                 >
                                     Mua ngay
                                 </Button.Ripple>

@@ -100,6 +100,10 @@ const Routes = [
     component: lazy(() => import("../../views/email/Email")),
   },
   {
+    path: "/affiliate",
+    component: lazy(() => import("../../views/affiliate/showAffiliate.jsx")),
+  },
+  {
     path: "/fourth-page",
     component: lazy(() => import("../../views/request/Register/index")),
   },

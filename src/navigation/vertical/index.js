@@ -259,7 +259,7 @@ export default [
     title: "Kiếm tiền cùng NewCA",
     type: "item",
     icon: <DollarSign size={20} />,
-    navLink: "/error",
+    navLink: "/affiliate",
   },
   {
     id: "fifthPage",
