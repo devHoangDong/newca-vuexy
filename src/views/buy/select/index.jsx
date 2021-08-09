@@ -37,7 +37,7 @@ const index = () => {
             name: 'Mô tả',
             selector: 'describe',
             sortable: true,
-            width: '56rem'
+            width: '53rem'
         },
         {
             name: 'Thao tác',

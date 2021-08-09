@@ -1,13 +1,13 @@
 import { DEPOSIT } from "../../actionType";
 
 const initialState = {
-  amount: 0,
+  isDeposit: false,
 };
 
 const deposit = (state = initialState, action) => {
   switch (action.type) {
     case DEPOSIT: {
-      return action.payload;
+      return !state;
     }
     default:
       return state;

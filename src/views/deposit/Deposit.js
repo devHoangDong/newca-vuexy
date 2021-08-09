@@ -49,7 +49,7 @@ export default function Deposit() {
     ? Number(depositAmount) + Number(currentBallance)
     : 0;
   const handleDeposit = () => {
-    dispatch(deposit(afterDep));
+    dispatch(deposit());
     localStorage.setItem("ballance", afterDep);
     setDepositAmount(0);
   };
@@ -66,7 +66,10 @@ export default function Deposit() {
       handleConfirm(handleDeposit);
     },
     validationSchema: Yup.object({
-      amount: Yup.number().required("Vui lòng không để trống!"),
+      amount: Yup.number()
+        .required("Vui lòng không để trống!")
+        .min(1000000, "Số tiền nạp không nhỏ hơn 1000000")
+        .max(200000000, "Số tiền nạp không lớn hơn 20000000"),
     }),
   });
   useEffect(() => {
@@ -98,17 +101,20 @@ export default function Deposit() {
                     value={depositAmount}
                     onChange={(e) => {
                       setDepositAmount(e.target.value);
-                      formik.handleChange(e.target.value);
+                      formik.handleChange(e);
                     }}
                     invalid={formik.errors.amount && formik.touched.amount}
                   />
-                  <FormFeedback>{formik.errors.amount}</FormFeedback>
                   <InputGroupButtonDropdown
                     addonType="append"
                     isOpen={openDropdown}
                     toggle={handleDropdown}
                   >
-                    <DropdownToggle color="primary" caret>
+                    <DropdownToggle
+                      className="rounded-right"
+                      color="primary"
+                      caret
+                    >
                       {currency}
                     </DropdownToggle>
                     <DropdownMenu>
@@ -126,6 +132,7 @@ export default function Deposit() {
                       </DropdownItem>
                     </DropdownMenu>
                   </InputGroupButtonDropdown>
+                  <FormFeedback>{formik.errors.amount}</FormFeedback>
                 </InputGroup>
                 <Label>Phương thức nạp tiền</Label>
                 <CustomInput

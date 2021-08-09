@@ -34,8 +34,8 @@ const NavbarUser = (props) => {
   const [navbarSearch, setNavbarSearch] = useState(false);
   const [ballance, setBallance] = useState(0);
   const history = useHistory();
-  const iniBallance = Number(useSelector((state) => state.myreducers.deposit));
-  const currentBallance = localStorage.getItem("ballance");
+  const isDeposit = useSelector((state) => state.myreducers.deposit);
+  let currentBallance = localStorage.getItem("ballance");
   const handleDeposit = () => {
     history.push("/deposit");
   };
@@ -55,12 +55,13 @@ const NavbarUser = (props) => {
     currency: "VND",
   }).format(ballance);
   useEffect(() => {
+    currentBallance = localStorage.getItem("ballance");
     !currentBallance
       ? axios.get("/ballance").then(function (response) {
           setBallance(response.data);
         })
       : setBallance(currentBallance);
-  }, [iniBallance || currentBallance]);
+  }, [isDeposit || currentBallance]);
   return (
     <Fragment>
       <ul className="navbar-nav d-xl-none d-flex align-items-center">
