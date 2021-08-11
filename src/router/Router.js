@@ -184,7 +184,7 @@ const Router = () => {
                               : {})}
                             /*eslint-enable */
                           >
-                            <route.component {...props} />
+                            {/* <route.component {...props} /> */}
                             <FinalRoute route={route} {...props} />
                           </LayoutWrapper>
                         </Suspense>
