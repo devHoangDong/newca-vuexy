@@ -14,7 +14,7 @@ import LayoutWrapper from "@layouts/components/layout-wrapper";
 
 // ** Router Components
 import {
-  BrowserRouter as AppRouter,
+  HashRouter as AppRouter,
   Route,
   Switch,
   Redirect,
@@ -89,8 +89,8 @@ const Router = () => {
     }
 
     if (
-      (!isUserLoggedIn && route.meta === undefined) ||
-      (!isUserLoggedIn &&
+      (!isUserLoggedIn() && route.meta === undefined) ||
+      (!isUserLoggedIn() &&
         route.meta &&
         !route.meta.authRoute &&
         !route.meta.publicRoute)
@@ -103,12 +103,12 @@ const Router = () => {
        */
 
       return <Redirect to="/login" />;
-    } else if (route.meta && route.meta.authRoute && isUserLoggedIn) {
+    } else if (route.meta && route.meta.authRoute && isUserLoggedIn()) {
       // ** If route has meta and authRole and user is Logged in then redirect user to home page (DefaultRoute)
       return <Redirect to="/" />;
-    } else if (isUserLoggedIn && !ability.can(action || "read", resource)) {
-      // ** If user is Logged in and doesn't have ability to visit the page redirect the user to Not Authorized
-      return <Redirect to="/misc/not-authorized" />;
+      // } else if (isUserLoggedIn() && !ability.can(action || "read", resource)) {
+      //   // ** If user is Logged in and doesn't have ability to visit the page redirect the user to Not Authorized
+      //   return <Redirect to="/misc/not-authorized" />;
     } else {
       // ** If none of the above render component
       return <route.component {...props} />;
@@ -185,7 +185,7 @@ const Router = () => {
                             /*eslint-enable */
                           >
                             <route.component {...props} />
-                            {/* <FinalRoute route={route} {...props} /> */}
+                            <FinalRoute route={route} {...props} />
                           </LayoutWrapper>
                         </Suspense>
                       );
@@ -204,26 +204,26 @@ const Router = () => {
     <GoogleAuthProvider>
       <AppRouter basename={process.env.REACT_APP_BASENAME}>
         <Switch>
+          <Route path="/login" component={Login} />
           {/* If user is logged in Redirect user to DefaultRoute else to login */}
           <Route
             exact
             path="/"
             render={() => {
-              return isUserLoggedIn ? (
+              return isUserLoggedIn() ? (
                 <Redirect to={DefaultRoute} />
               ) : (
                 <Redirect to="/login" />
               );
             }}
           />
-          {/* {FinalRoute} */}
-          <Route
+          {/* <Route
             exact
             path="/"
             render={() => {
               return <Redirect to={DefaultRoute} />;
             }}
-          />
+          /> */}
           {/* Not Auth Route */}
           <Route
             exact
@@ -236,7 +236,7 @@ const Router = () => {
           />
           {ResolveRoutes()}
           {/* NotFound Error page */}
-          <Route path="*" component={Error} />/
+          <Route path="*" component={Error} />
         </Switch>
       </AppRouter>
     </GoogleAuthProvider>

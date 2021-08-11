@@ -212,8 +212,8 @@ const EmailList = (props) => {
                   // }}
                   value={value}
                 />
-                <div className="form-control-position">
-                  <Search size={15} />
+                <div className="form-control-position position-absolute fixed-top mt-75">
+                  <Search size={15} className="position-absolute" />
                 </div>
               </FormGroup>
             </div>
