@@ -42,6 +42,7 @@ const NavbarUser = (props) => {
   };
   const handleNavbarSearch = () => {
     setNavbarSearch(!navbarSearch);
+    console.log(navbarSearch, "navbar");
   };
   // ** Function to toggle Theme (Light/Dark)
   const ThemeToggler = () => {
@@ -75,16 +76,16 @@ const NavbarUser = (props) => {
           </NavLink>
         </NavItem>
       </ul>
-      <div
+      {/* <div
         className="bookmark-wrapper d-flex align-items-center"
         style={{ width: "37%" }}
-      >
-        <NavItem className="d-none d-lg-block">
-          <NavLink className="nav-link-style">
-            <ThemeToggler />
-          </NavLink>
-        </NavItem>
-        <div className="w-100">
+      > */}
+      <NavItem className="d-none d-lg-block">
+        <NavLink className="nav-link-style">
+          <ThemeToggler />
+        </NavLink>
+      </NavItem>
+      {/* <div className="w-100">
           <InputGroup>
             <InputGroupAddon addonType="prepend">
               <InputGroupText>
@@ -93,8 +94,8 @@ const NavbarUser = (props) => {
             </InputGroupAddon>
             <Input placeholder="Tìm kiếm" />
           </InputGroup>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
       <ul className="nav navbar-nav align-items-center ml-auto">
         <div className="mr-2 border-right pr-2 d-flex">
           <div className="d-flex flex-column mr-1">
@@ -109,8 +110,8 @@ const NavbarUser = (props) => {
             Nạp tiền
           </Button.Ripple>
         </div>
-        <NavItem className="nav-search" onClick={handleNavbarSearch}>
-          <NavLink className="nav-link-search">
+        <NavItem className="nav-search">
+          <NavLink className="nav-link-search" onClick={handleNavbarSearch}>
             <Icon.Search size={21} data-tour="search" />
           </NavLink>
           <div
@@ -124,20 +125,20 @@ const NavbarUser = (props) => {
             </div>
             <Autocomplete
               className="form-control"
-              // suggestions={suggestions}
+              suggestions={[]}
               filterKey="title"
               filterHeaderKey="groupTitle"
               grouped={true}
-              placeholder="Explore Vuexy..."
+              placeholder="Tìm kiếm..."
               autoFocus={true}
               clearInput={navbarSearch}
-              externalClick={(e) => {
-                setNavbarSearch(false);
-              }}
+              // externalClick={(e) => {
+              //   setNavbarSearch(false);
+              // }}
               onKeyDown={(e) => {
                 if (e.keyCode === 27 || e.keyCode === 13) {
                   setNavbarSearch(false);
-                  // handleAppOverlay("");
+                  // props.handleAppOverlay("");
                 }
               }}
               customRender={(
@@ -215,7 +216,7 @@ const NavbarUser = (props) => {
               }}
               onSuggestionsShown={(userInput) => {
                 if (navbarSearch) {
-                  props.handleAppOverlay(userInput);
+                  // props.handleAppOverlay(userInput);
                 }
               }}
             />
@@ -225,7 +226,7 @@ const NavbarUser = (props) => {
                 onClick={(e) => {
                   e.stopPropagation();
                   setNavbarSearch(false);
-                  // this.props.handleAppOverlay("");
+                  // props.handleAppOverlay("");
                 }}
               />
             </div>
