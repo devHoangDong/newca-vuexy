@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Modal, Form, Input } from 'antd';
 import InfoBank from '../../api/infoBank';
 import { setLoading as setLoadingAction } from '../../redux/actions/myactions/userAction'
 import { useDispatch } from 'react-redux';
 import { Button, Card, CardBody } from 'reactstrap';
-import { Row } from 'reactstrap';
+import { Row, Col, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 import { CardTitle } from 'reactstrap';
 
 const Profile = () => {
@@ -23,12 +22,8 @@ const Profile = () => {
   useEffect(() => {
     fetchInfoBank();
   }, [])
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
+  const toggleModal = () => {
+    setIsModalVisible(!isModalVisible);
   };
 
   const changeFormEdit = (event) => {
@@ -60,27 +55,36 @@ const Profile = () => {
 
   };
   return (
-    <div className="profileBank">
-
+    <Row className="profileBank">
+      <Col lg={{size:8,offset:2}}>
       <Card>
-        <CardTitle></CardTitle>
+        <CardTitle className="mt-2 mb-0 mx-2">Thông tin ngân hàng</CardTitle>
         <CardBody>
-          <Row>Thông tin ngân hàng</Row>
-          <Row> <Button color="primary">sửa</Button></Row>
-       
-        </CardBody>
-       
-        {infoBank && (
+          {infoBank && (
           <div className="profileBank__content">
-            <p><i className="fas fa-university"></i> Ngân hàng: <span>{infoBank.bank_name}</span></p>
-            <p><i className="fas fa-code-branch"></i> Chi nhánh: <span>{infoBank.bank_branch}</span></p>
-            <p><i className="fas fa-user"></i> Chủ tài khoản: <span>{infoBank.bank_account}</span></p>
-            <p><i className="fas fa-credit-card"></i> Số tài khoản: <span>{infoBank.bank_no}</span></p>
+            <FormGroup>
+              <Label for="disabledInput">Ngân hàng:</Label>
+              <Input type="text" id="disabledInput" readOnly value={infoBank.bank_name} />
+            </FormGroup>
+            <FormGroup>
+              <Label for="disabledInput">Chi nhánh:</Label>
+              <Input type="text" id="disabledInput" readOnly value={infoBank.bank_branch} />
+            </FormGroup>
+            <FormGroup>
+              <Label for="disabledInput">Chủ tài khoản:</Label>
+              <Input type="text" id="disabledInput" readOnly value={infoBank.bank_account} />
+            </FormGroup>
+            <FormGroup>
+              <Label for="disabledInput">Số tài khoản:</Label>
+              <Input type="text" id="disabledInput" readOnly value={infoBank.bank_no} />
+            </FormGroup>
           </div>
         )}
+        <Row className="d-flex justify-content-center mx-0 mt-2"><Button className="w-100" color="primary" onClick={toggleModal}>Sửa</Button></Row>
+        </CardBody>
       </Card>
 
-      <Modal title="Sửa thông tin ngân hàng" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+      <Modal title="Sửa thông tin ngân hàng" visible={isModalVisible} onOk={handleOk} >
         <div className="profileBank__content__fromEdit">
           {infoBank && (
             <Form name="infoBank">
@@ -119,7 +123,76 @@ const Profile = () => {
           )}
         </div>
       </Modal>
-    </div>
+      <Modal
+                  isOpen={isModalVisible}
+                  toggle={toggleModal}
+                  className="modal-dialog-centered"
+                >
+                  <ModalHeader toggle={toggleModal}>
+                    Sửa thông tin ngân hàng
+                  </ModalHeader>
+                  <ModalBody>
+                  {infoBank && (
+                    <Form>
+                    <FormGroup>
+                      <Label for="bankname">Tên ngân hàng:</Label>
+                      <Input
+                        type="text"
+                        id="bankname"
+                        placeholder="Tên ngân hàng"
+                        onChange={changeFormEdit}
+                        defaultValue={infoBank.bank_name}
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for="branch">Chi nhánh:</Label>
+                      <Input
+                        type="text"
+                        id="branch"
+                        placeholder="Chi nhánh"
+                        onChange={changeFormEdit} 
+                        defaultValue={infoBank.bank_branch}
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for="owner">Chủ tài khoản:</Label>
+                      <Input
+                        type="text"
+                        id="owner"
+                        placeholder="Chủ tài khoản"
+                        onChange={changeFormEdit} 
+                        defaultValue={infoBank.bank_account}
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for="banknumber">Số tài khoản:</Label>
+                      <Input
+                        type="text"
+                        id="banknumber"
+                        placeholder="Số tài khoản"
+                        onChange={changeFormEdit} 
+                        defaultValue={infoBank.bank_no}
+                      />
+                    </FormGroup>
+                    </Form>
+                  )}
+                  </ModalBody>
+                  <ModalFooter>
+                  <Button color="danger" onClick={() => {
+                      toggleModal();
+                    }}>
+                      Hủy
+                    </Button>{" "}
+                    <Button color="primary" onClick={() => {
+                      toggleModal();
+                      handleOk();
+                    }}>
+                      Lưu
+                    </Button>{" "}
+                  </ModalFooter>
+                </Modal>
+      </Col>
+    </Row>
   )
 }
 
