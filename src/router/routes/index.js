@@ -12,7 +12,7 @@ const Routes = [
   {
     path: "/home",
     component: lazy(() =>
-      import("../../views/dashboard/analytics copy/AnalyticsDashboard")
+      import("../../views/dashboard/analytics main/AnalyticsDashboard")
     ),
   },
   {
@@ -100,10 +100,6 @@ const Routes = [
     component: lazy(() => import("../../views/email/Email")),
   },
   {
-    path: "/affiliate",
-    component: lazy(() => import("../../views/affiliate/showAffiliate.jsx")),
-  },
-  {
     path: "/fourth-page",
     component: lazy(() => import("../../views/request/Register/index")),
   },
@@ -111,10 +107,6 @@ const Routes = [
     path: "/fifth-page",
     component: lazy(() => import("../../views/helpdesk")),
   },
-  // {
-  //   path: '/account',
-  //   component: lazy(() => import('../../views/account/content/EditAccount.jsx'))
-  // },
   {
     path: "/account",
     component: lazy(() =>
@@ -128,18 +120,6 @@ const Routes = [
   {
     path: "/buy-select",
     component: lazy(() => import("../../views/buy/select/index")),
-  },
-  {
-    path: "/order",
-    component: lazy(() =>
-      import("../../views/account/content/PurchaseOrder.jsx")
-    ),
-  },
-  {
-    path: "/affiliate",
-    component: lazy(() =>
-      import("../../views/account/content/affiliate/DrawalMoney")
-    ),
   },
   {
     path: "/login",

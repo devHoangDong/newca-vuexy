@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DataTable from "react-data-table-component";
-import { Settings } from 'react-feather';
-import { NavLink, useHistory } from 'react-router-dom';
-import {
-    DropdownItem, DropdownMenu,
-
-    DropdownToggle, UncontrolledButtonDropdown
-} from "reactstrap";
+// import { useHistory } from 'react-router-dom';
 import "../../assets/scss/pages/data-list.scss";
 import "../../assets/scss/plugins/extensions/react-paginate.scss";
 import Breadcrumbs from "../../components/@vuexy/breadCrumbs/BreadCrumb";
@@ -14,8 +8,8 @@ import Breadcrumbs from "../../components/@vuexy/breadCrumbs/BreadCrumb";
 
 
 const General = () => {
-    const [basicPicker, setBasicPicker] = useState(new Date())
-    const history = useHistory()
+    // const [basicPicker, setBasicPicker] = useState(new Date())
+    // const history = useHistory()
     const data = [
         { id: 1, no: '1', name: '152', subject: 'Lỗi token chữ ký số NewCA (3)', datesend: '26/03/2021', status: 'Đang xử lý', note: '' },
         { id: 2, no: '2', name: '153', subject: 'Lỗi token chữ ký số NewCA (4)', datesend: '26/04/2021', status: 'Đã hoàn thành', note: '' },
@@ -79,76 +73,76 @@ const General = () => {
             }
         },
     };
-    const ActionsComponent = props => {
-        return (
-            <div className="data-list-action">
-                <UncontrolledButtonDropdown>
-                    <DropdownToggle
-                        color="primary"
-                        size="sm"
-                        className="dropdown-toggle"
-                    >
-                        <Settings
-                            size={14}
-                            style={{
-                                left: 0
-                            }}
-                        />
-                    </DropdownToggle>
-                    <DropdownMenu tag="ul" right>
-                        <DropdownItem tag="li">
-                            <NavLink className="text-dark w-100" to="/search">
-                                Xem chi tiết
-                                </NavLink>
-                        </DropdownItem>
-                        <DropdownItem tag="li">
-                            <NavLink className="text-dark w-100" to='/manage-exandcts'>
-                                Gia hạn
-                                </NavLink>
-                        </DropdownItem>
-                        <DropdownItem tag="li">
-                            <NavLink className="text-dark w-100" to='/manage-editcts'>
-                                Chỉnh sửa
-                                </NavLink>
-                        </DropdownItem>
-                        <DropdownItem tag="li">
-                            <NavLink className="text-dark w-100" to="/manage-restorects">
-                                Khôi phục
-                                </NavLink>
-                        </DropdownItem>
-                        <DropdownItem tag="li">
-                            <NavLink className="text-dark w-100" to="/manage-stopcts">
-                                Tạm dừng
-                                </NavLink>
-                        </DropdownItem>
-                        <DropdownItem tag="li">
-                            <NavLink className="text-dark w-100" to="/manage-reclaimcts">
-                                Thu hồi
-                                </NavLink>
-                        </DropdownItem>
-                    </DropdownMenu>
-                </UncontrolledButtonDropdown>
-                {/* <Settings
-                    className="cursor-pointer mr-1"
-                    size={20}
-                    onClick={() => {
-                        history.push("/search")
-                    }}
-                /> */}
-                {/* <Edit
-                    className="cursor-pointer"
-                    size={20}
-                // onClick={() => {
-                //     props.deleteRow(props.row)
-                // }}
-                /> */}
-            </div>
-        )
-    }
+    // const ActionsComponent = props => {
+    //     return (
+    //         <div className="data-list-action">
+    //             <UncontrolledButtonDropdown>
+    //                 <DropdownToggle
+    //                     color="primary"
+    //                     size="sm"
+    //                     className="dropdown-toggle"
+    //                 >
+    //                     <Settings
+    //                         size={14}
+    //                         style={{
+    //                             left: 0
+    //                         }}
+    //                     />
+    //                 </DropdownToggle>
+    //                 <DropdownMenu tag="ul" right>
+    //                     <DropdownItem tag="li">
+    //                         <NavLink className="text-dark w-100" to="/search">
+    //                             Xem chi tiết
+    //                             </NavLink>
+    //                     </DropdownItem>
+    //                     <DropdownItem tag="li">
+    //                         <NavLink className="text-dark w-100" to='/manage-exandcts'>
+    //                             Gia hạn
+    //                             </NavLink>
+    //                     </DropdownItem>
+    //                     <DropdownItem tag="li">
+    //                         <NavLink className="text-dark w-100" to='/manage-editcts'>
+    //                             Chỉnh sửa
+    //                             </NavLink>
+    //                     </DropdownItem>
+    //                     <DropdownItem tag="li">
+    //                         <NavLink className="text-dark w-100" to="/manage-restorects">
+    //                             Khôi phục
+    //                             </NavLink>
+    //                     </DropdownItem>
+    //                     <DropdownItem tag="li">
+    //                         <NavLink className="text-dark w-100" to="/manage-stopcts">
+    //                             Tạm dừng
+    //                             </NavLink>
+    //                     </DropdownItem>
+    //                     <DropdownItem tag="li">
+    //                         <NavLink className="text-dark w-100" to="/manage-reclaimcts">
+    //                             Thu hồi
+    //                             </NavLink>
+    //                     </DropdownItem>
+    //                 </DropdownMenu>
+    //             </UncontrolledButtonDropdown>
+    //             {/* <Settings
+    //                 className="cursor-pointer mr-1"
+    //                 size={20}
+    //                 onClick={() => {
+    //                     history.push("/search")
+    //                 }}
+    //             /> */}
+    //             {/* <Edit
+    //                 className="cursor-pointer"
+    //                 size={20}
+    //             // onClick={() => {
+    //             //     props.deleteRow(props.row)
+    //             // }}
+    //             /> */}
+    //         </div>
+    //     )
+    // }
 
-    const handlePick = (date) => {
-        setBasicPicker(date)
-    }
+    // const handlePick = (date) => {
+    //     setBasicPicker(date)
+    // }
     return (
         <div>
             <Breadcrumbs

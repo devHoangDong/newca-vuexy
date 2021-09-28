@@ -1,33 +1,20 @@
 // ** Dropdowns Imports
-import { Fragment } from "react";
-import classnames from "classnames";
-import * as Icon from "react-feather";
 import axios from "axios";
-
+import classnames from "classnames";
+import { Fragment, useEffect, useState } from "react";
+import * as Icon from "react-feather";
+// ** Third Party Components
+import { Bell, Menu, Moon, ShoppingCart, Sun } from "react-feather";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import {
+  Badge, Button, NavItem,
+  NavLink
+} from "reactstrap";
+import Autocomplete from "../../../../components/@vuexy/autoComplete/AutoCompleteComponent";
 import UserDropdown from "./UserDropdown";
 
-// ** Third Party Components
-import { Sun, Moon, Menu, ShoppingCart, Bell } from "react-feather";
-import {
-  Row,
-  Col,
-  NavItem,
-  NavLink,
-  Badge,
-  Form,
-  FormGroup,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-} from "reactstrap";
-import { Button } from "reactstrap";
-import { useState } from "react";
-import { Search } from "react-feather";
-import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
-import Autocomplete from "../../../../components/@vuexy/autoComplete/AutoCompleteComponent";
+
 
 const NavbarUser = (props) => {
   // ** Props
