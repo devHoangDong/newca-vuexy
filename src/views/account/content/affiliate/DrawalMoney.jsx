@@ -13,14 +13,14 @@ const DrawalMoney = () => {
           <div className="commissionText">Tiền hoa hồng</div>
           <div className="commissionNumber">$999</div>
           <div className="moneyIcon">
-            <i class="far fa-money-bill-alt"></i>
+            <i className="far fa-money-bill-alt"></i>
           </div>
         </div>
         <div className="ballance">
           <div className="ballanceText">Số dư hiện tại</div>
           <div className="ballanceNumber">$999</div>
           <div className="ballanceIcon">
-            <i class="fad fa-wallet"></i>
+            <i className="fad fa-wallet"></i>
           </div>
         </div>
       </div>
@@ -30,8 +30,8 @@ const DrawalMoney = () => {
       {/* <table style={{ width: "60%", margin: "auto" }}>
         <tbody>
           <tr>
-            <td><i class="far fa-money-bill-alt"></i>Tiền hoa hồng</td>
-            <td><i class="fas fa-wallet"></i>Số dư hiện tại</td>
+            <td><i className="far fa-money-bill-alt"></i>Tiền hoa hồng</td>
+            <td><i className="fas fa-wallet"></i>Số dư hiện tại</td>
           </tr>
           <tr className="drawal-money__number">
             <td>$999</td>

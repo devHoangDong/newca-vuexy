@@ -96,7 +96,7 @@ const UserInfo = () => {
                                 <Label for="iddate">Ngày cấp</Label>
                             </Col>
                             <Col lg="7" md="12" className="font-weight-bold">
-                                <Input type="date" class="form-control" placeholder="Cấp ngày"
+                                <Input type="date" className="form-control" placeholder="Cấp ngày"
                                     name="iddate"
                                     id="iddate"
                                     onChange={formik.handleChange} 

@@ -101,9 +101,9 @@ $wishlist-bg: #f6f6f6;
   }
 
   // shop main content
-  .shop-content {
-    // margin-left: 300px;
-  }
+  // .shop-content {
+  //   margin-left: 300px;
+  // }
   //ecommerce header
   .ecommerce-header-items {
     display: flex;
@@ -193,10 +193,10 @@ $wishlist-bg: #f6f6f6;
 
     .item-name {
       font-weight: 600;
-      color: $headings-color;
-      a {
-        color: $headings-color;
-      }
+      // color: $headings-color;
+      // a {
+      //   color: $headings-color;
+      // }
     }
     .item-description {
       font-size: 0.875rem;

@@ -63,12 +63,12 @@ function Body() {
         <div className="bodyRight">
           <div className="topNav">
             <Title title={(!user) ? 'Xin chào khách' : 'Xin chào ' + user.name} />
-            <div className="showMenu" onClick={showMenu} ><i class="fas fa-bars"></i></div>
+            <div className="showMenu" onClick={showMenu} ><i className="fas fa-bars"></i></div>
             <div className="userAvatar">
               <div className="avatar">
                 {/* <img src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" alt="logo-mini"></img> */}
                 <div className="userName">
-                  <div className="userName__thumb"><i class="fas fa-user"></i></div>
+                  <div className="userName__thumb"><i className="fas fa-user"></i></div>
                   <div className="thumb__editAccount">
                     <Link to={`${url}/editAccount`}>
                       <p>Sửa thông tin</p>

@@ -2,7 +2,7 @@ import { AvFeedback, AvGroup, AvInput } from "availity-reactstrap-validation"
 import InputNumber from 'rc-input-number'
 import React, { useEffect, useState, useRef } from "react"
 import {
-  CreditCard, Home, ShoppingCart, X, Mail, Phone, FileText, Download
+  CreditCard, Home, ShoppingCart, X, FileText, Download
 } from "react-feather"
 import { useDispatch, useSelector } from 'react-redux'
 import { toast, ToastContainer } from "react-toastify"
@@ -16,14 +16,12 @@ import {
   FormGroup, Input, InputGroup,
   InputGroupAddon, Label, Media, Row, Table
 } from "reactstrap"
-import logo from "../../../assets/img/logo/logo.png"
 import bill from "../../../assets/images/pages/billcyber.png"
 import "../../../assets/scss/pages/app-ecommerce-shop.scss"
 import "../../../assets/scss/pages/inputnumber.scss"
 import "../../../assets/scss/pages/wizard.scss"
 import "../../../assets/scss/plugins/extensions/toastr.scss"
 import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
-import Wizard from "../../../components/@vuexy/wizard/WizardComponent"
 import { addCart, dellCart } from '../../../redux/actions/myactions/Cartaction'
 import { mobileStyle } from "../../forms/form-elements/number-input/InputStyles"
 import { productsList } from "./cartData"
@@ -53,6 +51,12 @@ const Checkout = () => {
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
+  const displayPrice = (price) => {
+    return new Intl.NumberFormat("vi-VI", {
+      style: "currency",
+      currency: "VND",
+    }).format(price);
+  } 
   const steps = [
     {
       title: <ShoppingCart size={22} />,
@@ -66,8 +70,8 @@ const Checkout = () => {
                     <img src={item.img} alt="Product" />
                   </div>
                   <CardBody>
-                    <div className="item-name">
-                      <span>{item.name}</span>
+                    <div className="item-name detail">
+                      <span className="detail">{item.name}</span>
                       <p className="item-company">
                         By <span className="company-name">{item.by}</span>
                       </p>
@@ -87,8 +91,8 @@ const Checkout = () => {
                           downHandler = {<div>-</div>}
                         />
                       </div>
-                      <p className="delivery-date">{item.deliveryBy}</p>
-                      <p className="offers">{item.offers}</p>
+                      {/* <p className="delivery-date">{item.deliveryBy}</p>
+                      <p className="offers">{item.offers}</p> */}
                     </div>
                   </CardBody>
                   <div className="item-options text-center">
@@ -134,16 +138,16 @@ const Checkout = () => {
                 </div>
                 <div className="detail">
                   <div className="detail-title">Tổng</div>
-                  <div className="detail-amt">{total}</div>
+                  <div className="detail-amt">{displayPrice(total)}</div>
                 </div>
-                <div className="detail">
+                {/* <div className="detail">
                   <div className="detail-title">Giảm giá</div>
                   <div className="detail-amt discount-amt">-25$</div>
                 </div>
                 <div className="detail">
                   <div className="detail-title">Thuế ước tính</div>
                   <div className="detail-amt">$1.3</div>
-                </div>
+                </div> */}
                 {/* <div className="detail">
                   <div className="detail-title">EMI Eligibility</div>
                   <div className="detail-amt emi-details">Details</div>
@@ -155,7 +159,7 @@ const Checkout = () => {
                 <hr />
                 <div className="detail">
                   <div className="detail-title detail-total">Tổng</div>
-                  <div className="detail-amt total-amt">${total}</div>
+                  <div className="detail-amt total-amt">{displayPrice(total)}</div>
                 </div>
                 <div className="detail">
                   Ghi chú
@@ -479,7 +483,7 @@ const Checkout = () => {
                       </p>
                       <p className="stock-status-in">Sẵn hàng</p>
                       <div className="item-quantity">
-                        <p className="quantity-title">Số lượng</p>
+                        <p className="quantity-title">Thời gian</p>
                         <InputNumber
                           min={0}
                           max={10}
@@ -492,9 +496,10 @@ const Checkout = () => {
                           upHandler = {<div>+</div>}
                           downHandler = {<div>-</div>}
                         />
+                         <div className="quantity-title d-inline-block ml-2">Năm</div>
                       </div>
-                      <p className="delivery-date">{item.deliveryBy}</p>
-                      <p className="offers">{item.offers}</p>
+                      {/* <p className="delivery-date">{item.deliveryBy}</p>
+                      <p className="offers">{item.offers}</p> */}
                     </div>
                   </CardBody>
                   <div className="item-options text-center">
@@ -506,7 +511,7 @@ const Checkout = () => {
                         </Badge>
                       </div> */}
                       <div className="item-cost">
-                        <h6 className="item-price">{item.price}</h6>
+                        <h6 className="item-price">{displayPrice(item.price)}</h6>
                       </div>
                     </div>
                     {/* <div className="wishlist">
@@ -540,16 +545,16 @@ const Checkout = () => {
                 </div>
                 <div className="detail">
                   <div className="detail-title">Tổng</div>
-                  <div className="detail-amt">{total}</div>
+                  <div className="detail-amt">{displayPrice(total)}</div>
                 </div>
-                <div className="detail">
+                {/* <div className="detail">
                   <div className="detail-title">Giảm giá</div>
                   <div className="detail-amt discount-amt">-25$</div>
                 </div>
                 <div className="detail">
                   <div className="detail-title">Thuế ước tính</div>
                   <div className="detail-amt">$1.3</div>
-                </div>
+                </div> */}
                 {/* <div className="detail">
                   <div className="detail-title">EMI Eligibility</div>
                   <div className="detail-amt emi-details">Details</div>
@@ -561,7 +566,7 @@ const Checkout = () => {
                 <hr />
                 <div className="detail">
                   <div className="detail-title detail-total">Tổng</div>
-                  <div className="detail-amt total-amt">${total}</div>
+                  <div className="detail-amt total-amt">{displayPrice(total)}</div>
                 </div>
                 <div className="detail">
                   Ghi chú

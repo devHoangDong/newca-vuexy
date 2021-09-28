@@ -17,7 +17,7 @@
   font-size: 12px;
   line-height: 26px;
   vertical-align: middle;
-  border: none;
+  border: solid 1px $primary;
   border-radius: 4px;
   transition: all 0.3s;
   background: gb(248, 248, 248) none repeat scroll 0% 0%;
@@ -52,15 +52,13 @@
     -webkit-user-select: none;
     user-select: none;
   }
-
-  &:hover {
     border-color: $primary !important;
 
     .rc-input-number-handler-up,
     .rc-input-number-handler-wrap {
       border-color: $primary !important;
     }
-  }
+  
 
   &-disabled:hover {
     border-color: #d9d9d9;

@@ -6,11 +6,9 @@ import { useHistory } from 'react-router-dom';
 import {
     Card,
     CardHeader,
-    CardTitle,
     CardBody,
     FormGroup,
     CustomInput,
-    Row,
     Col,
     Input,
     Form, FormFeedback,
@@ -18,7 +16,6 @@ import {
     Label,
 } from "reactstrap";
 import Breadcrumbs from "../../components/@vuexy/breadCrumbs/BreadCrumb";
-import { Check } from "react-feather";
 import "../../assets/scss/plugins/extensions/react-paginate.scss";
 import "../../assets/scss/pages/data-list.scss";
 

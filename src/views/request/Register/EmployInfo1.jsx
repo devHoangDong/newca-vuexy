@@ -99,7 +99,7 @@ const EmployInfo = () => {
                                 <Label for="">Ngày cấp</Label>
                             </Col>
                             <Col lg="7" md="12" className="font-weight-bold">
-                                <Input type="date" class="form-control" placeholder="Ngày cấp"
+                                <Input type="date" className="form-control" placeholder="Ngày cấp"
                                     name="dateprovide"
                                     id="dateprovide"
                                     onChange={formik.handleChange} 

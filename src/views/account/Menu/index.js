@@ -30,12 +30,12 @@ function MyMenu({url, myst}) {
           <div className="menusub userDashboard">
             <div className="dashBoard">
               <Link to={`${url}/`} >
-              <i class="fal fa-chart-line"></i>&nbsp;&nbsp;Dashboard
+              <i className="fal fa-chart-line"></i>&nbsp;&nbsp;Dashboard
               </Link>
             </div>
           </div>
           <div className="menusub ">
-            <div className="menusub-title"><i class="fad fa-user-circle"></i>&nbsp;&nbsp;<p>Thông tin tài khoản</p><span><i class="fal fa-chevron-down"></i></span></div>
+            <div className="menusub-title"><i className="fad fa-user-circle"></i>&nbsp;&nbsp;<p>Thông tin tài khoản</p><span><i className="fal fa-chevron-down"></i></span></div>
             <ul className="menusub-list">
                 <li>
                 <Link to={`${url}/editAccount`}>Sửa thông tin tài khoản</Link>
@@ -49,7 +49,7 @@ function MyMenu({url, myst}) {
               </ul>
           </div>
           <div className="menusub">
-            <div className="menusub-title"><i class="fad fa-shopping-cart"></i>&nbsp;&nbsp;<p>Thông tin mua sắm</p><span><i class="fal fa-chevron-down"></i></span></div>
+            <div className="menusub-title"><i className="fad fa-shopping-cart"></i>&nbsp;&nbsp;<p>Thông tin mua sắm</p><span><i className="fal fa-chevron-down"></i></span></div>
             <ul className="menusub-list">
               <li>
                 <Link to={`${url}/purchaseOder`}>Đơn hàng đã mua</Link>
@@ -57,7 +57,7 @@ function MyMenu({url, myst}) {
             </ul>
           </div>
           <div className="menusub">
-            <div className="menusub-title"><i class="fal fa-chart-network"></i>&nbsp;&nbsp;<p>Cộng tác viên NewCa</p><span><i class="fal fa-chevron-down"></i></span></div>
+            <div className="menusub-title"><i className="fal fa-chart-network"></i>&nbsp;&nbsp;<p>Cộng tác viên NewCa</p><span><i className="fal fa-chevron-down"></i></span></div>
             <ul className="menusub-list">
               <li>
                 <Link to={`${url}/affiliate`}>Tài khoản CTV</Link>

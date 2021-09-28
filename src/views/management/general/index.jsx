@@ -118,12 +118,12 @@ const General = () => {
                         </CustomInput>
                     </Col>
                     <Col lg="3" md="12">
-                        <Input required="" type="text" class="form-control" placeholder="Ngày đăng ký"
+                        <Input required="" type="text" className="form-control" placeholder="Ngày đăng ký"
                             onFocus={(e) => (e.currentTarget.type = "date")}
                             onBlur={(e) => (e.currentTarget.type = "text")} />
                     </Col>
                     <Col lg="3" md="12">
-                        <Input required="" type="text" class="form-control" placeholder="Ngày hết hạn"
+                        <Input required="" type="text" className="form-control" placeholder="Ngày hết hạn"
                             onFocus={(e) => (e.currentTarget.type = "date")}
                             onBlur={(e) => (e.currentTarget.type = "text")} />
                     </Col>

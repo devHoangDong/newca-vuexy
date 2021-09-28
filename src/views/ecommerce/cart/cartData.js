@@ -9,61 +9,41 @@ export const productsList = [
   {
     id:1,
     img: img1,
-    name: "Chữ kí số cho cá nhân gói 3 năm",
+    name: "Chữ kí số cho cán bộ nhân viên",
     by: "NewCA",
     deliveryBy: "Wed June 7",
     offers: "giảm 17% cho 4 đơn hàng trở lên",
-    price: "$39.99",
+    price: "880000",
     freeShipping: true
   },
   {
     id:2,
     img: img2,
-    name: "Chữ kí số cho cá nhân gói 3 năm",
+    name: "Chữ kí số cho tổ chức, doanh nghiệp",
     by: "NewCA",
     deliveryBy: "Wed June 7",
     offers: "giảm 7% mỗi đơn hàng",
-    price: "$1599.99",
+    price: "1827000",
     freeShipping: true
   },
   {
     id:3,
     img: img3,
-    name: "Chữ kí số cho cá nhân gói 3 năm",
+    name: "Chữ kí số cho cá nhân",
     by: "NewCA",
     deliveryBy: "Wed June 7",
     offers: "giảm 3% mỗi đơn hàng",
-    price: "$35",
+    price: "880000",
     freeShipping: false
   },
   {
     id:4,
     img: img4,
-    name: "Chữ kí số cho cá nhân gói 3 năm",
+    name: "Chữ kí số cho thiết bị HSM",
     by: "NewCA",
     deliveryBy: "Wed June 7",
     offers: "giảm 5 % mỗi đơn hàng",
-    price: "$429.99",
+    price: "759000",
     freeShipping: true
-  },
-  {
-    id:5,
-    img: img5,
-    name: "Chữ kí số cho cá nhân gói 3 năm",
-    by: "NewCA",
-    deliveryBy: "Wed June 7",
-    offers: "giảm 3% mỗi đơn hàng",
-    price: "$499.99",
-    freeShipping: true
-  },
-  {
-    id:6,
-    img: img6,
-    name: "Chữ kí số cho cá nhân gói 3 năm",
-    by: "NewCA",
-    deliveryBy: "Wed June 7",
-    offers: "giảm 6% từ 3 đơn hàng trở lên",
-    price: "$49.99",
-    freeShipping: false
   }
 ]

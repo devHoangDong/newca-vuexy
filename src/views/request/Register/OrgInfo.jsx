@@ -58,7 +58,7 @@ const OrgInfo = () => {
                                     type="text"
                                     name="date"
                                     id="date"
-                                    class="form-control"
+                                    className="form-control"
                                     placeholder="Cấp ngày"
                                     onFocus={(e) => (e.currentTarget.type = "date")}
                                     onBlur={(e) => (e.currentTarget.type = "text")} />
@@ -194,7 +194,7 @@ const OrgInfo = () => {
                                 <Label for="">Email *</Label>
                             </Col>
                             <Col lg="8" md="12">
-                                <Input required="" type="text" class="form-control" placeholder="Email"
+                                <Input required="" type="text" className="form-control" placeholder="Email"
                                     onFocus={(e) => (e.currentTarget.type = "date")}
                                     onBlur={(e) => (e.currentTarget.type = "text")} />
                             </Col>

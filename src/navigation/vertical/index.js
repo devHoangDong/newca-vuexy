@@ -216,7 +216,7 @@ export default [
     ],
   },
   {
-    id: "fifthPage",
+    id: "supportRequire",
     title: "Yêu cầu hỗ trợ",
     type: "collapse",
     icon: <HelpCircle size={20} />,
@@ -248,21 +248,21 @@ export default [
     navLink: "/error",
   },
   {
-    id: "thirdPage",
+    id: "historyTrans",
     title: "Lịch sử giao dịch",
     type: "item",
     icon: <Clock size={20} />,
     navLink: "/error",
   },
   {
-    id: "thirdPage",
+    id: "earnMoney",
     title: "Kiếm tiền cùng NewCA",
     type: "item",
     icon: <DollarSign size={20} />,
     navLink: "/affiliate",
   },
   {
-    id: "fifthPage",
+    id: "utility",
     title: "Tiện ích",
     type: "item",
     icon: <Settings size={20} />,
