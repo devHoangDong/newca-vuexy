@@ -1,39 +1,22 @@
-import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useFormik } from "formik";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   Button,
   Card,
-  CardHeader,
-  CardTitle,
-  CardBody,
-  InputGroup,
-  CustomInput,
-  Input,
-  Label,
-  Row,
-  Col,
-  InputGroupButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  TabContent,
-  TabPane,
-  Nav,
-  NavItem,
-  NavLink,
+  CardBody, CardHeader,
+  Col, CustomInput,
+  DropdownItem, DropdownMenu, DropdownToggle,
   Form,
   FormFeedback,
-  FormGroup,
-  InputGroupAddon,
+  FormGroup, Input, InputGroup,
+  InputGroupAddon, InputGroupButtonDropdown, Label,
+  Row
 } from "reactstrap";
-import { Eye, Code, Edit, DollarSign } from "react-feather";
-import classnames from "classnames";
-import { inputGroupDropdowns } from "./InputGroupSourceCode";
-import { useDispatch } from "react-redux";
-import { handleConfirm } from "../management/cts/Confirm";
-import { useFormik } from "formik";
 import * as Yup from "yup";
 import { deposit } from "../../redux/actions/myactions/depositAction";
-import axios from "axios";
+import { handleConfirm } from "../management/cts/Confirm";
 
 export default function Deposit() {
   const [openDropdown, setOpenDropdown] = useState(false);

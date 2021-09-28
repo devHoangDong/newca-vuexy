@@ -1,12 +1,9 @@
 import React from "react"
-import { Info, Mail, Phone } from "react-feather"
-import { Link } from "react-router-dom"
-import { Card, CardBody, Col, Row, Button } from "reactstrap"
+import { Col, Row } from "reactstrap"
 import "../../../assets/scss/pages/faq.scss"
 import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
+import BottomContent from '../common/BottomContent'
 import QuestionsSearch from "./QuestionsSearch"
-import TopSearch from '../common/TopSearch';
-import BottomContent from '../common/BottomContent';
 
 
 class Faq extends React.Component {

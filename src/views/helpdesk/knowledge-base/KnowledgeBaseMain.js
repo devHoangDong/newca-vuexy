@@ -1,6 +1,5 @@
 import React from "react"
-import { Card, CardBody, FormGroup, Input, Row, Col } from "reactstrap"
-import { Search } from "react-feather"
+import { Col, Row } from "reactstrap"
 import KnowledgeCards from "./KnowledgeCards"
 
 class KnowledgeBaseMain extends React.Component {

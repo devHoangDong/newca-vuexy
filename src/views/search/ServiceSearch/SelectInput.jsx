@@ -6,11 +6,9 @@ import CaptchaGG from './CaptchaGG';
 import {
   Card,
   CardHeader,
-  CardTitle,
   CardBody,
   FormGroup,
   CustomInput,
-  Row,
   Col,
   Input,
   Form,
@@ -34,11 +32,11 @@ const SelectInput = ({ handleSubmit }) => {
       span: 24,
     },
   };
-  const tailLayout = {
-    wrapperCol: {
-      span: 8,
-    },
-  };
+  // const tailLayout = {
+  //   wrapperCol: {
+  //     span: 8,
+  //   },
+  // };
   const onchangeInput = event => {
     setInput({
       ...input,

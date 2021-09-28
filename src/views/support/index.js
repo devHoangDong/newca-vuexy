@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
-import Breadcrumbs from "../../components/@vuexy/breadCrumbs/BreadCrumb"
-import DataTable from "react-data-table-component"
-import { Check, Edit, Eye, Settings, Trash } from 'react-feather'
-import "../../assets/scss/plugins/extensions/react-paginate.scss"
-import "../../assets/scss/pages/data-list.scss"
-import { Input, CustomInput, Row, Col } from 'reactstrap'
-import Flatpickr from "react-flatpickr"
-import { useHistory } from 'react-router-dom';
+import DataTable from "react-data-table-component";
+import { Settings } from 'react-feather';
+import { NavLink, useHistory } from 'react-router-dom';
 import {
-    Breadcrumb,
-    BreadcrumbItem,
-    UncontrolledButtonDropdown,
-    DropdownMenu,
-    DropdownItem,
-    DropdownToggle
-} from "reactstrap"
-import { NavLink } from "react-router-dom"
+    DropdownItem, DropdownMenu,
+
+    DropdownToggle, UncontrolledButtonDropdown
+} from "reactstrap";
+import "../../assets/scss/pages/data-list.scss";
+import "../../assets/scss/plugins/extensions/react-paginate.scss";
+import Breadcrumbs from "../../components/@vuexy/breadCrumbs/BreadCrumb";
 
 
 
@@ -151,7 +145,7 @@ const General = () => {
             </div>
         )
     }
-    
+
     const handlePick = (date) => {
         setBasicPicker(date)
     }

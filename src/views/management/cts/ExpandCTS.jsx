@@ -1,15 +1,13 @@
 import React from 'react';
-import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
-import Swal from 'sweetalert2'
 import { useHistory } from 'react-router-dom';
-import { handleConfirm } from './Confirm';
 import {
     Button, Card,
     CardBody,
     Col, CustomInput, FormGroup,
-    Input,
     Label, Row
 } from "reactstrap";
+import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb";
+import { handleConfirm } from './Confirm';
 
 const ExpandCTS = () => {
     const history = useHistory()

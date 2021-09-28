@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
-import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
-import DataTable from "react-data-table-component"
-import { Check, Edit, Eye, Settings, Trash } from 'react-feather'
-import "../../../assets/scss/plugins/extensions/react-paginate.scss"
-import "../../../assets/scss/pages/data-list.scss"
-import { Input, CustomInput, Row, Col } from 'reactstrap'
-import Flatpickr from "react-flatpickr"
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    UncontrolledButtonDropdown,
-    DropdownMenu,
-    DropdownItem,
-    DropdownToggle
-} from "reactstrap"
-import { NavLink } from "react-router-dom"
+import DataTable from "react-data-table-component";
+import { Settings } from 'react-feather';
+import { Col, CustomInput, Input, Row } from 'reactstrap';
+import "../../../assets/scss/pages/data-list.scss";
+import "../../../assets/scss/plugins/extensions/react-paginate.scss";
+import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb";
 
 
 

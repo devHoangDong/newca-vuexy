@@ -1,12 +1,10 @@
-import React from 'react';
-import { useState, useEffect } from 'react'
-import s from './Result.module.scss'
+import React, { useEffect, useState } from 'react';
 import {
-    Button, Card,
+    Card,
     CardBody,
-    Col, CustomInput, FormGroup,
+    FormGroup,
     Input,
-    Label, Row
+    Label
 } from "reactstrap";
 
 const Result = ({ params }) => {
@@ -31,7 +29,7 @@ const Result = ({ params }) => {
             headers: myHeaders,
             redirect: 'follow'
         };
-        if (n == 32) {
+        if (n === 32) {
             fetch(`http://demoapi.fastca.vn/api/search-cert/get-sub-info?serial=${code}`, requestOptions)
                 .then(response => response.json())
                 .then(result => {
@@ -40,7 +38,7 @@ const Result = ({ params }) => {
                     if (info) { updateInfo(info) }
                 })
                 .catch(error => console.log('error', error));
-        } else if (n == 10) {
+        } else if (n === 10) {
             fetch(`http://demoapi.fastca.vn/api/search-cert/get-sub-profile?code=${code}`, requestOptions)
                 .then(response => response.json())
                 .then(result => {

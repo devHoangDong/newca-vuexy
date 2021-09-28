@@ -1,27 +1,19 @@
 import React, { useState } from 'react';
-import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
-import DataTable from "react-data-table-component"
-import { Check, Edit, Eye, Settings, Trash } from 'react-feather'
-import "../../../assets/scss/plugins/extensions/react-paginate.scss"
-import "../../../assets/scss/pages/data-list.scss"
-import { Input, CustomInput, Row, Col } from 'reactstrap'
-import Flatpickr from "react-flatpickr"
-import { useHistory } from 'react-router-dom';
+import DataTable from "react-data-table-component";
+import { Settings } from 'react-feather';
+import { NavLink } from 'react-router-dom';
 import {
-    Breadcrumb,
-    BreadcrumbItem,
-    UncontrolledButtonDropdown,
-    DropdownMenu,
-    DropdownItem,
-    DropdownToggle
-} from "reactstrap"
-import { NavLink } from "react-router-dom"
+    Col, DropdownItem, DropdownMenu,
+    DropdownToggle, Input, Row, UncontrolledButtonDropdown
+} from 'reactstrap';
+import "../../../assets/scss/pages/data-list.scss";
+import "../../../assets/scss/plugins/extensions/react-paginate.scss";
+import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb";
 
 
 
 const General = () => {
     const [basicPicker, setBasicPicker] = useState(new Date())
-    const history = useHistory()
     const data = [
         { id: 1, no: '1', name: 'Công ty TNHH Dr.Marie', codects: '54010163B89501F2EF4EBAA0C717BC20', datesign: '26/03/2021', dateexpire: '26/04/2021' },
         { id: 2, no: '2', name: 'Công ty TNHH Dr.Marie', codects: '54010163B89501F2EF4EBAA0C717BC20', datesign: '26/03/2021', dateexpire: '26/04/2021' },

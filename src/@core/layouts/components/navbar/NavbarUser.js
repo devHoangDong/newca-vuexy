@@ -42,7 +42,6 @@ const NavbarUser = (props) => {
   };
   const handleNavbarSearch = () => {
     setNavbarSearch(!navbarSearch);
-    console.log(navbarSearch, "navbar");
   };
   // ** Function to toggle Theme (Light/Dark)
   const ThemeToggler = () => {
@@ -60,8 +59,8 @@ const NavbarUser = (props) => {
     currentBallance = localStorage.getItem("ballance");
     !currentBallance
       ? axios.get("/ballance").then(function (response) {
-          setBallance(response.data);
-        })
+        setBallance(response.data);
+      })
       : setBallance(currentBallance);
   }, [isDeposit || currentBallance]);
   return (
@@ -193,8 +192,8 @@ const NavbarUser = (props) => {
                               {item.by
                                 ? item.by
                                 : item.email
-                                ? item.email
-                                : null}
+                                  ? item.email
+                                  : null}
                             </small>
                           ) : null}
                         </div>
@@ -205,8 +204,8 @@ const NavbarUser = (props) => {
                             {item.size
                               ? item.size
                               : item.date
-                              ? item.date
-                              : null}
+                                ? item.date
+                                : null}
                           </small>
                         </div>
                       ) : null}

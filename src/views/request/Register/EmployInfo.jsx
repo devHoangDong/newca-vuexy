@@ -1,8 +1,7 @@
+import { Button, Col, Form, Input, Row, Select } from 'antd';
 import React from 'react';
-import { Input, Select } from 'antd';
-import { Form, Button, Checkbox, Row, Col } from 'antd';
+import s from './EmployInfo.module.scss';
 
-import s from './EmployInfo.module.scss'
 
 const EmployInfo = () => {
     const { Option } = Select;

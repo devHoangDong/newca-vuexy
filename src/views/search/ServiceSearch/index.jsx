@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import SelectInput from './SelectInput';
+import React, { useState } from 'react';
+import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb";
 import Result from './Result';
-import s from './search.module.scss'
-import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
+import s from './search.module.scss';
 
 const ServiceSearch = () => {
     const [params, setParams] = useState({})

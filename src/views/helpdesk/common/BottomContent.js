@@ -1,9 +1,8 @@
 import React from "react";
 import { Info, Mail, Phone } from "react-feather";
 import { Link, useHistory } from "react-router-dom";
-import { Card, CardBody, Col, Row, Button } from "reactstrap";
+import { Button, Card, CardBody, Col, Row } from "reactstrap";
 import "../../../assets/scss/pages/faq.scss";
-import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb";
 
 const BottomContent = () => {
   const history = useHistory();

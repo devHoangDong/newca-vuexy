@@ -1,13 +1,8 @@
-import img1 from "../../../assets/img/pages/eCommerce/cts.jpg"
-import img2 from "../../../assets/img/pages/eCommerce/cts.jpg"
-import img3 from "../../../assets/img/pages/eCommerce/cts.jpg"
-import img4 from "../../../assets/img/pages/eCommerce/cts.jpg"
-import img5 from "../../../assets/img/pages/eCommerce/cts.jpg"
-import img6 from "../../../assets/img/pages/eCommerce/cts.jpg"
+import { default as img1, default as img2, default as img3, default as img4 } from "../../../assets/img/pages/eCommerce/cts.jpg"
 
 export const productsList = [
   {
-    id:1,
+    id: 1,
     img: img1,
     name: "Chữ kí số cho cán bộ nhân viên",
     by: "NewCA",
@@ -17,7 +12,7 @@ export const productsList = [
     freeShipping: true
   },
   {
-    id:2,
+    id: 2,
     img: img2,
     name: "Chữ kí số cho tổ chức, doanh nghiệp",
     by: "NewCA",
@@ -27,7 +22,7 @@ export const productsList = [
     freeShipping: true
   },
   {
-    id:3,
+    id: 3,
     img: img3,
     name: "Chữ kí số cho cá nhân",
     by: "NewCA",
@@ -37,7 +32,7 @@ export const productsList = [
     freeShipping: false
   },
   {
-    id:4,
+    id: 4,
     img: img4,
     name: "Chữ kí số cho thiết bị HSM",
     by: "NewCA",

@@ -8,7 +8,7 @@ import {
     Button, Card,
     CardBody,
     Form, FormFeedback,
-    Col, CustomInput, FormGroup,
+    Col,
     Input,
     Label, Row
 } from "reactstrap";
