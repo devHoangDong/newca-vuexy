@@ -16,13 +16,12 @@ const BreadCrumbs = (props) => {
       }
     }
   }
-  console.log(onGetLink(props.breadCrumbParent), 'navLink')
   const history = useHistory()
   return (
     <div className="content-header row">
-      <div className="content-header-left col-md-9 col-12 mb-2">
-        <div className="row breadcrumbs-top">
-          <div className="col-12">
+      <div className="content-header-left col-md-10 col-8 mb-md-2 mb-0">
+        <div className="row breadcrumbs-top col-12 px-0">
+          <div className="col-12 d-md-flex d-lg-block flex-md-column">
             {props.breadCrumbTitle ? (
               <h2 className="content-header-title float-left mb-0">
                 {props.breadCrumbTitle}
@@ -30,8 +29,8 @@ const BreadCrumbs = (props) => {
             ) : (
               ""
             )}
-            <div className="breadcrumb-wrapper vx-breadcrumbs d-sm-block d-none col-12">
-              <Breadcrumb tag="ol">
+            <div className="breadcrumb-wrapper vx-breadcrumbs d-sm-block col-12 mt-lg-0 pl-0 mt-2">
+              <Breadcrumb tag="ol" className="pl-0">
                 <BreadcrumbItem tag="li">
                   <NavLink className="text-primary" to="/">
                     Trang chủ
@@ -64,9 +63,9 @@ const BreadCrumbs = (props) => {
           </div>
         </div>
       </div>
-      <div className="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-        <div className="form-group breadcrum-right dropdown">
-          <UncontrolledButtonDropdown>
+      <div className="content-header-right text-md-right col-md-2 col-4 d-md-block">
+        <div className="form-group breadcrum-right dropdown col-lg-0 col-12 px-0">
+          <UncontrolledButtonDropdown className="float-right">
             <DropdownToggle
               color="primary"
               size="sm"

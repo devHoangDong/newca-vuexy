@@ -160,15 +160,15 @@ const General = () => {
         return (
             <div>
                 <Row>
-                    <Col lg="4" md="12">
+                    <Col lg="4" md="12" className="pb-lg-0 pb-2">
                         <Input type="text" id="name" placeholder="Tên giao dịch" />
                     </Col>
-                    <Col lg="4" md="12">
+                    <Col lg="4" md="12" className="pb-lg-0 pb-2">
                         <Input required="" type="text" className="form-control" placeholder="Ngày đăng ký"
                             onFocus={(e) => (e.currentTarget.type = "date")}
                             onBlur={(e) => (e.currentTarget.type = "text")} />
                     </Col>
-                    <Col lg="4" md="12">
+                    <Col lg="4" md="12" className="pb-lg-0 pb-2">
                         <Input required="" type="text" className="form-control" placeholder="Ngày hết hạn"
                             onFocus={(e) => (e.currentTarget.type = "date")}
                             onBlur={(e) => (e.currentTarget.type = "text")} />

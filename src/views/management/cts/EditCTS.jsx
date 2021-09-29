@@ -61,7 +61,7 @@ const ExpandCTS = () => {
                                 <Col lg="3" md="12">
                                     <Label for="">Mã chứng thư số</Label>
                                 </Col>
-                                <Col lg="8" md="12">
+                                <Col lg="8" md="12" className="font-weight-bold">
                                     54010163B89501F2EF4EBAA0C717BC20
                             </Col>
                             </Row>
@@ -132,7 +132,7 @@ const ExpandCTS = () => {
                     <Row className="mt-2 px-4">
                         <Col lg={{ size: 6, offset: 3 }} md="12" className="d-flex justify-content-center">
                             <Button.Ripple
-                                color="primary"
+                                color="danger"
                                 className="mb-2"
                                 onClick={(e) => e.preventDefault()}
                             >

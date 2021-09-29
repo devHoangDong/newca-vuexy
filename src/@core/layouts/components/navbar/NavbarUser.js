@@ -86,7 +86,7 @@ const NavbarUser = (props) => {
         </div> */}
       {/* </div> */}
       <ul className="nav navbar-nav align-items-center ml-auto">
-        <div className="mr-2 border-right pr-2 d-flex">
+        <div className="mr-2 border-right pr-2 d-md-flex d-sm-none d-none">
           <div className="d-flex flex-column mr-1">
             <div className="text-danger">
               Điểm thưởng: <span className="font-weight-bold">9999{"  "}</span>
@@ -220,6 +220,11 @@ const NavbarUser = (props) => {
               />
             </div>
           </div>
+        </NavItem>
+        <NavItem className="d-md-none">
+          <NavLink>
+            <Icon.CreditCard size={21} onClick={handleDeposit} />
+          </NavLink>
         </NavItem>
         <UncontrolledDropdown
           className="dropdown-notification nav-item"

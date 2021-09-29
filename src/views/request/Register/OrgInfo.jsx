@@ -326,7 +326,7 @@ const OrgInfo = () => {
                 <Row className="mb-1">
                     <Col lg="6" md="12">
                         <Button.Ripple
-                            color="primary"
+                            color="danger"
                             type="submit"
                             className="float-right"
                             onClick={(e) => e.preventDefault()}

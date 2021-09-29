@@ -12,13 +12,14 @@ export const handleConfirm = (callback) => {
     title: "Xác nhận gửi yêu cầu?",
     icon: "warning",
     showCancelButton: true,
-    confirmButtonText: "Xác nhận",
     cancelButtonText: "Hủy",
+    confirmButtonText: "Xác nhận",
     customClass: {
-      confirmButton: "btn btn-primary",
-      cancelButton: "btn btn-outline-danger ml-1",
+      confirmButton: "btn btn-primary ml-1",
+      cancelButton: "btn btn-outline-danger",
     },
     buttonsStyling: false,
+    reverseButtons: true
   }).then((result) => {
     if (result.isConfirmed) {
       callback();

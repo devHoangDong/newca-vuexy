@@ -27,7 +27,7 @@ const ExpandCTS = () => {
                                 <Col lg="4" md="12">
                                     <Label for="">Tên giao dịch</Label>
                                 </Col>
-                                <Col lg="8" md="12">
+                                <Col lg="8" md="12" className="font-weight-bold">
                                     Hoàng Ninh
                             </Col>
                             </Row>
@@ -37,7 +37,7 @@ const ExpandCTS = () => {
                                 <Col lg="4" md="12">
                                     <Label for="">Mã chứng thư số</Label>
                                 </Col>
-                                <Col lg="8" md="12">
+                                <Col lg="8" md="12" className="font-weight-bold">
                                     54010163B89501F2EF4EBAA0C717BC20
                             </Col>
                             </Row>

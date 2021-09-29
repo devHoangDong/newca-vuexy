@@ -6,7 +6,6 @@ export const getEmails = () => {
     await axios
       .get("/api/email/mails")
       .then((result) => {
-        console.log(result, "result");
         dispatch({
           type: "GET_MAILS",
           mails: result.data,

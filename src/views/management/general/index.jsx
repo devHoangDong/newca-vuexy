@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import DataTable from "react-data-table-component";
 import { Settings } from 'react-feather';
-import { Col, CustomInput, Input, Row } from 'reactstrap';
+import { Col, CustomInput, Input, Row, Card } from 'reactstrap';
 import "../../../assets/scss/pages/data-list.scss";
 import "../../../assets/scss/plugins/extensions/react-paginate.scss";
 import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb";
+import { CardBody } from 'reactstrap';
 
 
 
@@ -92,12 +93,13 @@ const General = () => {
     }
     const CustomHeader = () => {
         return (
-            <div>
+            <Card>
+                <CardBody>
                 <Row>
-                    <Col lg="3" md="12">
+                    <Col lg="3" md="12" className="pb-lg-0 pb-2">
                         <Input type="text" id="name" placeholder="Tên giao dịch" />
                     </Col>
-                    <Col lg="3" md="12">
+                    <Col lg="3" md="12" className="pb-lg-0 pb-2">
                         <CustomInput
                             type="select"
                             name="select"
@@ -107,21 +109,19 @@ const General = () => {
                             <option>Chữ ký số</option>
                         </CustomInput>
                     </Col>
-                    <Col lg="3" md="12">
+                    <Col lg="3" md="12" className="pb-lg-0 pb-2">
                         <Input required="" type="text" className="form-control" placeholder="Ngày đăng ký"
                             onFocus={(e) => (e.currentTarget.type = "date")}
                             onBlur={(e) => (e.currentTarget.type = "text")} />
                     </Col>
-                    <Col lg="3" md="12">
+                    <Col lg="3" md="12" className="pb-lg-0 pb-2">
                         <Input required="" type="text" className="form-control" placeholder="Ngày hết hạn"
                             onFocus={(e) => (e.currentTarget.type = "date")}
                             onBlur={(e) => (e.currentTarget.type = "text")} />
                     </Col>
                 </Row>
-
-
-
-            </div>
+                </CardBody>
+            </Card>
         )
     }
     const handlePick = (date) => {

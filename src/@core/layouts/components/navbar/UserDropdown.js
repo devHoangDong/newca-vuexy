@@ -49,10 +49,11 @@ const UserDropdown = () => {
       confirmButtonText: 'Xác nhận',
       cancelButtonText: 'Hủy',
       customClass: {
-        confirmButton: 'btn btn-primary',
-        cancelButton: 'btn btn-outline-danger ml-1'
+        confirmButton: 'btn btn-primary ml-1',
+        cancelButton: 'btn btn-outline-danger'
       },
-      buttonsStyling: false
+      buttonsStyling: false,
+      reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
         handleLogout()
@@ -65,7 +66,7 @@ const UserDropdown = () => {
     if (isUserLoggedIn) {
       const userGoG = JSON.parse(localStorage.getItem('userData'))
       const userToken = JSON.parse(localStorage.getItem('userToken'))
-      if (userGoG) { setUserData(userGoG)} 
+      if (userGoG) { setUserData(userGoG) }
       else {
         setUserData(userToken)
       }
@@ -93,7 +94,7 @@ const UserDropdown = () => {
           <span className='align-middle'>Đơn hàng</span>
         </DropdownItem>
         {/* onClick={() => dispatch(handleLogout())} */}
-        <DropdownItem tag={Link} to='/login' onClick={handleConfirmText}> 
+        <DropdownItem tag={Link} to='/login' onClick={handleConfirmText}>
           <Power size={14} className='mr-75' />
           <span className='align-middle'>Đăng xuất</span>
         </DropdownItem>
