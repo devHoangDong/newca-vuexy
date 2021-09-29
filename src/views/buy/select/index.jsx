@@ -1,9 +1,9 @@
 import React from 'react';
-import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
-import DataTable from "react-data-table-component"
-import { Check, Edit, Eye, Trash } from 'react-feather';
-import "../../../assets/scss/plugins/extensions/react-paginate.scss"
-import "../../../assets/scss/pages/data-list.scss"
+import DataTable from "react-data-table-component";
+import { Edit, Eye } from 'react-feather';
+import "../../../assets/scss/pages/data-list.scss";
+import "../../../assets/scss/plugins/extensions/react-paginate.scss";
+import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb";
 
 // This sets the mock adapter on the default instance
 
@@ -93,7 +93,7 @@ const index = () => {
         <div>
             <Breadcrumbs
                 breadCrumbTitle="Chọn mua dịch vụ"
-                breadCrumbParent="Chọn mua dịch vụ"
+                breadCrumbActive="Chọn mua dịch vụ"
             />
             <div
                 className={`data-list "list-view"`}>

@@ -46,7 +46,6 @@ class Email extends React.Component {
     this.onSetSidebarOpen(false);
   };
   render() {
-    console.log(this.routerProps, "routerProps");
     return (
       <>
         <BreadCrumbs
@@ -56,11 +55,10 @@ class Email extends React.Component {
         />
         <div className="email-application position-relative">
           <div
-            className={`app-content-overlay ${
-              this.state.composeMailStatus || this.state.sidebarOpen
+            className={`app-content-overlay ${this.state.composeMailStatus || this.state.sidebarOpen
                 ? "show"
                 : ""
-            }`}
+              }`}
             onClick={this.handleMainAndComposeSidebar}
           />
           <Layout>

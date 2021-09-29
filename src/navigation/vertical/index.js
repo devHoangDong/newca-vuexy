@@ -16,7 +16,7 @@ import {
   Info,
   ShoppingCart,
 } from "react-feather";
-
+/* eslint import/no-anonymous-default-export: [2, {"allowArray": true}] */
 export default [
   {
     id: "home",
@@ -39,7 +39,7 @@ export default [
         title: "Chứng thư số",
         type: "item",
         icon: <Circle size={12} />,
-        permissions: ["admin"],
+        // permissions: ["admin"],
         navLink: "/manage-cts",
       },
       {
@@ -47,7 +47,7 @@ export default [
         title: "Hóa đơn điện tử",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -55,7 +55,7 @@ export default [
         title: "BHXH điện tử",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -63,7 +63,7 @@ export default [
         title: "Dịch vụ kế toán",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -71,7 +71,7 @@ export default [
         title: "Phần mềm kế toán",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -79,7 +79,7 @@ export default [
         title: "Dịch vụ đăng ký kinh doanh",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -87,7 +87,7 @@ export default [
         title: "Dịch vụ bảo hiểm",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -95,7 +95,7 @@ export default [
         title: "Hải quan điện tử",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
     ],
@@ -114,15 +114,15 @@ export default [
         title: "Chứng thư số",
         type: "item",
         icon: <Circle size={12} />,
-        permissions: ["admin"],
-        navLink: "/buy-cts",
+        // permissions: ["admin"],
+        navLink: "/register-cts",
       },
       {
         id: "digibill",
         title: "Hóa đơn điện tử",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -130,7 +130,7 @@ export default [
         title: "BHXH điện tử",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -138,7 +138,7 @@ export default [
         title: "Dịch vụ kế toán",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -146,7 +146,7 @@ export default [
         title: "Phần mềm kế toán",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -154,7 +154,7 @@ export default [
         title: "Dịch vụ đăng ký kinh doanh",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -162,7 +162,7 @@ export default [
         title: "Dịch vụ bảo hiểm",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
       {
@@ -170,7 +170,7 @@ export default [
         title: "Hải quan điện tử",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "",
       },
     ],
@@ -194,7 +194,7 @@ export default [
         title: "Câu hỏi thường gặp",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "/question",
       },
       {
@@ -202,7 +202,7 @@ export default [
         title: "Tài liệu hướng dẫn",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "/question-doc",
       },
       {
@@ -210,7 +210,7 @@ export default [
         title: "Video hướng dẫn",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "/question-video",
       },
     ],
@@ -227,7 +227,7 @@ export default [
         title: "Tạo yêu cầu hỗ trợ",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "/support-create",
       },
       {
@@ -235,7 +235,7 @@ export default [
         title: "Chi tiết yêu cầu hỗ trợ",
         type: "item",
         icon: <Circle size={20} />,
-        permissions: ["admin", "editor"],
+        // permissions: ["admin", "editor"],
         navLink: "/email/inbox",
       },
     ],

@@ -20,7 +20,7 @@ const Routes = [
     component: lazy(() => import("../../views/buy/select/index")),
   },
   {
-    path: "/buy-cts",
+    path: "/register-cts",
     component: lazy(() => import("../../views/request/Register/index")),
   },
   {

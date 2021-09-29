@@ -437,8 +437,7 @@ const Checkout = () => {
     <React.Fragment>
       <Breadcrumbs
         breadCrumbTitle="Giỏ hàng"
-        breadCrumbParent="Giỏ hàng"
-        breadCrumbActive="Thanh toán"
+        breadCrumbActive="Giỏ hàng"
       />
       <div className="ecommerce-application">
         {/* <Wizard

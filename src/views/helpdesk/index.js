@@ -17,7 +17,7 @@ class VerticalForm extends React.Component {
       <>
         <Breadcrumbs
           breadCrumbTitle="Gửi yêu cầu hỗ trợ"
-          breadCrumbParent="Gửi yêu cầu hỗ trợ"
+          breadCrumbActive="Gửi yêu cầu hỗ trợ"
         />
         <Card>
           <CardHeader>

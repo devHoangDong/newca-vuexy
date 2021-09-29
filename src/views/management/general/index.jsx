@@ -131,7 +131,7 @@ const General = () => {
         <div>
             <Breadcrumbs
                 breadCrumbTitle="Quản lý dịch vụ"
-                breadCrumbParent="Quản lý dịch vụ"
+                breadCrumbActive="Quản lý dịch vụ"
             />
             <div
                 className={`data-list "list-view"`}>

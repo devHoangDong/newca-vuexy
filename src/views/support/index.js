@@ -147,7 +147,7 @@ const General = () => {
         <div>
             <Breadcrumbs
                 breadCrumbTitle="Yêu cầu hỗ trợ"
-                breadCrumbParent="Yêu cầu hỗ trợ"
+                breadCrumbActive="Yêu cầu hỗ trợ"
             />
             {/* <Breadcrumbs
                 breadCrumbTitle="Quản lý dịch vụ"

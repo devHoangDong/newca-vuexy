@@ -25,27 +25,28 @@ const VerticalForm = () => {
         initialValues: {
             title: '',
             detail: '',
-          },
-          onSubmit: values => {
+        },
+        onSubmit: values => {
             history.push('/support')
-          },
-          validationSchema: Yup.object({
+        },
+        validationSchema: Yup.object({
             title: Yup.string().required("Vui lòng không để trống!"),
             detail: Yup.string().required("Vui lòng không để trống!"),
-          })
-      })
-        return (
-            <>
-                <Breadcrumbs
-                    breadCrumbTitle="Tạo yêu cầu hỗ trợ"
-                    breadCrumbParent="Tạo yêu cầu hỗ trợ"
-                />
-                <Form 
+        })
+    })
+    return (
+        <>
+            <Breadcrumbs
+                breadCrumbTitle="Tạo yêu cầu hỗ trợ"
+                breadCrumbParent="Yêu cầu hỗ trợ"
+                breadCrumbActive="Tạo yêu cầu hỗ trợ"
+            />
+            <Form
                 onSubmit={e => {
                     e.preventDefault()
                     formik.handleSubmit()
-                    }}
-                >
+                }}
+            >
                 <Card>
                     <CardHeader>
                         <Col lg="3" md="12">
@@ -86,64 +87,64 @@ const VerticalForm = () => {
                         </Col>
                     </CardHeader>
                     <CardBody>
-                            <Col lg="12">
-                                <FormGroup>
-                                    <Label for="title">Tiêu đề</Label>
-                                    <Input
-                                        type="text"
-                                        name="title"
-                                        id="title"
-                                        onChange={formik.handleChange} 
-                                        invalid={formik.errors.title && formik.touched.title}
-                                        placeholder="Tiêu đề"
-                                    />
-                                    <FormFeedback>{formik.errors.title}</FormFeedback>
-                                </FormGroup>
-                            </Col>
-                            <Col lg="12">
-                                <FormGroup>
-                                    <Label for="detail">Nội dung cần hỗ trợ</Label>
-                                    <Input
-                                        type="textarea"
-                                        name="detail"
-                                        id="detail"
-                                        rows="3"
-                                        onChange={formik.handleChange} 
-                                        invalid={formik.errors.detail && formik.touched.detail}
-                                        placeholder="Textarea"
-                                    />
-                                    <FormFeedback>{formik.errors.detail}</FormFeedback>
-                                </FormGroup>
-                            </Col>
-                            {/* <Col lg="12">
+                        <Col lg="12">
+                            <FormGroup>
+                                <Label for="title">Tiêu đề</Label>
+                                <Input
+                                    type="text"
+                                    name="title"
+                                    id="title"
+                                    onChange={formik.handleChange}
+                                    invalid={formik.errors.title && formik.touched.title}
+                                    placeholder="Tiêu đề"
+                                />
+                                <FormFeedback>{formik.errors.title}</FormFeedback>
+                            </FormGroup>
+                        </Col>
+                        <Col lg="12">
+                            <FormGroup>
+                                <Label for="detail">Nội dung cần hỗ trợ</Label>
+                                <Input
+                                    type="textarea"
+                                    name="detail"
+                                    id="detail"
+                                    rows="3"
+                                    onChange={formik.handleChange}
+                                    invalid={formik.errors.detail && formik.touched.detail}
+                                    placeholder="Textarea"
+                                />
+                                <FormFeedback>{formik.errors.detail}</FormFeedback>
+                            </FormGroup>
+                        </Col>
+                        {/* <Col lg="12">
                 <FormGroup>
                   <Label for="">Đính kèm</Label>
                   <DropzoneProgrammatically />{" "}
                 </FormGroup>
               </Col> */}
-                            <Col lg="12">
-                                <FormGroup>
-                                    <Button.Ripple
-                                        color="primary"
-                                        type="submit"
-                                        className="mr-1 mb-1"
-                                    >
-                                        Submit
+                        <Col lg="12">
+                            <FormGroup>
+                                <Button.Ripple
+                                    color="primary"
+                                    type="submit"
+                                    className="mr-1 mb-1"
+                                >
+                                    Submit
                                     </Button.Ripple>
-                                    <Button.Ripple
-                                        outline
-                                        color="warning"
-                                        type="reset"
-                                        className="mb-1"
-                                    >
-                                        Reset
+                                <Button.Ripple
+                                    outline
+                                    color="warning"
+                                    type="reset"
+                                    className="mb-1"
+                                >
+                                    Reset
                                     </Button.Ripple>
-                                </FormGroup>
-                            </Col>
+                            </FormGroup>
+                        </Col>
                     </CardBody>
                 </Card>
-                </Form>
-            </>
-        );
-    }
+            </Form>
+        </>
+    );
+}
 export default VerticalForm;

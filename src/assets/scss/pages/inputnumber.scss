@@ -52,13 +52,12 @@
     -webkit-user-select: none;
     user-select: none;
   }
-    border-color: $primary !important;
+  border-color: $primary !important;
 
-    .rc-input-number-handler-up,
-    .rc-input-number-handler-wrap {
-      border-color: $primary !important;
-    }
-  
+  .rc-input-number-handler-up,
+  .rc-input-number-handler-wrap {
+    border-color: $primary !important;
+  }
 
   &-disabled:hover {
     border-color: #d9d9d9;
@@ -70,11 +69,12 @@
   }
 
   &-input-wrap {
+    border-radius: 4px;
     height: 100%;
     overflow: hidden;
     input {
-        font-weight: bold !important;
-        color: #000 !important;
+      font-weight: bold !important;
+      color: #000 !important;
     }
   }
 
@@ -115,7 +115,7 @@
 
     &-inner {
       &:after {
-        content: '+';
+        content: "+";
       }
     }
   }
@@ -126,7 +126,7 @@
 
     &-inner {
       &:after {
-        content: '-';
+        content: "-";
       }
     }
   }

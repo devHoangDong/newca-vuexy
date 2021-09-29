@@ -13,6 +13,9 @@ import {
 } from "reactstrap";
 import Autocomplete from "../../../../components/@vuexy/autoComplete/AutoCompleteComponent";
 import UserDropdown from "./UserDropdown";
+import { DropdownMenu } from 'reactstrap';
+import { DropdownToggle } from 'reactstrap';
+import { UncontrolledDropdown } from 'reactstrap';
 
 
 
@@ -218,24 +221,73 @@ const NavbarUser = (props) => {
             </div>
           </div>
         </NavItem>
-        <NavItem className="nav-search">
-          <NavLink className="nav-link-search">
+        <UncontrolledDropdown
+          className="dropdown-notification nav-item"
+          tag="li"
+        >
+          <DropdownToggle
+            tag="a"
+            data-toggle="dropdown"
+            aria-expanded={false}
+            className="nav-link nav-link-label"
+          >
             <ShoppingCart size={21} data-tour="search" />
             <Badge pill color="danger" className="badge-up">
               {" "}
               5{" "}
             </Badge>
-          </NavLink>
-        </NavItem>
+          </DropdownToggle>
+          <DropdownMenu
+            tag="ul"
+            right
+            className="dropdown-menu-media"
+          >
+            <li className="dropdown-menu-header">
+              <div className="dropdown-header mt-0">
+                <h3 className="text-white">5 New</h3>
+                <span className="notification-title">
+                  No Items
+                </span>
+              </div>
+            </li>
+            <li className="dropdown-menu-footer">
+            </li>
+          </DropdownMenu>
+        </UncontrolledDropdown>
         <span>&nbsp;&nbsp;&nbsp;</span>
-        <NavItem className="nav-search">
-          <NavLink className="nav-link-search">
-            <Bell size={21} data-tour="search" />
+        <UncontrolledDropdown
+          className="dropdown-notification nav-item"
+          tag="li"
+        >
+          <DropdownToggle
+            tag="a"
+            data-toggle="dropdown"
+            aria-expanded={false}
+            className="nav-link nav-link-label"
+          >
+            <Bell size={21} />
             <Badge pill color="danger" className="badge-up">
-              5
+              {" "}
+              5{" "}
             </Badge>
-          </NavLink>
-        </NavItem>
+          </DropdownToggle>
+          <DropdownMenu
+            tag="ul"
+            right
+            className="dropdown-menu-media"
+          >
+            <li className="dropdown-menu-header">
+              <div className="dropdown-header mt-0">
+                <h3 className="text-white">5 New</h3>
+                <span className="notification-title">
+                  No Notifications
+                </span>
+              </div>
+            </li>
+            <li className="dropdown-menu-footer">
+            </li>
+          </DropdownMenu>
+        </UncontrolledDropdown>
         <span>&nbsp;&nbsp;&nbsp;</span>
         <UserDropdown />
       </ul>
