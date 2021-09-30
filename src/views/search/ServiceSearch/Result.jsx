@@ -59,36 +59,36 @@ const Result = ({ params }) => {
         <Card>
             <CardBody>
                 <FormGroup>
-                    <Label for="disabledInput">Tên thuê bao</Label>
-                    <Input type="text" id="disabledInput" readOnly value="E=duongha6298@gmail.com, OID.0.9.2342.19200300.100.1.1=MNS:0000111133306, CN=CTY TNHH SINH CHỨNG THƯ SỐ CẤP BÙ 3, S=Sơn La, C=VN" />
+                    <Label for="1">Tên thuê bao</Label>
+                    <Input type="text" id="1" readOnly value="E=duongha6298@gmail.com, OID.0.9.2342.19200300.100.1.1=MNS:0000111133306, CN=CTY TNHH SINH CHỨNG THƯ SỐ CẤP BÙ 3, S=Sơn La, C=VN" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="disabledInput">Serial chứng thư số</Label>
-                    <Input type="text" id="readonlyInput" readOnly value="54010163B89501F2EF4EBAA0C717BC20" />
+                    <Label for="2">Serial chứng thư số</Label>
+                    <Input type="text" id="2" readOnly value="54010163B89501F2EF4EBAA0C717BC20" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="disabledInput">Mã định danh</Label>
-                    <Input type="text" id="disabledInput" readOnly value="0000111133306" />
+                    <Label for="3">Mã định danh</Label>
+                    <Input type="text" id="3" readOnly value="0000111133306" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="disabledInput">Ngày bắt đầu chứng thư số</Label>
-                    <Input type="text" id="disabledInput" readOnly value="21-05-2021" />
+                    <Label for="4">Ngày bắt đầu chứng thư số</Label>
+                    <Input type="text" id="4" readOnly value="21-05-2021" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="disabledInput">Ngày kết thúc chứng thư số</Label>
-                    <Input type="text" id="disabledInput" readOnly value="21-05-2022" />
+                    <Label for="5">Ngày kết thúc chứng thư số</Label>
+                    <Input type="text" id="5" readOnly value="21-05-2022" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="disabledInput">Gói đăng ký</Label>
-                    <Input type="text" id="disabledInput" readOnly value="OS New 1 Year" />
+                    <Label for="6">Gói đăng ký</Label>
+                    <Input type="text" id="6" readOnly value="OS New 1 Year" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="disabledInput">Ngày đăng ký</Label>
-                    <Input type="text" id="disabledInput" readOnly value="21-05-2021" />
+                    <Label for="7">Ngày đăng ký</Label>
+                    <Input type="text" id="7" readOnly value="21-05-2021" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="disabledInput">Trạng thái</Label>
-                    <Input type="text" id="disabledInput" readOnly value="Đang hoạt động" />
+                    <Label for="8">Trạng thái</Label>
+                    <Input type="text" id="8" readOnly value="Đang hoạt động" />
                 </FormGroup>
             </CardBody>
         </Card>

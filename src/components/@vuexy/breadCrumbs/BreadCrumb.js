@@ -19,7 +19,7 @@ const BreadCrumbs = (props) => {
   const history = useHistory()
   return (
     <div className="content-header row">
-      <div className="content-header-left col-md-10 col-8 mb-md-2 mb-0">
+      <div className="content-header-left col-md-10 col-10 mb-md-2 mb-0">
         <div className="row breadcrumbs-top col-12 px-0">
           <div className="col-12 d-md-flex d-lg-block flex-md-column">
             {props.breadCrumbTitle ? (
@@ -43,7 +43,9 @@ const BreadCrumbs = (props) => {
                 </BreadcrumbItem>}
                 {props.breadCrumbParent2 ? (
                   <BreadcrumbItem tag="li" className="text-primary">
-                    {props.breadCrumbParent2}
+                    <NavLink className="text-primary" to="/manage-cts">
+                      {props.breadCrumbParent2}
+                    </NavLink>
                   </BreadcrumbItem>
                 ) : (
                   ""
@@ -63,7 +65,7 @@ const BreadCrumbs = (props) => {
           </div>
         </div>
       </div>
-      <div className="content-header-right text-md-right col-md-2 col-4 d-md-block">
+      <div className="content-header-right text-md-right col-md-2 col-2 d-md-block">
         <div className="form-group breadcrum-right dropdown col-lg-0 col-12 px-0">
           <UncontrolledButtonDropdown className="float-right">
             <DropdownToggle
@@ -77,8 +79,8 @@ const BreadCrumbs = (props) => {
                 style={{
                   left: 0
                 }}
-              />Quay lại
-              </DropdownToggle>
+              /><span className="d-none d-md-inline">Quay lại</span>
+            </DropdownToggle>
             {/* <DropdownMenu tag="ul" right>
                 <Button></Button>
                 <DropdownItem tag="li">

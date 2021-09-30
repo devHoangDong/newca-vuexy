@@ -21,8 +21,8 @@ const ExpandCTS = () => {
             />
             <Card>
                 <CardBody>
-                    <Row className="mb-1 mt-1 px-4">
-                        <Col lg="5" md="12">
+                    <Row className="mb-1">
+                        <Col lg="5" md="12" className="mb-1 mb-lg-0">
                             <Row>
                                 <Col lg="4" md="12">
                                     <Label for="">Tên giao dịch</Label>
@@ -43,7 +43,7 @@ const ExpandCTS = () => {
                             </Row>
                         </Col>
                     </Row>
-                    <Row className="mb-2 px-4">
+                    <Row className="mb-2">
                         <Col lg="5" md="12">
                             <Row>
                                 <Col lg="4" md="12">
@@ -88,7 +88,7 @@ const ExpandCTS = () => {
                         </Col>
                     </Row>
                     <hr />
-                    <Row className="mt-2 px-4">
+                    <Row className="mt-2">
                         <Col lg="6" md="12">
                             <Row className="text-left">
                             </Row>
@@ -98,14 +98,16 @@ const ExpandCTS = () => {
                             <Row className="font-medium-3 text-bold-600">
                             </Row>
                             <Row className="mb-2">
-                                <span>Đơn giá</span><span className="pl-1">800.000<sup>đ</sup></span>
+                                <Col>
+                                    <span>Đơn giá</span><span className="pl-1">800.000<sup>đ</sup></span>
+                                </Col>
                             </Row>
                             <Row>
-                                <Col lg="6" md="12" className="pl-0">
+                                <Col lg="6" md="12">
                                     <Button.Ripple
                                         color="danger"
                                         type="submit"
-                                        className="float-left mb-2"
+                                        className="float-left"
                                         onClick={(e) => {
                                             e.preventDefault();
                                             handleConfirm(() => history.push('/manage-cts'))

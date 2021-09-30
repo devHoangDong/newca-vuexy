@@ -54,8 +54,8 @@ const OrgInfo1 = () => {
                 <Col lg="12" md="12" className="mb-2 font-weight-bold fs-5">
                     Thông tin về tổ chức doanh nghiệp
                 </Col>
-                <Row className="mb-1 px-4">
-                    <Col lg="6" md="12" >
+                <Row className="mb-1 px-lg-4">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row>
                             <Col lg="4" md="12">
                                 <Label for="orgname">Tên tổ chức</Label>
@@ -94,8 +94,8 @@ const OrgInfo1 = () => {
                         </Row>
                     </Col>
                 </Row>
-                <Row className="mb-1 px-4">
-                    <Col lg="6" md="12" >
+                <Row className="mb-1 px-lg-4">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row>
                             <Col lg="4" md="12">
                                 <Label for="">Ngày cấp</Label>
@@ -135,8 +135,8 @@ const OrgInfo1 = () => {
                         </Row>
                     </Col>
                 </Row>
-                <Row className="mb-1 px-4">
-                    <Col lg="6" md="12" >
+                <Row className="mb-1 px-lg-4">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row>
                             <Col lg="4" md="12">
                                 <Label for="orgtaxcode">Mã số thuế</Label>
@@ -177,7 +177,7 @@ const OrgInfo1 = () => {
                         </Row>
                     </Col>
                 </Row>
-                <Row className="mb-1 px-4">
+                <Row className="mb-1 px-lg-4">
                     <Col lg='2' md="12">
                         <Label for="orgadress">Địa chỉ</Label>
                     </Col>
@@ -193,8 +193,8 @@ const OrgInfo1 = () => {
                         <FormFeedback>{formik.errors.orgadress}</FormFeedback>
                     </Col>
                 </Row>
-                <Row className="mb-2 px-4">
-                    <Col lg="6" md="12">
+                <Row className="mb-2 px-lg-4">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row>
                             <Col lg="4" md="12">
                                 <Label for="">Email đơn vị</Label>
@@ -238,8 +238,8 @@ const OrgInfo1 = () => {
                 <Col lg="12" md="12" className="mb-2 font-weight-bold fs-5">
                     Thông tin người đại diện
                 </Col>
-                <Row className="mb-1 px-4">
-                    <Col lg="6" md="12" >
+                <Row className="mb-1 px-lg-4">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row>
                             <Col lg="4" md="12">
                                 <Label for="">Tên người quản lý</Label>
@@ -270,8 +270,8 @@ const OrgInfo1 = () => {
                         </Row>
                     </Col>
                 </Row>
-                <Row className="mb-2 px-4">
-                    <Col lg="6" md="12">
+                <Row className="mb-2 px-lg-4">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row>
                             <Col lg="4" md="12">
                                 <Label for="">Thời gian sử dụng</Label>
@@ -317,40 +317,46 @@ const OrgInfo1 = () => {
                     </Col>
                 </Row>
                 <hr />
-                <Row className="mb-4 mt-2 px-4">
-                    <Col lg="6" md="12">
+                <Row className="mt-2 px-lg-4">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row className="text-left">
-                            Chứng thư số dành cho
-                            Tổ chức, doanh nghiệp là loại chứng thư số đại diện cho
-                            Tổ chức, khi sử dụng trong giao dịch điện tử có giá trị pháp lý tương đương
-                            con dấu của Tổ chức. Cặp khóa và chứng thư số này được chứa trong thiết bị PKI
-                            chuyên dụng như PKI Token hoặc Smartcard
+                            <Col>
+                                Chứng thư số dành cho
+                                Tổ chức, doanh nghiệp là loại chứng thư số đại diện cho
+                                Tổ chức, khi sử dụng trong giao dịch điện tử có giá trị pháp lý tương đương
+                                con dấu của Tổ chức. Cặp khóa và chứng thư số này được chứa trong thiết bị PKI
+                                chuyên dụng như PKI Token hoặc Smartcard
+                            </Col>
                         </Row>
                     </Col>
                     <Col lg="1" md="0"></Col>
-                    <Col lg='5' md="12" className="pl-4">
+                    <Col lg='5' md="12">
                         <Row className="font-medium-3 text-bold-600">
-                            Chữ ký số NewCa cho tổ chức 1 năm
+                            <Col>
+                                Chữ ký số NewCa cho tổ chức 1 năm
+                            </Col>
                         </Row>
                         <Row className="mb-2">
-                            <span>Đơn giá</span><span className="pl-1">1.825.000<sup>đ</sup></span>
+                            <Col>
+                                <span>Đơn giá</span><span className="pl-1">1.825.000<sup>đ</sup></span>
+                            </Col>
                         </Row>
                         <Row>
-                            <Col lg="6" md="12" className="pl-0">
+                            <Col lg="6" md="12">
                                 <Button.Ripple
                                     color="primary"
                                     type="submit"
-                                    className="float-left"
+                                    className="float-left mb-1 mb-lg-0"
                                     onClick={(e) => e.preventDefault()}
                                 >
                                     Thêm hàng vào giỏ
                                 </Button.Ripple>
                             </Col>
-                            <Col lg="6" md="12" className="pl-0">
+                            <Col lg="6" md="12">
                                 <Button.Ripple
                                     color="danger"
                                     type="submit"
-                                    className="float-left"
+                                    className="float-left mb-lg-0"
                                 >
                                     Mua ngay
                                 </Button.Ripple>

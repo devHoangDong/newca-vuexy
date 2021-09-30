@@ -351,9 +351,18 @@ $wishlist-bg: #f6f6f6;
               right: 0;
             }
             .item-cost {
+              @media (max-width: 992px) {
+                .item-price {
+                  top: 0;
+                }
+              }
+              @media (min-width: 992px) {
+                .item-price {
+                  top: 55px;
+                }
+              }
               .item-price {
                 position: relative;
-                top: 55px;
                 font-size: 16px;
               }
             }
@@ -683,8 +692,7 @@ $wishlist-bg: #f6f6f6;
   overflow: hidden;
   padding: 1.5rem;
   background-color: $body-bg;
-  box-shadow: rgba($pure-black, 0.1) 0px 4px 18px 0px,
-    rgba($pure-black, 0.08) 0px 5px 12px 0px !important;
+  box-shadow: rgba($pure-black, 0.1) 0px 4px 18px 0px, rgba($pure-black, 0.08) 0px 5px 12px 0px !important;
   .img-container {
     margin: 2.2rem auto;
     width: 8rem;

@@ -48,7 +48,7 @@ const VerticalForm = () => {
                 }}
             >
                 <Card>
-                    <CardHeader>
+                    <CardHeader className="px-50">
                         <Col lg="3" md="12">
                             <FormGroup>
                                 <h5 className="text-bold-600">Vấn đề *</h5>
@@ -86,7 +86,7 @@ const VerticalForm = () => {
                             </FormGroup>
                         </Col>
                     </CardHeader>
-                    <CardBody>
+                    <CardBody className="px-50">
                         <Col lg="12">
                             <FormGroup>
                                 <Label for="title">Tiêu đề</Label>
@@ -123,11 +123,10 @@ const VerticalForm = () => {
                 </FormGroup>
               </Col> */}
                         <Col lg="12">
-                            <FormGroup>
                                 <Button.Ripple
                                     color="primary"
                                     type="submit"
-                                    className="mr-1 mb-1"
+                                    className="mr-1"
                                 >
                                     Submit
                                     </Button.Ripple>
@@ -135,11 +134,9 @@ const VerticalForm = () => {
                                     outline
                                     color="warning"
                                     type="reset"
-                                    className="mb-1"
                                 >
                                     Reset
                                     </Button.Ripple>
-                            </FormGroup>
                         </Col>
                     </CardBody>
                 </Card>

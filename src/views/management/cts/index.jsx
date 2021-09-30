@@ -4,7 +4,8 @@ import { Settings } from 'react-feather';
 import { NavLink } from 'react-router-dom';
 import {
     Col, DropdownItem, DropdownMenu,
-    DropdownToggle, Input, Row, UncontrolledButtonDropdown
+    DropdownToggle, Input, Row, UncontrolledButtonDropdown,
+    Card, CardBody
 } from 'reactstrap';
 import "../../../assets/scss/pages/data-list.scss";
 import "../../../assets/scss/plugins/extensions/react-paginate.scss";
@@ -86,7 +87,7 @@ const General = () => {
             style: {
                 ":hover": {
                     transform: "none !important",
-                } // override the row height
+                } // override the row 
             }
         },
     };
@@ -158,7 +159,8 @@ const General = () => {
     }
     const CustomHeader = () => {
         return (
-            <div>
+            <Card>
+                <CardBody>
                 <Row>
                     <Col lg="4" md="12" className="pb-lg-0 pb-2">
                         <Input type="text" id="name" placeholder="Tên giao dịch" />
@@ -168,16 +170,14 @@ const General = () => {
                             onFocus={(e) => (e.currentTarget.type = "date")}
                             onBlur={(e) => (e.currentTarget.type = "text")} />
                     </Col>
-                    <Col lg="4" md="12" className="pb-lg-0 pb-2">
+                    <Col lg="4" md="12" className="pb-lg-0">
                         <Input required="" type="text" className="form-control" placeholder="Ngày hết hạn"
                             onFocus={(e) => (e.currentTarget.type = "date")}
                             onBlur={(e) => (e.currentTarget.type = "text")} />
                     </Col>
                 </Row>
-
-
-
-            </div>
+                </CardBody>
+            </Card>
         )
     }
     const handlePick = (date) => {

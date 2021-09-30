@@ -57,13 +57,13 @@ const UserInfo = () => {
                     formik.handleSubmit()
                     }}
                 >
-                <Row className="mb-1 px-4">
-                    <Col lg="6" md="12" >
+                <Row className="mb-1 px-lg-4">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row>
                             <Col lg="4" md="12">
                                 <Label for="">Tên giao dịch</Label>
                             </Col>
-                            <Col lg="7" md="12" className="font-weight-bold">
+                            <Col lg="7" md="12">
                                 Hoàng Ninh
                             </Col>
                             <Col lg="1" md="0"></Col>
@@ -89,8 +89,8 @@ const UserInfo = () => {
                         </Row>
                     </Col>
                 </Row>
-                <Row className="mb-1 px-4">
-                    <Col lg="6" md="12" >
+                <Row className="mb-1 px-lg-4">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row>
                             <Col lg="4" md="12">
                                 <Label for="iddate">Ngày cấp</Label>
@@ -129,13 +129,13 @@ const UserInfo = () => {
                         </Row>
                     </Col>
                 </Row>
-                <Row className="mb-1 px-4">
-                    <Col lg="6" md="12">
+                <Row className="mb-1 px-lg-4">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row>
                             <Col lg="4" md="12">
                                 <Label for="">Email</Label>
                             </Col>
-                            <Col lg="8" md="12" className="font-weight-bold">
+                            <Col lg="8" md="12">
                                 ninhhhhh@gmail.com
                             </Col>
                         </Row>
@@ -160,7 +160,7 @@ const UserInfo = () => {
                         </Row>
                     </Col>
                 </Row>
-                <Row className="mb-1 px-4">
+                <Row className="mb-1 px-lg-4">
                     <Col lg='2' md="12">
                         <Label for="adressresidence">Địa chỉ thường trú</Label>
                     </Col>
@@ -176,8 +176,8 @@ const UserInfo = () => {
                         <FormFeedback>{formik.errors.adressresidence}</FormFeedback>
                     </Col>
                 </Row>
-                <Row className="mb-2 px-4 justify-content-between">
-                    <Col lg="6" md="12">
+                <Row className="mb-2 px-lg-4 justify-content-between">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row>
                             <Col lg="4" md="12">
                                 <Label for="usetime">Thời gian sử dụng</Label>
@@ -223,36 +223,42 @@ const UserInfo = () => {
                     </Col>
                 </Row>
                 <hr />
-                <Row className="mb-4 mt-2 px-4">
-                    <Col lg="6" md="12">
+                <Row className="px-lg-4">
+                    <Col lg="6" md="12" className="mb-1 mb-lg-0">
                         <Row className="text-left">
-                            Chứng thư số FastCA dành cho CBNV tổ chức là loại được cấp cho những người dùng nội bộ của 1 tổ chức, doanh nghiệp. Khi sử dụng trong giao dịch điện tử có giá trị pháp lý tương đương với chữ ký tay của người đó. Có hiệu lực trong nội bộ tổ chức đó hoặc cả bên ngoài tổ chức nếu quy định pháp luật cho phép sử dụng trong các giao dịch điện tử bên ngoài tổ chức.
+                            <Col>
+                                Chứng thư số FastCA dành cho CBNV tổ chức là loại được cấp cho những người dùng nội bộ của 1 tổ chức, doanh nghiệp. Khi sử dụng trong giao dịch điện tử có giá trị pháp lý tương đương với chữ ký tay của người đó. Có hiệu lực trong nội bộ tổ chức đó hoặc cả bên ngoài tổ chức nếu quy định pháp luật cho phép sử dụng trong các giao dịch điện tử bên ngoài tổ chức.
+                            </Col>
                         </Row>
                     </Col>
                     <Col lg="1" md="0"></Col>
                     <Col lg='5' md="12">
                         <Row className="font-medium-3 text-bold-600">
-                            Chứng thư số FastCa cho CBNV 1 năm
+                            <Col>
+                                Chứng thư số FastCa cho CBNV 1 năm
+                            </Col>
                         </Row>
                         <Row className="mb-2">
-                            <span>Đơn giá</span><span className="pl-1">800.000<sup>đ</sup></span>
+                            <Col>
+                                <span>Đơn giá</span><span className="pl-1">800.000<sup>đ</sup></span>
+                            </Col>
                         </Row>
                         <Row>
-                            <Col lg="6" md="12" className="pl-0">
+                            <Col lg="6" md="12">
                                 <Button.Ripple
                                     color="primary"
                                     type="submit"
-                                    className="float-left mb-2"
+                                    className="float-left mb-1 mb-lg-0"
                                     onClick={(e) => e.preventDefault()}
                                 >
                                     Thêm hàng vào giỏ
                                 </Button.Ripple>
                             </Col>
-                            <Col lg="6" md="12" className="pl-0">
+                            <Col lg="6" md="12">
                                 <Button.Ripple
                                     color="danger"
                                     type="submit"
-                                    className="float-left mb-2"
+                                    className="float-left mb-1 mb-lg-0"
                                 >
                                     Mua ngay
                                 </Button.Ripple>

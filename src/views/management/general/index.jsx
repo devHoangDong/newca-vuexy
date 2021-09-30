@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import DataTable from "react-data-table-component";
 import { Settings } from 'react-feather';
-import { Col, CustomInput, Input, Row, Card } from 'reactstrap';
+import { Col, CustomInput, Input, Row, Card, CardBody } from 'reactstrap';
 import "../../../assets/scss/pages/data-list.scss";
 import "../../../assets/scss/plugins/extensions/react-paginate.scss";
 import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb";
-import { CardBody } from 'reactstrap';
 
 
 

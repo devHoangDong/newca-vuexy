@@ -45,8 +45,8 @@ const RestoreCTS = () => {
                 >
             <Card>
                 <CardBody>
-                    <Row className="mb-1 px-4">
-                        <Col lg="6" md="12">
+                    <Row className="mb-1">
+                        <Col lg="6" md="12" className="mb-1 mb-lg-0">
                             <Row>
                                 <Col lg="4" md="12">
                                     <Label for="">Tên giao dịch</Label>
@@ -69,8 +69,8 @@ const RestoreCTS = () => {
                             </Row>
                         </Col>
                     </Row>
-                    <Row className="mb-1 px-4">
-                        <Col lg="6" md="12">
+                    <Row className="mb-1">
+                        <Col lg="6" md="12" className="mb-1 mb-lg-0">
                             <Row>
                                 <Col lg="4" md="12">
                                     <Label for="">Loại thiết bị</Label>
@@ -93,7 +93,7 @@ const RestoreCTS = () => {
                             </Row>
                         </Col>
                     </Row>
-                    <Row className="mb-1 px-4">
+                    <Row className="mb-1">
                         <Col lg="6" md="12">
                             <Row>
                                 <Col lg="4" md="12">
@@ -116,7 +116,7 @@ const RestoreCTS = () => {
                         <Col lg='6' md="12" >
                         </Col>
                     </Row>
-                    <Row className="mb-1 px-4">
+                    <Row className="mb-1">
                         <Col lg="2" md="12">
                             <Label for="reason">Lý do</Label>
                         </Col>

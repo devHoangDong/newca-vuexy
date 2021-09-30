@@ -43,8 +43,8 @@ const ExpandCTS = () => {
                 >
             <Card>
                 <CardBody>
-                    <Row className="mb-1 px-4">
-                        <Col lg="6" md="12">
+                    <Row className="mb-1">
+                        <Col lg="6" md="12" className="mb-1 mb-lg-0">
                             <Row>
                                 <Col lg="4" md="12">
                                     <Label for="">Tên giao dịch</Label>
@@ -55,7 +55,7 @@ const ExpandCTS = () => {
                                 <Col lg="1" md="0"></Col>
                             </Row>
                         </Col>
-                        <Col lg='6' md="12" >
+                        <Col lg='6' md="12">
                             <Row>
                                 <Col lg="1" md="0"></Col>
                                 <Col lg="3" md="12">
@@ -67,8 +67,8 @@ const ExpandCTS = () => {
                             </Row>
                         </Col>
                     </Row>
-                    <Row className="mb-1 px-4">
-                        <Col lg="6" md="12">
+                    <Row className="mb-1">
+                        <Col lg="6" md="12" className="mb-1 mb-lg-0">
                             <Row>
                                 <Col lg="4" md="12">
                                     <Label for="">Loại thiết bị</Label>
@@ -113,7 +113,7 @@ const ExpandCTS = () => {
                             </Row>
                         </Col>
                     </Row>
-                    <Row className="mb-1 px-4">
+                    <Row className="mb-1">
                         <Col lg='2' md="12">
                             <Label for="">Địa chỉ trụ sở</Label>
                         </Col>
@@ -129,11 +129,10 @@ const ExpandCTS = () => {
                             <FormFeedback>{formik.errors.orgadress}</FormFeedback>
                         </Col>
                     </Row>
-                    <Row className="mt-2 px-4">
+                    <Row className="mt-2">
                         <Col lg={{ size: 6, offset: 3 }} md="12" className="d-flex justify-content-center">
                             <Button.Ripple
                                 color="danger"
-                                className="mb-2"
                                 onClick={(e) => e.preventDefault()}
                             >
                                 Hủy
@@ -141,7 +140,7 @@ const ExpandCTS = () => {
                             <Button.Ripple
                                 color="primary"
                                 type="submit"
-                                className="mb-2 ml-2"
+                                className="ml-2"
                             >
                                 Xác nhận
                             </Button.Ripple>

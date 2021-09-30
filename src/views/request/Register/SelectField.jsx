@@ -1,26 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
-    Card,
-    CardHeader,
-    CardTitle,
-    CardBody,
-    FormGroup,
-    CustomInput,
-    Row,
-    Col,
-    Input,
-    Form,
-    Button,
-    Label,
-  } from "reactstrap";
+  Button, Card,
+  CardHeader,
+  Col, CustomInput, FormGroup
+} from "reactstrap";
 
 const SelectField = ({ handleSelect }) => {
   const [type,setType] = useState('')
   const [obj,setObj] = useState('')
     return (
             <Card>
-          <CardHeader>
-            <Col lg="4" md="12">
+          <CardHeader className="px-0">
+            <Col lg="4" md="12" className="px-2 mb-1 mb-lg-0">
               <FormGroup className="mb-0">
                 <CustomInput 
                 type="select" 
@@ -34,7 +25,7 @@ const SelectField = ({ handleSelect }) => {
                 </CustomInput>
               </FormGroup>
             </Col>
-            <Col lg="4" md="12">
+            <Col lg="4" md="12" className="px-2 mb-1 mb-lg-0">
               <FormGroup className="mb-0">
                 <CustomInput 
                 type="select" 
@@ -48,7 +39,7 @@ const SelectField = ({ handleSelect }) => {
                 </CustomInput>
               </FormGroup>
             </Col>
-            <Col lg="4">
+            <Col lg="4" className="px-2">
                   <Button.Ripple
                     color="primary"
                     type="submit"
