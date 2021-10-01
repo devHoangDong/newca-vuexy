@@ -1,20 +1,9 @@
 import {
-  Mail,
-  Home,
-  Search,
-  Book,
-  ShoppingBag,
-  HelpCircle,
   Circle,
-  Server,
-  Tool,
-  DollarSign,
-  Clock,
-  Bookmark,
-  Star,
+  Clock, DollarSign, HelpCircle, Home,
+  Info, Server,
   Settings,
-  Info,
-  ShoppingCart,
+  ShoppingCart, Star, Tool
 } from "react-feather";
 /* eslint import/no-anonymous-default-export: [2, {"allowArray": true}] */
 export default [

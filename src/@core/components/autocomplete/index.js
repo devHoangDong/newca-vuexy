@@ -269,9 +269,9 @@ const Autocomplete = props => {
     }
 
     // ** Function to run on user passed Clear Input
-    if (props.clearInput) {
-      props.clearInput(userInput, setUserInput)
-    }
+    // if (props.clearInput) {
+    //   props.clearInput(userInput, setUserInput)
+    // }
 
     // ** Function on Suggestions Shown
     if (props.onSuggestionsShown && showSuggestions) {

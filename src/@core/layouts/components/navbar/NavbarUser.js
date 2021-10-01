@@ -11,16 +11,17 @@ import {
   Badge, Button, NavItem,
   NavLink
 } from "reactstrap";
-import Autocomplete from "../../../../components/@vuexy/autoComplete/AutoCompleteComponent";
 import UserDropdown from "./UserDropdown";
 import { DropdownMenu } from 'reactstrap';
 import { DropdownToggle } from 'reactstrap';
 import { UncontrolledDropdown } from 'reactstrap';
+import Autocomplete from '../../../components/autocomplete/index';
 
 
 
 const NavbarUser = (props) => {
   // ** Props
+  const [suggestion, setSuggestion] = useState({});
   const { skin, setSkin, setMenuVisibility } = props;
   const [navbarSearch, setNavbarSearch] = useState(false);
   const [ballance, setBallance] = useState(0);
@@ -30,8 +31,16 @@ const NavbarUser = (props) => {
   const handleDeposit = () => {
     history.push("/deposit");
   };
+  const fetchData = () => {
+    axios.get('/api/main-search/data').then(({ data }) => {
+      console.log(data.searchResult, 'data')
+      setSuggestion(data.searchResult);
+      // this.setState({ suggestions: data.searchResult });
+    });
+  }
   const handleNavbarSearch = () => {
-    setNavbarSearch(!navbarSearch);
+    console.log(navbarSearch, 'navbarSearch')
+    setNavbarSearch(true);
   };
   // ** Function to toggle Theme (Light/Dark)
   const ThemeToggler = () => {
@@ -45,6 +54,9 @@ const NavbarUser = (props) => {
     style: "currency",
     currency: "VND",
   }).format(ballance);
+  useEffect(() => {
+    fetchData();
+  }, [])
   useEffect(() => {
     currentBallance = localStorage.getItem("ballance");
     !currentBallance
@@ -99,8 +111,8 @@ const NavbarUser = (props) => {
             Nạp tiền
           </Button.Ripple>
         </div>
-        <NavItem className="nav-search">
-          <NavLink className="nav-link-search" onClick={handleNavbarSearch}>
+        <NavItem className="nav-search" onClick={handleNavbarSearch}>
+          <NavLink className="nav-link-search">
             <Icon.Search size={21} data-tour="search" />
           </NavLink>
           <div
@@ -114,7 +126,7 @@ const NavbarUser = (props) => {
             </div>
             <Autocomplete
               className="form-control"
-              suggestions={[]}
+              suggestions={suggestion}
               filterKey="title"
               filterHeaderKey="groupTitle"
               grouped={true}
