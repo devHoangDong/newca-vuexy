@@ -8,7 +8,7 @@ import {
 } from "react-feather";
 export const searchResult = [
   {
-    groupTitle: "Pages",
+    groupTitle: "Trang",
     searchLimit: 4,
     data: [
       {
@@ -97,30 +97,30 @@ export const searchResult = [
       }
     ]
   },
-  {
-    groupTitle: "Files",
-    searchLimit: 4,
-    data: [
-      {
-        title: "Passport Image",
-        by: "Oliver Queen",
-        size: "52kb",
-        // file: require("../../assets/img/icons/jpg.png")
-      },
-    ]
-  },
-  {
-    groupTitle: "Contacts",
-    searchLimit: 4,
-    data: [
-      {
-        title: "Mia Davis",
-        email: "miadavis@teleworm.us",
-        // img: require("../../assets/img/portrait/small/avatar-s-8.jpg"),
-        date: "01/03/2020"
-      },
-    ]
-  }
+  // {
+  //   groupTitle: "Files",
+  //   searchLimit: 4,
+  //   data: [
+  //     {
+  //       title: "Passport Image",
+  //       by: "Oliver Queen",
+  //       size: "52kb",
+  //       // file: require("../../assets/img/icons/jpg.png")
+  //     },
+  //   ]
+  // },
+  // {
+  //   groupTitle: "Contacts",
+  //   searchLimit: 4,
+  //   data: [
+  //     {
+  //       title: "Mia Davis",
+  //       email: "miadavis@teleworm.us",
+  //       // img: require("../../assets/img/portrait/small/avatar-s-8.jpg"),
+  //       date: "01/03/2020"
+  //     },
+  //   ]
+  // }
 ]
 const verticalNavbar = [
   {

@@ -39,10 +39,12 @@ const Autocomplete = props => {
     setUserInput(filteredData[activeSuggestion][props.filterKey])
     if (url !== undefined && url !== null) {
       history.push(url)
+      props.handleNavbarSearch()
     }
 
     if (props.onSuggestionClick) {
       props.onSuggestionClick(url, e)
+      // props.handleNavbarSearch()
     }
   }
 
@@ -246,7 +248,6 @@ const Autocomplete = props => {
       })
     }
   }
-
   //** ComponentDidMount
   useEffect(() => {
     if (props.defaultSuggestions && focused) {
@@ -269,9 +270,9 @@ const Autocomplete = props => {
     }
 
     // ** Function to run on user passed Clear Input
-    // if (props.clearInput) {
-    //   props.clearInput(userInput, setUserInput)
-    // }
+    if (!props.clearInput) {
+      setUserInput("")
+    }
 
     // ** Function on Suggestions Shown
     if (props.onSuggestionsShown && showSuggestions) {

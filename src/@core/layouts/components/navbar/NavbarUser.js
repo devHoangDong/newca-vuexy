@@ -33,14 +33,12 @@ const NavbarUser = (props) => {
   };
   const fetchData = () => {
     axios.get('/api/main-search/data').then(({ data }) => {
-      console.log(data.searchResult, 'data')
       setSuggestion(data.searchResult);
       // this.setState({ suggestions: data.searchResult });
     });
   }
   const handleNavbarSearch = () => {
-    console.log(navbarSearch, 'navbarSearch')
-    setNavbarSearch(true);
+    setNavbarSearch(false);
   };
   // ** Function to toggle Theme (Light/Dark)
   const ThemeToggler = () => {
@@ -111,7 +109,7 @@ const NavbarUser = (props) => {
             Nạp tiền
           </Button.Ripple>
         </div>
-        <NavItem className="nav-search" onClick={handleNavbarSearch}>
+        <NavItem className="nav-search" onClick={() => setNavbarSearch(!navbarSearch)}>
           <NavLink className="nav-link-search">
             <Icon.Search size={21} data-tour="search" />
           </NavLink>
@@ -132,10 +130,11 @@ const NavbarUser = (props) => {
               grouped={true}
               placeholder="Tìm kiếm..."
               autoFocus={true}
+              handleNavbarSearch={handleNavbarSearch}
               clearInput={navbarSearch}
-              // externalClick={(e) => {
-              //   setNavbarSearch(false);
-              // }}
+              externalClick={(e) => {
+                setNavbarSearch(false);
+              }}
               onKeyDown={(e) => {
                 if (e.keyCode === 27 || e.keyCode === 13) {
                   setNavbarSearch(false);
