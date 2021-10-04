@@ -89,7 +89,7 @@ const UserDropdown = () => {
           <User size={14} className='mr-75' />
           <span className='align-middle'>Tài khoản</span>
         </DropdownItem>
-        <DropdownItem tag={Link} to='#' onClick={e => e.preventDefault()}>
+        <DropdownItem tag={Link} to='#' onClick={e => handleNavigation(e, "/ecommerce-cart")}>
           <Mail size={14} className='mr-75' />
           <span className='align-middle'>Đơn hàng</span>
         </DropdownItem>

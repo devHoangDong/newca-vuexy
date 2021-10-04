@@ -162,7 +162,7 @@ const RestoreCTS = () => {
                         <Col lg={{ size: 6, offset: 3 }} md="12" className="d-flex justify-content-center">
                             <Button.Ripple
                                 color="danger"
-                                onClick={(e) => e.preventDefault()}
+                                onClick={() => history.goBack()}
                             >
                                 Hủy
                             </Button.Ripple>

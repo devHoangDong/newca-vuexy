@@ -102,7 +102,7 @@ const NavbarUser = (props) => {
               Điểm thưởng: <span className="font-weight-bold">9999{"  "}</span>
             </div>
             <div className="text-danger">
-              Số dư tài khoản: <span className="font-weight-bold">{money}</span>
+              Số dư: <span className="font-weight-bold">{money}</span>
             </div>
           </div>
           <Button.Ripple color="primary" onClick={handleDeposit}>

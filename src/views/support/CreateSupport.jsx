@@ -111,7 +111,7 @@ const VerticalForm = () => {
                                     rows="3"
                                     onChange={formik.handleChange}
                                     invalid={formik.errors.detail && formik.touched.detail}
-                                    placeholder="Textarea"
+                                    placeholder="Nhập nội dung"
                                 />
                                 <FormFeedback>{formik.errors.detail}</FormFeedback>
                             </FormGroup>
@@ -123,20 +123,19 @@ const VerticalForm = () => {
                 </FormGroup>
               </Col> */}
                         <Col lg="12">
-                                <Button.Ripple
-                                    color="primary"
-                                    type="submit"
-                                    className="mr-1"
-                                >
-                                    Submit
-                                    </Button.Ripple>
-                                <Button.Ripple
-                                    outline
-                                    color="warning"
-                                    type="reset"
-                                >
-                                    Reset
-                                    </Button.Ripple>
+                            <Button.Ripple
+                                color="danger"
+                                type="reset"
+                                className="mr-1"
+                            >
+                                Nhập lại
+                            </Button.Ripple>
+                            <Button.Ripple
+                                color="primary"
+                                type="submit"
+                            >
+                                Xác nhận
+                            </Button.Ripple>
                         </Col>
                     </CardBody>
                 </Card>
