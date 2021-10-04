@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react"
-import { Card, CardBody, FormGroup, Input, Row, Col } from "reactstrap"
-import { Search } from "react-feather"
-import Autocomplete from '../../../@core/components/autocomplete/index';
-import * as Icon from "react-feather";
-import classnames from "classnames";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Search } from "react-feather";
+import { Card, CardBody, Col, FormGroup, Input, Row } from "reactstrap";
 
 const TopSearch = (props) => {
   const [suggestion, setSuggestion] = useState({});
@@ -16,7 +13,6 @@ const TopSearch = (props) => {
   }
   const fetchData = () => {
     axios.get('/api/main-search/data').then(({ data }) => {
-      console.log(data.searchResult, 'data')
       setSuggestion(data.searchResult);
       // this.setState({ suggestions: data.searchResult });
     });

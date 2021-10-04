@@ -8,7 +8,7 @@ class KnowledgeBase extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Breadcrumbs breadCrumbTitle="Hỗ trợ" breadCrumbParent="Hỗ trợ" />
+        <Breadcrumbs breadCrumbTitle="Hỗ trợ" breadCrumbActive="Hỗ trợ" />
         <Row>
           <Col sm="12">
             <KnowledgeBaseMain />
