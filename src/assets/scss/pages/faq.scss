@@ -21,7 +21,8 @@
 
 // FAQ jumbotron scss
 .faq-bg {
-  background: url("../../img/pages/faq.jpg") no-repeat;
+  background: url("../../img/pages/banner-faq.png") no-repeat;
+  background-color: rgba(119, 37, 112, 0.2) !important;
   background-size: cover;
   .form-control {
     &.form-control-lg {

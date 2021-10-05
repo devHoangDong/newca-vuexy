@@ -82,7 +82,7 @@ const DocManual = () => {
         // onClick={() => {
         //     return props.currentData(props.row)
         // }}
-        />
+        />Tải xuống
       </div>
     )
   }
