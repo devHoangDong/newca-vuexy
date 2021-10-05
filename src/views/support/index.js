@@ -26,17 +26,17 @@ const General = () => {
             name: 'ID',
             selector: 'name',
             sortable: true,
-            cell: row => (
-                <span title={row.name} style={{ fontWeight: "bold" }}>
-                    {row.name}
-                </span>
-            ),
             width: '10%'
         },
         {
             name: 'Subject',
             selector: 'subject',
             sortable: true,
+            cell: row => (
+                <span title={row.subject} style={{ fontWeight: "bold" }}>
+                    {row.subject}
+                </span>
+            ),
             width: '40%'
         },
         {
@@ -60,6 +60,12 @@ const General = () => {
         },
     ];
     const customStyles = {
+        header: {
+            style: {
+                color: 'none',
+                minHeight: 'none'
+            }
+        },
         headCells: {
             style: {
                 whiteSpace: "nowrap"
