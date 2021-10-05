@@ -10,7 +10,7 @@
 // Contest margin left for expanded & collapsed stats width & margin left
 // ================================================================================================
 
-@import '../mixins/main-menu-mixin';
+@import "../mixins/main-menu-mixin";
 
 html {
   font-size: $base-font-size;
@@ -305,7 +305,7 @@ html {
   }
 
   //Remove left margin for 1 column layout
-  [data-col='1-column'] {
+  [data-col="1-column"] {
     .header-navbar {
       // Custom width for floating nav
       &.floating-nav {
