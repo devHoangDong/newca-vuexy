@@ -15,6 +15,7 @@ import googleSvg from "../../assets/img/svg/google.svg";
 import "../../assets/scss/pages/authentication.scss";
 import { login } from "../../redux/actions/myactions/login";
 import { useGoogleAuth } from "./GoogleAuthen/index";
+import { axios } from 'axios';
 
 export default function LoginGG() {
   // const toggle = (tab) => {
@@ -33,6 +34,7 @@ export default function LoginGG() {
     signIn();
     const googleUser = await signIn();
     if (googleUser) {
+      
       localStorage.setItem("userData", JSON.stringify(googleUser.profileObj));
       dispatch(login(googleUser.profileObj));
       localStorage.setItem("isLogin", true);
