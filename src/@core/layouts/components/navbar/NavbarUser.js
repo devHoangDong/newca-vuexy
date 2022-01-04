@@ -16,6 +16,8 @@ import { DropdownMenu } from 'reactstrap';
 import { DropdownToggle } from 'reactstrap';
 import { UncontrolledDropdown } from 'reactstrap';
 import Autocomplete from '../../../components/autocomplete/index';
+import { isUserLoggedIn } from '@utils';
+import support from './../../../../api/support';
 
 
 
@@ -24,6 +26,7 @@ const NavbarUser = (props) => {
   const [suggestion, setSuggestion] = useState({});
   const { skin, setSkin, setMenuVisibility } = props;
   const [navbarSearch, setNavbarSearch] = useState(false);
+  const [listData, setListData] = useState();
   const [ballance, setBallance] = useState(0);
   const history = useHistory();
   const isDeposit = useSelector((state) => state.myreducers.deposit);
@@ -63,6 +66,32 @@ const NavbarUser = (props) => {
       })
       : setBallance(currentBallance);
   }, [isDeposit || currentBallance]);
+  const getList = async (data) => {
+    let dataSend = {
+      email: data.email
+    }
+    let result = await support.getTicket(dataSend);
+    let res = result.response.result;
+    const { requests, status } = res;
+    if (status === "Success") {
+      let newArr = requests.request.map(e => e.status === "Open")
+      setListData(newArr);
+    } else {
+      console.log('error');
+    }
+  }
+  useEffect(() => {
+    if (isUserLoggedIn) {
+      const userGoG = JSON.parse(localStorage.getItem('userData'))
+      const userToken = JSON.parse(localStorage.getItem('userToken'))
+      if (userGoG) {
+        // getList(userGoG);
+
+      } else {
+        // getList(userToken);
+      }
+    }
+  }, [])
   return (
     <Fragment>
       <ul className="navbar-nav d-xl-none d-flex align-items-center">
@@ -96,7 +125,7 @@ const NavbarUser = (props) => {
         </div> */}
       {/* </div> */}
       <ul className="nav navbar-nav align-items-center ml-auto">
-        <div className="mr-2 border-right pr-2 d-md-flex d-sm-none d-none">
+        {/* <div className="mr-2 border-right pr-2 d-md-flex d-sm-none d-none">
           <div className="d-flex flex-column mr-1">
             <div className="text-danger">
               Điểm thưởng: <span className="font-weight-bold">9999{"  "}</span>
@@ -108,7 +137,7 @@ const NavbarUser = (props) => {
           <Button.Ripple color="primary" onClick={handleDeposit}>
             Nạp tiền
           </Button.Ripple>
-        </div>
+        </div> */}
         <NavItem className="nav-search" onClick={() => setNavbarSearch(!navbarSearch)}>
           <NavLink className="nav-link-search">
             <Icon.Search size={21} data-tour="search" />
@@ -232,12 +261,12 @@ const NavbarUser = (props) => {
             </div>
           </div>
         </NavItem>
-        <NavItem className="d-md-none">
+        {/* <NavItem className="d-md-none">
           <NavLink>
             <Icon.CreditCard size={21} onClick={handleDeposit} />
           </NavLink>
-        </NavItem>
-        <UncontrolledDropdown
+        </NavItem> */}
+        {/* <UncontrolledDropdown
           className="dropdown-notification nav-item"
           tag="li"
         >
@@ -269,7 +298,7 @@ const NavbarUser = (props) => {
             <li className="dropdown-menu-footer">
             </li>
           </DropdownMenu>
-        </UncontrolledDropdown>
+        </UncontrolledDropdown> */}
         <span>&nbsp;&nbsp;&nbsp;</span>
         <UncontrolledDropdown
           className="dropdown-notification nav-item"
@@ -282,10 +311,10 @@ const NavbarUser = (props) => {
             className="nav-link nav-link-label"
           >
             <Bell size={21} />
-            <Badge pill color="danger" className="badge-up">
+            {listData && <Badge pill color="danger" className="badge-up">
               {" "}
-              5{" "}
-            </Badge>
+              {listData.length}{" "}
+            </Badge>}
           </DropdownToggle>
           <DropdownMenu
             tag="ul"

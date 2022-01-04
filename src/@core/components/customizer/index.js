@@ -201,6 +201,7 @@ const Customizer = props => {
 
   // ** Get Current Transition
   const transitionValue = transitionOptions.find(i => i.value === transition)
+  console.log('transitionValue: ', transitionValue);
 
   return (
     <div

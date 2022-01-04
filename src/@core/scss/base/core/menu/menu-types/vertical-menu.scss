@@ -86,6 +86,7 @@
       //Navbar collapsed
       .navbar {
         .navbar-header {
+          max-height: 60px;
           @include menu-navbar-width($menu-collapsed-width);
           .modern-nav-toggle {
             display: none;
