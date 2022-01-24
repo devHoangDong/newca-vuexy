@@ -2,7 +2,7 @@ import { lazy } from "react";
 import { Redirect } from "react-router-dom";
 
 // ** Document title
-const TemplateTitle = "Cyber Lotus - Hỗ trợ";
+const TemplateTitle = "Newca user portal";
 
 // ** Default Route
 const DefaultRoute = "/home";
@@ -11,10 +11,9 @@ const DefaultRoute = "/home";
 const Routes = [
   {
     path: "/home",
-    // component: lazy(() =>
-    //   import("../../views/dashboard/analytics main/AnalyticsDashboard")
-    // ),
-    component: lazy(() => import("../../views/support/CreateSupport")),
+    component: lazy(() =>
+      import("../../views/dashboard/analytics main/AnalyticsDashboard")
+    ),
   },
   {
     path: "/buy-select",
@@ -89,10 +88,6 @@ const Routes = [
   {
     path: "/support-create",
     component: lazy(() => import("../../views/support/CreateSupport")),
-  },
-  {
-    path: "/support-complete",
-    component: lazy(() => import("../../views/support/SupportComplete")),
   },
   {
     path: "/email",

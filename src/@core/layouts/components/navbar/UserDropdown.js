@@ -79,8 +79,8 @@ const UserDropdown = () => {
     <UncontrolledDropdown tag='li' className='dropdown-user nav-item'>
       <DropdownToggle href='/' tag='a' className='nav-link dropdown-user-link' onClick={e => e.preventDefault()}>
         <div className='user-nav d-sm-flex d-none'>
-          <span className='user-name font-weight-bold'>{(userData && userData.name) || 'Admin'}</span>
-          {/* <span className='user-status'>{(userData && userData.role) || 'Admin'}</span> */}
+          <span className='user-name font-weight-bold'>{(userData && userData.name) || 'Khách'}</span>
+          <span className='user-status'>{(userData && userData.role) || 'Admin'}</span>
         </div>
         <Avatar img={userAvatar} imgHeight='40' imgWidth='40' status='online' />
       </DropdownToggle>
@@ -89,10 +89,10 @@ const UserDropdown = () => {
           <User size={14} className='mr-75' />
           <span className='align-middle'>Tài khoản</span>
         </DropdownItem>
-        {/* <DropdownItem tag={Link} to='#' onClick={e => handleNavigation(e, "/ecommerce-cart")}>
+        <DropdownItem tag={Link} to='#' onClick={e => handleNavigation(e, "/ecommerce-cart")}>
           <Mail size={14} className='mr-75' />
           <span className='align-middle'>Đơn hàng</span>
-        </DropdownItem> */}
+        </DropdownItem>
         {/* onClick={() => dispatch(handleLogout())} */}
         <DropdownItem tag={Link} to='/login' onClick={handleConfirmText}>
           <Power size={14} className='mr-75' />
