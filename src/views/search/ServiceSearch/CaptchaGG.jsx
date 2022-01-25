@@ -8,7 +8,7 @@ const CaptchaGG = ({ onChange }) => {
         <div>
             <ReCAPTCHA
                 // sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                sitekey="6LcOaCMbAAAAAF56RiONJEHhgZR0x6ngkenCQfMz"
+                sitekey="6LeNpesdAAAAAHpDoCgedC3OKHA65P8kRjVuDNPG"
                 onChange={onChange}
             />
         </div>
